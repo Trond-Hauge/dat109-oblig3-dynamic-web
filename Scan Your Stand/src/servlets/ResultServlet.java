@@ -1,8 +1,5 @@
 package servlets;
 
-import stand.StandDAO;
-import vote.VoteDAO;
-
 import java.io.IOException;
 
 import java.util.HashMap;
