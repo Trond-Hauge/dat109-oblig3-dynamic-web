@@ -20,6 +20,7 @@ import stand.Stand;
 public class MyQr {
 	
 	// Temporary code that assumes what DAO for Stand-object will look like.
+	
 	//private static StandDAO sd = new StandDAO();
 	 
     // Function to create the QR code
