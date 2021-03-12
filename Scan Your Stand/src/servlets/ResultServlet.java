@@ -30,12 +30,12 @@ public class ResultServlet extends HttpServlet {
 		List<Vote> votes = voteDAO.getAllVotes();
 		List<Stand> stands = standDAO.getAllStands();
 		
-		HashMap<Stand,Integer> resultMap = new HashMap<Stand,Integer>();
+		HashMap<String,Integer> resultMap = new HashMap<String,Integer>();
 		
 		stands.forEach(s -> {
 			
 			int voteSum = VoteCalculator.calculateVotes(s, votes);
-			resultMap.put(s, voteSum);
+			resultMap.put(s.getStandName(), voteSum);
 			
 		});
 		
