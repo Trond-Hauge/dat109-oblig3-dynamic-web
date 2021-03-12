@@ -1,9 +1,46 @@
 package vote;
 
-public class Vote {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	public Vote(String phone, String standId) {
-		
+@Entity
+@Table(schema = "scanyourstand")
+public class Vote {
+	
+	@Id
+	String phone;
+	String standID;
+
+	public Vote(String phone, String standID) {
+		this.phone = phone;
+		this.standID = standID;
 	}
 
+	/**
+	 * Returns the vote from spectator
+	 * 
+	 * @return
+	 */
+	public int getGrade() {
+		//TODO 
+		
+		return 0;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getStandID() {
+		return standID;
+	}
+
+	public void setStandID(String standID) {
+		this.standID = standID;
+	}
 }

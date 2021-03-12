@@ -34,4 +34,26 @@ public class VoteDAO {
 		
 	}
 
+	/**
+	 * Returns a Vote object or null
+	 * 
+	 * @param Vote
+	 * @return Vote
+	 */
+	public Vote findVote(Vote vote) {
+		return em.find(Vote.class, vote);
+	}
+
+
+	public void remove(Vote previous) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void add(Vote vote) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
