@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table(schema = "scanyourstand")
 public class Stand {
 
-	//Skal oppdateres til String her og i database
+	//Note to self: change datatype for standID here, database, SQL-dok
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int standID;
