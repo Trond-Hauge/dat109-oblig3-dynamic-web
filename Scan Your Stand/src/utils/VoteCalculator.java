@@ -7,12 +7,21 @@ import vote.Vote;
 
 public class VoteCalculator {
 	
+	/**
+	 * Calculates a vote sum to represent a specified stand's voter score. This score
+	 * is a sum of each grade in the cast votes.
+	 * 
+	 * @author Oliver
+	 * @param stand Stand to calculate votes for
+	 * @param votes List of all votes that have been casted
+	 * @return A calculated sum to represent the specified stand's voter score
+	 */
 	public static int calculateVotes(Stand stand, List<Vote> votes) {
 		
-		List<Vote> votesForStand = votes.stream().filter(v -> v.getStandId == stand.getStandId).collect(Collectors.toList());
+		List<Vote> votesForStand = votes.stream().filter(v -> v.getStandID == stand.getStandID).collect(Collectors.toList());
 		
 		int voteSum = 0;
-		votesForStand.forEach(v -> sum += v.getGrade());
+		votesForStand.forEach(v -> voteSum += v.getGrade());
 		
 		return voteSum;
 		

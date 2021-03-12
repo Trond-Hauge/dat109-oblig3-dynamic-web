@@ -15,8 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import stand.Stand;
+import stand.StandDAO;
 import utils.VoteCalculator;
 import vote.Vote;
+import vote.VoteDAO;
 
 @WebServlet("/result")
 public class ResultServlet extends HttpServlet {
