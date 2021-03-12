@@ -16,16 +16,16 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class StandDAO {
 
-	@PersistenceContext(name = "standPU")
+	@PersistenceContext(name = "scanyourstandUP")
 	private EntityManager em;
 
 	/**
 	 * Find a stand by using ID number
 	 * 
-	 * @param id
+	 * @param String id
 	 * @return Stand
 	 */
-	public Stand findStandByID(int id) {
+	public Stand findStandByID(String id) {
 		return em.find(Stand.class, id);
 	}
 

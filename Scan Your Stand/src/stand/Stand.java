@@ -1,8 +1,6 @@
 package stand;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,13 +14,12 @@ import javax.persistence.Table;
 @Table(schema = "scanyourstand")
 public class Stand {
 
-	//Note to self: change datatype for standID here, database, SQL-dok
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int standID;
+	String standID;
 	String standName;
 
-	public Stand(String standName) {
+	public Stand(String standID, String standName) {
+		this.standID = standID;
 		this.standName = standName;
 	}
 
@@ -34,9 +31,14 @@ public class Stand {
 		this.standName = standName;
 	}
 
-	public int getStandID() {
+	public String getStandID() {
 		return standID;
 	}
+	
+	public void setStandID(String standID) {
+		this.standID = standID;
+	}
+	
 
 	@Override
 	public String toString() {

@@ -4,7 +4,7 @@ SET search_path = ScanYourStand;
 
 CREATE TABLE Stand
 (
-standID		SERIAL UNIQUE,
+standID		VARCHAR(10) UNIQUE,
 standName	VARCHAR(20)	
 );
 
