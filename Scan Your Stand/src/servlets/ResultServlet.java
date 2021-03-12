@@ -30,6 +30,8 @@ public class ResultServlet extends HttpServlet {
 		List<Vote> votes = voteDAO.getAllVotes();
 		List<Stand> stands = standDAO.getAllStands();
 		
+		request.getSession();
+		
 		HashMap<String,Integer> resultMap = new HashMap<String,Integer>();
 		
 		stands.forEach(s -> {
