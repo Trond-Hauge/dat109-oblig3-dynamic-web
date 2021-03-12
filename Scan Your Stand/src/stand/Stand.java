@@ -16,8 +16,7 @@ import javax.persistence.Table;
 @Table(schema = "scanyourstand")
 public class Stand {
 
-	//Ser at standID er String i Vote-klassen, så må oppklare hvordan ID ser ut
-	//Oppdatere database om endring i datatype
+	//Skal oppdateres til String her og i database
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int standID;
