@@ -12,7 +12,7 @@ public class AdminUtils {
 	}
 	
 	
-	public static void logIn(HttpServletRequest request, String adminUsername) {
+	public static void logIn(HttpServletRequest request) {
 		
 		HttpSession session = request.getSession(false);
 		
