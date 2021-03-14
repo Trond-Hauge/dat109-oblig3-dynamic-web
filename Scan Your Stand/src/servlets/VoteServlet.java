@@ -51,9 +51,8 @@ public class VoteServlet extends HttpServlet {
 			
 			dao.remove(previous);
 		}
+		vote.setPoints(points);
 		dao.add(vote);
-		
-		//TODO add values needed for confirmation
 		
 		request.getRequestDispatcher("Confirmation.jsp").forward(request, response);
 	}

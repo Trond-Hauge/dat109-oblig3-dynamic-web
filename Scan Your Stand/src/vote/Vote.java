@@ -2,15 +2,19 @@ package vote;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
 @Table(schema = "scanyourstand")
+@IdClass(VoteID.class)
 public class Vote {
 	
 	@Id
-	String phone;
-	String standID;
+	private String phone;
+	@Id
+	private String standID;
+	private int points;
 
 	public Vote(String phone, String standID) {
 		this.phone = phone;
@@ -42,5 +46,8 @@ public class Vote {
 
 	public void setStandID(String standID) {
 		this.standID = standID;
+	}
+	public void setPoints(int points) {
+		this.points = points;
 	}
 }
