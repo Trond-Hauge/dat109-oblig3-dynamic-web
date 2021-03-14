@@ -9,7 +9,7 @@ public class VoteCalculator {
 	
 	/**
 	 * Calculates a vote sum to represent a specified stand's voter score. This score
-	 * is a sum of each grade in the cast votes.
+	 * is a sum of each grade in the casted votes.
 	 * 
 	 * @author Oliver
 	 * @param stand Stand to calculate votes for
