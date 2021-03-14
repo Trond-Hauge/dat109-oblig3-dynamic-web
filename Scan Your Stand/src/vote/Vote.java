@@ -3,7 +3,11 @@ package vote;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import stand.Stand;
 
 /**
  * @author Ida
@@ -20,6 +24,10 @@ public class Vote {
 	@Id
 	private String standID;
 	private int points;
+	
+	@ManyToOne
+	@JoinColumn(name = "standID", referencedColumnName = "standID")
+	private Stand stand;
 
 	public Vote(String phone, String standID) {
 		this.phone = phone;

@@ -1,8 +1,13 @@
 package stand;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import vote.Vote;
 
 /**
  * Defines the Stand used in ScanYourStand solution
@@ -17,6 +22,9 @@ public class Stand {
 	@Id
 	String standID;
 	String standName;
+	
+	@OneToMany(mappedBy = "stand")
+	private List<Vote> votes;
 
 	public Stand(String standID, String standName) {
 		this.standID = standID;
