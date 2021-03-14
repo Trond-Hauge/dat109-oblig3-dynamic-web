@@ -21,7 +21,7 @@ public class VoteCalculator {
 		List<Vote> votesForStand = votes.stream().filter(v -> v.getStandID == stand.getStandID).collect(Collectors.toList());
 		
 		int voteSum = 0;
-		votesForStand.forEach(v -> voteSum += v.getGrade());
+		votesForStand.forEach(v -> voteSum += v.getPoints());
 		
 		return voteSum;
 		
