@@ -51,7 +51,7 @@ public class AdminServlet extends HttpServlet {
 		if(admin == null) {
 			error = "?error=Admin bruker ikke funnet";
 		}
-		else if(BCrypt.checkpw(password, admin.getHashedPassword)) {
+		else if(BCrypt.checkpw(password, admin.getHashedPassword())) {
 			AdminUtils.logIn(request);
 		}
 		else {
