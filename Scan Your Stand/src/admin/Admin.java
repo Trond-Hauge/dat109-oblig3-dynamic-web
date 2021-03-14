@@ -2,6 +2,11 @@ package admin;
 
 public class Admin {
 
-	public String getHashedPassword;
+	public String hashedPassword;
+
+	public String getHashedPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
