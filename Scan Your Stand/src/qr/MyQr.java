@@ -63,7 +63,7 @@ public class MyQr {
  
 	        hashMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 	 
-	        String id = s.getId();
+	        String id = s.getStandID();
 	        
 	        // Create the QR code and save in the specified folder as a jpg file
 	        createQR(data + "id=" + id, path + "stand" + id, charset, hashMap, 200, 200);
