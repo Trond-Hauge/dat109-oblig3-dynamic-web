@@ -6,10 +6,9 @@ import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 /**
- * 
  * @author Ida
  * @author Anders
- *
+ * 
  */
 @Entity
 @Table(schema = "scanyourstand")

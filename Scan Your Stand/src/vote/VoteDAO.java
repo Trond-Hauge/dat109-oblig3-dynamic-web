@@ -53,7 +53,7 @@ public class VoteDAO {
 	}
 
 	/**
-	 * Adds a vote
+	 * Adds a vote 
 	 * 
 	 * @param vote
 	 */
