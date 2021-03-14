@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class AdminDAO {
 
-	@PersistenceContext(name = "scanyourstand")
+	@PersistenceContext(name = "scanyourstandUP")
 	EntityManager em;
 	
 	/**

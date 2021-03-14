@@ -5,6 +5,12 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author Ida
+ * @author Anders
+ *
+ */
 @Entity
 @Table(schema = "scanyourstand")
 @IdClass(VoteID.class)
@@ -19,17 +25,6 @@ public class Vote {
 	public Vote(String phone, String standID) {
 		this.phone = phone;
 		this.standID = standID;
-	}
-
-	/**
-	 * Returns the vote from spectator
-	 * 
-	 * @return
-	 */
-	public int getGrade() {
-		//TODO 
-		
-		return 0;
 	}
 
 	public String getPhone() {
@@ -50,4 +45,10 @@ public class Vote {
 	public void setPoints(int points) {
 		this.points = points;
 	}
+
+	public int getPoints() {
+		return points;
+	}
+	
+	
 }

@@ -15,23 +15,22 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 public class VoteDAO {
-	
+
 	@PersistenceContext(name = "scanyourstandUP")
 	private EntityManager em;
 
-	
 	/**
 	 * Returns all votes
 	 * 
 	 * @return List<Vote>
 	 */
 	public List<Vote> getAllVotes() {
-		
-		String jpql = "SELECT v from VOTE v";	
+
+		String jpql = "SELECT v from VOTE v";
 		TypedQuery<Vote> query = em.createQuery(jpql, Vote.class);
-		
-	    return query.getResultList();
-		
+
+		return query.getResultList();
+
 	}
 
 	/**
@@ -44,16 +43,22 @@ public class VoteDAO {
 		return em.find(Vote.class, vote);
 	}
 
-
+	/**
+	 * Removes a previous vote
+	 * 
+	 * @param Vote previous
+	 */
 	public void remove(Vote previous) {
-		// TODO Auto-generated method stub
-		
+		em.remove(previous);
 	}
 
-
+	/**
+	 * Adds a vote
+	 * 
+	 * @param vote
+	 */
 	public void add(Vote vote) {
-		// TODO Auto-generated method stub
-		
+		em.persist(vote);
 	}
 
 }
