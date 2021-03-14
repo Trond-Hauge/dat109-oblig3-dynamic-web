@@ -1,5 +1,6 @@
 package admin;
 
+<<<<<<< HEAD
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,5 +20,8 @@ public class AdminDAO {
 	public Admin findAdmin(String username) {
 		return em.find(Admin.class, username);
 	}
+=======
+public class AdminDAO {
+>>>>>>> branch 'master' of https://github.com/h586634/dat109-oblig3-dynamic-web.git
 
 }

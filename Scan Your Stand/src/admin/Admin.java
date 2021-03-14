@@ -22,4 +22,5 @@ public class Admin {
 		return hashedPassword;
 	}
 
+
 }
