@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import vote.Vote;
 import vote.VoteDAO;
@@ -41,8 +42,14 @@ public class VoteServlet extends HttpServlet {
 		String standId = request.getParameter("standId"); //Hidden parameter
 		int points = Integer.parseInt(request.getParameter("points"));
 		
-		//TODO implement sessions for phonenumbers?
-		
+		HttpSession sesjon = request.getSession(false);
+        if (sesjon != null && sesjon.getAttribute("phoneNumber") == null) {
+            sesjon.invalidate();
+        }
+        sesjon = request.getSession(true);
+        sesjon.setMaxInactiveInterval(60*60); //Logged out after 1 hour of inactivity (should last through entire EXPO)
+		sesjon.setAttribute("phoneNumber", phone); //Can now be remembered the next time the spectator votes (prefilled)
+        
 		Vote vote = new Vote(phone, standId);
 		
 		Vote previous = dao.findVote(vote);
