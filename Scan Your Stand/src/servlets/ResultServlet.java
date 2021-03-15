@@ -54,6 +54,7 @@ public class ResultServlet extends HttpServlet {
 	// Redirects to ResultServlet doGet()
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
 		response.sendRedirect("result");
 		
 	}

@@ -35,7 +35,7 @@ public class AdminUtils {
 		// Adds the loggedIn attribute to the session and sets a max inactive timer, after which the user will no longer be logged in.
 		session = request.getSession(true);
 		session.setAttribute("loggedIn", "true");
-		session.setMaxInactiveInterval(600);
+		session.setMaxInactiveInterval(Constants.ADMIN_MAX_TIME_INACTIVE);
 	
 	}
 
