@@ -23,6 +23,7 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+
 import stand.Stand;
 import stand.StandDAO;
 
@@ -66,8 +67,8 @@ public class MyQr {
      * @return the URL or null
      * @throws IOException
      */
-    public static String QRCodeValidator(File qrCodeimage) throws IOException
-	{
+    public static String QRCodeValidator(File qrCodeimage) throws IOException 
+    {
 		    BufferedImage bufferedImage = ImageIO.read(qrCodeimage);
 	        LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);
 	        BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
@@ -79,7 +80,6 @@ public class MyQr {
 	        } catch (NotFoundException e) {
 	            System.out.println("There is no QR code in the image");
 	            return null;
-	         
  	  }
 	}
    
@@ -114,4 +114,3 @@ public class MyQr {
         }
     }
 }
-    
