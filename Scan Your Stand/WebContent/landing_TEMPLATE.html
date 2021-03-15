@@ -10,16 +10,14 @@
 
 <body>
 	<div class="content-frame">
-		<div>
-			Sett inn valg (select i HTML) her.
+		<div class="vertical-center">
 			<form action="/vote">
-				<label>Stand:
-					<select class="button">
-						<c:forEach items="">
-							<option value="$standName" />
-						</c:forEach>
-					</select>
-				</label>
+				<select class="button">
+					<option>Velg en stand</option>
+					<c:forEach items="">
+						<option value="$standName" />
+					</c:forEach>
+				</select>
 
 				<!-- Something like this. Doesn't work on PC like it does on phone. May require JS consistency across devices. 
 				Possible solution: https://medium.com/@minhazav/qr-code-scanner-using-html-and-javascript-3895a0c110cd 
@@ -28,7 +26,7 @@
 					<input class="button" type="file" accept="image/*" capture="user">
 				</div>
 				<!-- Button for QR scan instead of slection above -->
-				<div>
+				<div class="spacer">
 					<input class="button" type="submit" value="Stem!"></input>
 				</div>
 			</form>

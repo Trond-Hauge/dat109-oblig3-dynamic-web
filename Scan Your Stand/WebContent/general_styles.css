@@ -1,6 +1,7 @@
 /* Global variables goes here */
 :root{
-    --green: #1d3118;
+    --green: #506135;
+    --creme: rgb(212, 208, 164);
 }
 
 body {
@@ -15,18 +16,44 @@ body {
 
 .content-frame {
     flex-direction: column;
+    position: relative;
     width:80%;
+    height: 550px;
     margin: auto;
-    margin-top: 10%;  
+    margin-top: 10%;
+    margin-bottom: 10%;
     background-color: white; 
     text-align: center; /* move to another div-class */
 }
 
+.vertical-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+select option:checked,
+select option:hover {
+    box-shadow: 0 0 10px 100px #000 inset;
+    background: #000;
+}
+
+select:focus > option:checked { 
+    background: var(--creme) !important;
+}
+
+.spacer {
+    margin-top: 10%;
+}
+
 .button {
     background-color: transparent;
-    border: 4px solid var(--green);
+    border: 3px solid var(--green);
     color: var(--green);
     padding: 15px 10%;
+    margin: .5% .5%;
     text-align: center;
     text-decoration: none;
     display: inline;
@@ -34,7 +61,7 @@ body {
 }
 
 .button:hover{
-    transition-duration: 1s;
+    transition-duration: .5s;
     background-color: var(--green);
     color: white;
 }
