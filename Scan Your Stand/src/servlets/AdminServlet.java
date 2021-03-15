@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import admin.Admin;
 import admin.AdminDAO;
 import utils.AdminUtils;
@@ -18,7 +17,6 @@ public class AdminServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	// Assumes we will have an Admin class (Entity) and AdminDAO class or equivalent to manage admin users
 	@EJB
 	AdminDAO adminDAO;
 
@@ -28,10 +26,10 @@ public class AdminServlet extends HttpServlet {
 		boolean loggedIn = AdminUtils.isLoggedIn(request);
 		
 		if(loggedIn) {
-			request.getRequestDispatcher("JSP/admin.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 		}
 		else {
-			request.getRequestDispatcher("JSP/adminLogin.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/adminLogin.jsp").forward(request, response);
 		}
 		
 	}

@@ -21,6 +21,9 @@ public class Admin {
 	public String getHashedPassword() {
 		return hashedPassword;
 	}
-
+	
+	public String getUsername() {
+		return username;
+	}
 
 }

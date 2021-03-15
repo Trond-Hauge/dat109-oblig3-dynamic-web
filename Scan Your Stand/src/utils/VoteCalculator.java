@@ -18,10 +18,12 @@ public class VoteCalculator {
 	 */
 	public static int calculateVotes(Stand stand, List<Vote> votes) {
 		
-		List<Vote> votesForStand = votes.stream().filter(v -> v.getStandID == stand.getStandID).collect(Collectors.toList());
+		List<Vote> votesForStand = votes.stream().filter(v -> v.getStandID().equals(stand.getStandID())).collect(Collectors.toList());
 		
 		int voteSum = 0;
-		votesForStand.forEach(v -> voteSum += v.getPoints());
+		for(Vote v : votesForStand) {
+			voteSum += v.getPoints();
+		}
 		
 		return voteSum;
 		
