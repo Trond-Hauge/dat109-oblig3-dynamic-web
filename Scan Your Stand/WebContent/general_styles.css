@@ -1,8 +1,39 @@
+/* Global variables goes here */
+:root{
+    --green: #1d3118;
+}
+
 body {
     background-color: #e7e7e7;
 }
 
+/* Used to override browser defaults, sitewide */
+* {
+    font-size: 100%;
+    font-family: Arial;
+}
+
 .content-frame {
-    margin: 10%;
-    background-color: white;
+    width:80%;
+    margin: auto;
+    margin-top: 10%;  
+    background-color: white; 
+    text-align: center; /* move to another div-class */
+}
+
+.button {
+    background-color: transparent;
+    border: 4px solid var(--green);
+    color: var(--green);
+    padding: 15px 10%;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 16px;
+}
+
+.button:hover{
+    transition-duration: 1s;
+    background-color: var(--green);
+    color: white;
 }

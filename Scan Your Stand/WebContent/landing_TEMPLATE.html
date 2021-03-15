@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="general_styles.css">
+	<title>Scan Your Stand</title>
+</head>
+
+<body>
+	<div class="content-frame">
+		<div>
+			Sett inn valg (select i HTML) her.
+			<form action="/vote">
+				<label>Stand:
+					<select>
+						<c:forEach items="">
+							<option value="$standName" />
+						</c:forEach>
+					</select>
+				</label>
+				
+				<!-- Something like this. Doesn't work on PC like it does on phone. May require JS consistency across devices. 
+				Possible solution: https://medium.com/@minhazav/qr-code-scanner-using-html-and-javascript-3895a0c110cd 
+				Possible solution 2: https://stackoverflow.com/questions/11625415/how-to-create-a-qr-code-reader-in-a-html5-website-->
+				<input class="button" type="file" accept="image/*" capture="user">
+				
+				<!-- Button for QR scan instead of slection above -->
+				<input class="button" type="submit">Stem!</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
