@@ -10,27 +10,26 @@
 
 <body>
     <div class="content-frame">
-        <div class="stand">
-
+        <div class="content">
+            <div class="stand">
+            </div>
+            <form action="/vote">
+                <div class="spacer">
+                    <label><input type="radio" name="0">0</label>
+                    <label><input type="radio" name="1">1</label>
+                    <label><input type="radio" name="2">2</label>
+                    <label><input type="radio" name="3">3</label>
+                    <label><input type="radio" name="4">4</label>
+                    <label><input type="radio" name="5">5</label>
+                </div>
+                <div class="spacer">
+                    <input class="button" type="text" name="phone" placeholder="Telefonnummer">
+                </div>
+                <div class="spacer">
+                    <input class="button" type="submit" value="Stem!"></input>
+                </div>
+            </form>
         </div>
-        <form action="/vote">
-
-            <div>
-                <label><input type="radio" name="0">0</label>
-                <label><input type="radio" name="1">1</label>
-                <label><input type="radio" name="2">2</label>
-                <label><input type="radio" name="3">3</label>
-                <label><input type="radio" name="4">4</label>
-                <label><input type="radio" name="5">5</label>
-            </div>
-            <div>
-                <input class="button" type="text" name="phone" placeholder="Telefonnummer">
-            </div>
-            <!-- Button for QR scan instead of slection above -->
-            <div class="spacer">
-                <input class="button" type="submit" value="Stem!"></input>
-            </div>
-        </form>
     </div>
 </body>
 

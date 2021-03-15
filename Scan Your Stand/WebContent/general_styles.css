@@ -23,7 +23,7 @@ input {
     position: relative;
     width:80%;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: 10%;
     background-color: white; 
     text-align: center; /* move to another div-class */
@@ -49,10 +49,10 @@ select:focus > option:checked {
 
 .stand {
     background-color: rgb(95, 95, 95);
-    min-height: 400px;
-    width: 90%;
+    padding: 25% 0%;
+    width: 100%;
     position: relative;
-    margin: 10% auto;
+    margin: auto;
 }
 
 .button {
@@ -60,7 +60,7 @@ select:focus > option:checked {
     border: 3px solid var(--green);
     color: var(--green);
     height: 32px;
-    width: 70%;
+    width: 100%;
     margin: .5% auto;
     text-align: center;
     display: inline;
