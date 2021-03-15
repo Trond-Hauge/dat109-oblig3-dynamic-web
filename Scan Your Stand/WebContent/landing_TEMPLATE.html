@@ -14,20 +14,23 @@
 			Sett inn valg (select i HTML) her.
 			<form action="/vote">
 				<label>Stand:
-					<select>
+					<select class="button">
 						<c:forEach items="">
 							<option value="$standName" />
 						</c:forEach>
 					</select>
 				</label>
-				
+
 				<!-- Something like this. Doesn't work on PC like it does on phone. May require JS consistency across devices. 
 				Possible solution: https://medium.com/@minhazav/qr-code-scanner-using-html-and-javascript-3895a0c110cd 
 				Possible solution 2: https://stackoverflow.com/questions/11625415/how-to-create-a-qr-code-reader-in-a-html5-website-->
-				<input class="button" type="file" accept="image/*" capture="user">
-				
+				<div>
+					<input class="button" type="file" accept="image/*" capture="user">
+				</div>
 				<!-- Button for QR scan instead of slection above -->
-				<input class="button" type="submit">Stem!</button>
+				<div>
+					<input class="button" type="submit" value="Stem!"></input>
+				</div>
 			</form>
 		</div>
 	</div>
