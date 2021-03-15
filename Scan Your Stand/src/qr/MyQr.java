@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.ejb.EJB;
+
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -16,12 +18,13 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 import stand.Stand;
+import stand.StandDAO;
 
 public class MyQr {
 	
-	// Temporary code that assumes what DAO for Stand-object will look like.
-	//private static StandDAO sd = new StandDAO();
-	 
+	@EJB
+	private static StandDAO sd = new StandDAO();
+	
     // Function to create the QR code
     public static void createQR(String data, String path,
                                 String charset, Map hashMap,
