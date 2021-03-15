@@ -6,7 +6,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.jupiter.api.BeforeEach;
+
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -16,7 +17,7 @@ public class QrTest {
 
     private String URL = "www.testing?id=1";
 
-    @BeforeEach
+    @BeforeAll
     public void setUp() throws WriterException, IOException {
         Map<EncodeHintType, ErrorCorrectionLevel> hashMap
         = new HashMap<EncodeHintType, ErrorCorrectionLevel>();
