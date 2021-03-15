@@ -20,8 +20,8 @@ import vote.Vote;
 public class Stand {
 
 	@Id
-	String standID;
-	String standName;
+	private String standID; //Clarify if this identification has a fixed length
+	private String standName;
 	
 	@OneToMany(mappedBy = "stand")
 	private List<Vote> votes;
