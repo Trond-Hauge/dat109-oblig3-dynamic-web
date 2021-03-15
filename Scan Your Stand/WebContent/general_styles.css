@@ -14,11 +14,14 @@ body {
     font-family: Arial;
 }
 
+input {
+    text-align: center;
+}
+
 .content-frame {
     flex-direction: column;
     position: relative;
     width:80%;
-    height: 550px;
     margin: auto;
     margin-top: 10%;
     margin-bottom: 10%;
@@ -26,12 +29,8 @@ body {
     text-align: center; /* move to another div-class */
 }
 
-.vertical-center {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+.content {
+    padding: 10% 10%;
 }
 
 select option:checked,
@@ -45,17 +44,25 @@ select:focus > option:checked {
 }
 
 .spacer {
-    margin-top: 10%;
+    margin-top: 5%;
+}
+
+.stand {
+    background-color: rgb(95, 95, 95);
+    min-height: 400px;
+    width: 90%;
+    position: relative;
+    margin: 10% auto;
 }
 
 .button {
     background-color: transparent;
     border: 3px solid var(--green);
     color: var(--green);
-    padding: 15px 10%;
-    margin: .5% .5%;
+    height: 32px;
+    width: 70%;
+    margin: .5% auto;
     text-align: center;
-    text-decoration: none;
     display: inline;
     font-size: 16px;
 }
