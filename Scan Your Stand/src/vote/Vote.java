@@ -1,5 +1,7 @@
 package vote;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -17,7 +19,7 @@ import stand.Stand;
 @Entity
 @Table(schema = "scanyourstand")
 @IdClass(VoteID.class)
-public class Vote {
+public class Vote implements Serializable{
 	
 	@Id
 	private String phone;
