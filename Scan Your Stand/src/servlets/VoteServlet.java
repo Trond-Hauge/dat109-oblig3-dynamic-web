@@ -1,5 +1,6 @@
 package servlets;
 
+import utils.Constants;
 import java.io.IOException;
 
 import javax.ejb.EJB;
@@ -55,7 +56,7 @@ public class VoteServlet extends HttpServlet {
             sesjon.invalidate();
         }
         sesjon = request.getSession(true);
-        sesjon.setMaxInactiveInterval(60*60); //Logged out after 1 hour of inactivity (should last through entire EXPO)
+        sesjon.setMaxInactiveInterval(Constants.USER_MAX_TIME_INACTIVE);
 		sesjon.setAttribute("phoneNumber", phone); //Can now be remembered the next time the spectator votes (prefilled)
         
 		Vote vote = new Vote(phone, standId);
