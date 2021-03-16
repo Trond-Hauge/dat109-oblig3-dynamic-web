@@ -4,11 +4,18 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href= "style.css"/>
+	<link rel="stylesheet" type="text/css" href="general_styles.css"/>
+	<link rel="stylesheet" type="text/css" href="normalize.css"/>
 
 	<title>Scan Your Stand</title>
 </head>
 
 <body>
+
+	<div class ="image">
+		<img src="META-INF/Isabella/images/ScanYourStand.png" alt="scanstand" widht="400" height="400"/>
+	</div>
+
 	<div class="content-frame">
 		<div class="content">
 			<form action="/voting_TEMPLATE.html">
@@ -22,9 +29,12 @@
 				<!-- Something like this. Doesn't work on PC like it does on phone. May require JS consistency across devices. 
 				Possible solution: https://medium.com/@minhazav/qr-code-scanner-using-html-and-javascript-3895a0c110cd 
 				Possible solution 2: https://stackoverflow.com/questions/11625415/how-to-create-a-qr-code-reader-in-a-html5-website-->
+				<!-->
+				<!---
 				<div>
 					<input class="button" type="file" accept="image/*" capture="user">
-				</div>
+				</div>-->
+
 				<!-- Button for QR scan instead of slection above -->
 				<div class="spacer">
 					<input class="button" type="submit" value="Stem!"></input>

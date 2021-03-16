@@ -1,11 +1,11 @@
 /* Global variables goes here */
 :root{
-    --green: #506135;
+    --green: #493561;
     --creme: rgb(212, 208, 164);
 }
 
 body {
-    background-color: #e7e7e7;
+    background-color: #d253f8c4;
 }
 
 /* Used to override browser defaults, sitewide */

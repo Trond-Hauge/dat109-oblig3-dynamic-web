@@ -1,0 +1,21 @@
+body{
+    background: linear-gradient(#9514ff, #591fe0);
+    height: 100vh;
+    text-align:center;
+    font-family: 'Squada One', cursive;
+    color: white;
+        
+}
+
+button[type=submit]{
+    background-color: #2e045038;
+    border: none; 
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Squada One', cursive;
+    font-size: 16px;
+
+}
