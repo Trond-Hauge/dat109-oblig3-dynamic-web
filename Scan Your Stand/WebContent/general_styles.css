@@ -19,6 +19,7 @@ input {
 }
 
 .content-frame {
+    max-width: 800px;
     flex-direction: column;
     position: relative;
     width:80%;
