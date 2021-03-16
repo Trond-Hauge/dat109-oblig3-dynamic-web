@@ -23,13 +23,21 @@ public class VoteUtilsTest {
 	public void setup() {
 		
 		vote1 = new Vote("47474747", "stand1");
-		vote2 = new Vote("25252525", "stand2");
+		vote2 = new Vote("25252525", "stand1");
 		
 		vote1.setPoints(1);
 		vote2.setPoints(2);
 		
 		votes = Arrays.asList(vote1, vote2);
-		stands = Arrays.asList(new Stand("stand1", "stand1"), new Stand("stand2", "stand2"));
+		stands = Arrays.asList(new Stand("stand1", "stand1"));
+		
+	}
+	
+	@Test
+	public void calculateVotesTest() {
+		
+		int voterScore = VoteUtils.calculateVotes(stands.get(0), votes);
+		Assertions.assertEquals(voterScore, 3);
 		
 	}
 	
