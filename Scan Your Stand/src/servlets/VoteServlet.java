@@ -13,6 +13,14 @@ import javax.servlet.http.HttpSession;
 import vote.Vote;
 import vote.VoteDAO;
 
+/**
+ * 
+ * @author anders
+ * 
+ * Servlet for voting
+ *
+ */
+
 @WebServlet("/vote")
 public class VoteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

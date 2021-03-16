@@ -27,6 +27,13 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import stand.Stand;
 import stand.StandDAO;
 
+/**
+ * 
+ * @author anders
+ *
+ * Class to create QR codes from stands in database 
+ */
+
 public class MyQr {
 	
 	@EJB

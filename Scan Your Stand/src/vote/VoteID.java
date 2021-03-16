@@ -2,6 +2,14 @@ package vote;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * @author anders
+ * 
+ * Class for composite key
+ *
+ */
+
 public class VoteID implements Serializable{
 
 	private String phone;

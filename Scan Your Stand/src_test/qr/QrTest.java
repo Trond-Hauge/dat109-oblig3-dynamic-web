@@ -16,6 +16,13 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
+/**
+ * 
+ * @author anders
+ *
+ * Class for testing the QR implementation
+ */
+
 @TestInstance(Lifecycle.PER_CLASS)
 public class QrTest {
 
