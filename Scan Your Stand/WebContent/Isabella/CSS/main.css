@@ -79,9 +79,10 @@ html {
 
 body {
     background-color: linear-gradient(var(--purple) #591fe0);
-    background-color: var(--dark);
-    background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+    background-color: #fff;
+    background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
     height: 100vh;
+    line-height: 1.5;
     color: white;
     font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -136,17 +137,11 @@ select:focus {
     outline: none;
 }
 
-.button-default {
-    background-color: #000;
-    border: none;
-    color: white;
-    text-decoration: none;
-    padding: 12px 30px;
-    cursor: pointer;
-    font-family: 'Squada One', cursive;
-    font-size: 16px;
-    border-radius: 15px;
-    opacity: .6;
+.center-align {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
 }
 
 .container-special {
@@ -164,4 +159,24 @@ select:focus {
     margin: 0 auto;
     width: 80%;
     max-width: 960px;
+}
+
+.button-default {
+    background-color: #000;
+    display: inline-block;
+    border: none;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-family: 'Squada One', cursive;
+    font-size: 16px;
+    border-radius: 15px;
+    opacity: .6;
+}
+
+.transparent-bg {
+    border-radius: 15px;
+    background: rgba(61, 40, 73, 0.8);
+    padding: 40px;
 }

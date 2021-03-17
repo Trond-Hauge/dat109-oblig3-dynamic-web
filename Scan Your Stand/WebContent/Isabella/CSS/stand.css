@@ -1,0 +1,58 @@
+
+.stand {
+    margin-top: 40px;
+}
+
+.stand-left {
+    float: left;
+    border-radius: 15px;
+    width: var(--left-box);
+    margin-right: 40px;
+}
+
+.vis-stand-title {
+    display: block;
+}
+
+.number {
+    margin-bottom: 20px;
+}
+
+.vote-stand-cta {
+    width: 100%;
+}
+
+.stand-right {
+    float: right;
+    width: 600px;
+}
+
+.stand-image {
+    margin-bottom: 20px;
+}
+
+.stand-form-left {
+    float: left;
+    margin-right: 20px;
+    width: 100px;
+}
+
+.stand-form-left label {
+    display: inline-block;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+}
+
+.stand-form-right {
+    float: right;
+    width: 400px;
+}
+
+.stand-vote {
+    margin-top: 60px;
+}
+
+.stand-cta {
+    margin-top: 15px;
+    width: 100%;
+}

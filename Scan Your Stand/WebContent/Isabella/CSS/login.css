@@ -5,10 +5,7 @@
 
 .login-left {
     float: left;
-    border-radius: 15px;
     width: 300px;
-    background: rgba(255, 255, 255, .3);
-    padding: 40px;
     margin: 0;
     position: absolute;
     top: 50%;
