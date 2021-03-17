@@ -6,13 +6,14 @@
     <title>Vis Stand</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css.redo.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="CSS/vis.css">
 </head>
 <body>
-    <div class="container">
-        <div class="stem-left-top">
+    <div class="container clearfix">
+        <div class="stem-left">
             <img class="login-logo" src="images/ScanYourStand.png" alt="">
             <h2 class="vis-stand-title"> Per Viskelær</h2>
             <h2 class="vis-stand-scnd-title"> Prosjekt: A01</h2>
@@ -20,38 +21,38 @@
         <div> class="stem-right-top">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam dignissimos, quo vero laboriosam aliquid officiis, odio nemo accusamus possimus veniam enim repellendus consectetur consequatur incidunt laborum totam dolores cumque?</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam odio saepe quisquam, hic ratione mollitia, alias laudantium molestias voluptate delectus, temporibus labore. Quisquam soluta officia nisi. Illo itaque soluta necessitatibus!</p>
-        </div>
-    </div><!--.container-->
+        </div> <!--.stem-left-->
 
-    <div class="container">
-        <div class="stem-left-bot">
-            <form action="">
-                <input type="radio" id="0" name="number" value="0">
-                <label for="number">0</label><br>
-                <input type="radio" id="1" name="number" value="1">
-                <label for="number">1</label><br>
-                <input type="radio" id="2" name="number" value="2">
-                <label for="number">2</label><br>
-                <input type="radio" id="3" name="number" value="3">
-                <label for="number">3</label><br>
-                <input type="radio" id="4" name="number" value="4">
-                <label for="number">4</label><br>
-                <input type="radio" id="5" name="number" value="5">
-                <label for="number">5</label><br>
-            </form>
+        <div class="stem-right">
+            <div class="stem-left-bot">
+                <form action="">
+                    <input type="radio" id="0" name="number" value="0">
+                    <label for="number">0</label><br>
+                    <input type="radio" id="1" name="number" value="1">
+                    <label for="number">1</label><br>
+                    <input type="radio" id="2" name="number" value="2">
+                    <label for="number">2</label><br>
+                    <input type="radio" id="3" name="number" value="3">
+                    <label for="number">3</label><br>
+                    <input type="radio" id="4" name="number" value="4">
+                    <label for="number">4</label><br>
+                    <input type="radio" id="5" name="number" value="5">
+                    <label for="number">5</label><br>
+                </form>
+            </div>
 
-        </div>
-        <div class="stem-right-bot">
-            <h2 class="vis-stand-third-title"> Telefonnummer</h2>
+            <div class="stem-right-bot">
+                <h2 class="vis-stand-third-title"> Telefonnummer</h2>
 
-            <form class="login-admin-form" action="" method="POST">
-                    <label for="number">Telefonnummer</label>
-                    <input type="text" class="number" name="number" placeholder="Telefonnummer">
-                    <label for="standnr">Standnummer</label>
+                <form class="login-admin-form" action="" method="POST">
+                        <label for="number">Telefonnummer</label>
+                        <input type="text" class="number" name="number" placeholder="Telefonnummer">
+                        <label for="standnr">Standnummer</label>
 
-                    <input type="submit" class="vote-stand-cta button-default" value="Stem">
-            </form>
-        </div>
+                        <input type="submit" class="vote-stand-cta button-default" value="Stem">
+                </form>
+            </div>
+        </div> <!--.stem-right-->
     </div> <!--.container-->
 </body>
 </html>

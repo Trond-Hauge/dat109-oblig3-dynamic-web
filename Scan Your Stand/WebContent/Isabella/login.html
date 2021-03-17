@@ -11,24 +11,23 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
+    <div class="login container-special clearfix">
+        <div class="login-left">
+            <h2 class="login-title"> Logg inn</h2>
 
-        <div class="container login clearfix">
-            <div class="login-left">
-                <h2 class="login-title"> Logg inn</h2>
+            <form class="login-form" action="" method="POST">
+                    <label for="tlfnumber">Telefonnr</label>
+                    <input type="tel" class="tlfnumber" name="tlfnumber" placeholder="Skriv inn tlfnumeret ditt">
+                    <input type="submit" class="sign-in-cta button-default" value="Sign in">
+            </form>
+        </div>
 
-                <form class="login-form" action="" method="POST">
-                        <label for="tlfnumber">Telefonnr</label>
-                        <input type="tel" class="tlfnumber" name="tlfnumber" placeholder="Skriv inn tlfnumeret ditt">
-                        <input type="submit" class="sign-in-cta button-default" value="Sign in">
-                </form>
-
-            </div>
-
-            <div class="login-right">
-                <img class="login-logo" src="images/ScanYourStand.png" alt="">
-            </div>
-        </div> <!--.conteiner-->
+        <div class="login-right">
+            <img class="login-logo" src="images/ScanYourStand.png" alt="">
+        </div>
+    </div> <!--.conteiner-->
 </body>
 </html>
 

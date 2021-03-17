@@ -149,14 +149,19 @@ select:focus {
     opacity: .6;
 }
 
-.container {
+.container-special {
     margin: 0 auto;
     width: 80%;
     max-width: 800px;
-    clear: both;
     overflow: hidden;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 960px;
 }
