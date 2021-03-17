@@ -13,15 +13,15 @@ import java.io.Serializable;
 public class VoteID implements Serializable{
 
 	private String phone;
-	private String standID;
+	private String projectNumber;
 	
 	public VoteID(){
 	}
 	
-	public VoteID(String phone, String standID) {
+	public VoteID(String phone, String projectNumber) {
 		
 		this.phone = phone;
-		this.standID = standID;
+		this.projectNumber = projectNumber;
 	}
 
 	@Override
@@ -38,10 +38,10 @@ public class VoteID implements Serializable{
 				return false;
 		} else if (!phone.equals(other.phone))
 			return false;
-		if (standID == null) {
-			if (other.standID != null)
+		if (projectNumber == null) {
+			if (other.projectNumber != null)
 				return false;
-		} else if (!standID.equals(other.standID))
+		} else if (!projectNumber.equals(other.projectNumber))
 			return false;
 		return true;
 	}
