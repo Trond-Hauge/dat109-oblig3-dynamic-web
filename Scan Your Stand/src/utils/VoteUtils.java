@@ -3,7 +3,8 @@ package utils;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
-import stand.Stand;
+
+import project.Project;
 import vote.Vote;
 
 public class VoteUtils {
@@ -17,9 +18,9 @@ public class VoteUtils {
 	 * @param votes List of all votes that have been casted
 	 * @return A calculated sum to represent the specified stand's voter score
 	 */
-	public static int calculateVotes(Stand stand, List<Vote> votes) {
+	public static int calculateVotes(Project stand, List<Vote> votes) {
 		
-		List<Vote> votesForStand = votes.stream().filter(v -> v.getStandID().equals(stand.getStandID())).collect(Collectors.toList());
+		List<Vote> votesForStand = votes.stream().filter(v -> v.getProjectNumber().equals(stand.getProjectNumber())).collect(Collectors.toList());
 		
 		int voteSum = 0;
 		for(Vote v : votesForStand) {
@@ -41,7 +42,7 @@ public class VoteUtils {
 	 * @param stands All stands
 	 * @return A HashMap of type <String,Integer> where the String value (key) is the name of a stand and the Integer value is the corresponding points.
 	 */
-	public static HashMap<String,Integer> getUserVotes(String phone, List<Vote> votes, List<Stand> stands) {
+	public static HashMap<String,Integer> getUserVotes(String phone, List<Vote> votes, List<Project> stands) {
 		
 		if(phone == null || votes == null || stands == null) {
 			return null;
@@ -51,7 +52,7 @@ public class VoteUtils {
 		
 		votes.stream().filter(v -> v.getPhone().equals(phone)).forEach(v -> {
 			
-			stands.stream().filter(s -> s.getStandID() == v.getStandID()).forEach(s -> map.put(s.getStandName(), v.getPoints()));
+			stands.stream().filter(s -> s.getProjectNumber() == v.getProjectNumber()).forEach(s -> map.put(s.getStandName(), v.getPoints()));
 			
 		});
 		

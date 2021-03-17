@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import stand.Stand;
+import project.Project;
 
 /**
  * @author Ida
@@ -24,16 +24,16 @@ public class Vote implements Serializable{
 	@Id
 	private String phone;
 	@Id
-	private String standID;
+	private String projectNumber;
 	private int points;
 	
 	@ManyToOne
-	@JoinColumn(name = "standID", referencedColumnName = "standID")
-	private Stand stand;
+	@JoinColumn(name = "projectNumber", referencedColumnName = "projectNumber")
+	private Project stand;
 
-	public Vote(String phone, String standID) {
+	public Vote(String phone, String projectNumber) {
 		this.phone = phone;
-		this.standID = standID;
+		this.projectNumber = projectNumber;
 	}
 
 	public String getPhone() {
@@ -44,12 +44,12 @@ public class Vote implements Serializable{
 		this.phone = phone;
 	}
 
-	public String getStandID() {
-		return standID;
+	public String getProjectNumber() {
+		return projectNumber;
 	}
 
-	public void setStandID(String standID) {
-		this.standID = standID;
+	public void setProjectNumber(String projectNumber) {
+		this.projectNumber = projectNumber;
 	}
 	public void setPoints(int points) {
 		this.points = points;
@@ -58,6 +58,8 @@ public class Vote implements Serializable{
 	public int getPoints() {
 		return points;
 	}
+	
+	
 	
 	
 }

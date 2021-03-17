@@ -2,32 +2,31 @@ DROP SCHEMA IF EXISTS ScanYourStand CASCADE;
 CREATE SCHEMA ScanYourStand;
 SET search_path = ScanYourStand;
 
-CREATE TABLE Stand
+CREATE TABLE Project
 (
--- Assuming length of standID is always 4
-standID			CHARACTER (4) CHECK (char_length(standID) = 4),
+projectNumber	CHARACTER (3) CHECK (char_length(projectNumber) = 3),
 standName		CHARACTER VARYING (20),
-CONSTRAINT StandPK PRIMARY KEY (standID)
+standNumber		CHARACTER VARYING (10),
+CONSTRAINT ProjectPK PRIMARY KEY (projectNumber)
 );
 
-INSERT INTO Stand (standID, standName) VALUES
-('M123', 'Stand1'),
-('B123', 'Stand2');
+INSERT INTO Project (projectNumber, standName, standNumber) VALUES
+('M13', 'Project 1', 1),
+('B12', 'Project 2', 2);
 
 CREATE TABLE Vote
 (
---Assuming length of phone is always 8
-phone		CHARACTER (8) CHECK (char_length(phone) = 8),
-standID		CHARACTER VARYING (10),
-points		INTEGER CHECK (0 <= points AND points <= 5),
-CONSTRAINT VotePK PRIMARY KEY (phone, standID),
-CONSTRAINT StandFK FOREIGN KEY (standID) REFERENCES stand (standID)
+phone			CHARACTER (8) CHECK (char_length(phone) = 8),
+projectNumber	CHARACTER (3) CHECK (char_length(projectNumber) = 3),
+points			INTEGER CHECK (0 <= points AND points <= 5),
+CONSTRAINT VotePK PRIMARY KEY (phone, projectNumber),
+CONSTRAINT ProjectFK FOREIGN KEY (projectNumber) REFERENCES Project (projectNumber)
 );
 
-INSERT INTO Vote (phone, standID, points) VALUES
-('97084676', 'M123', 5),
-('95991519', 'M123', 2),
-('97084676', 'B123', 4);
+INSERT INTO Vote (phone, projectNumber, points) VALUES
+('97084676', 'M13', 5),
+('95991519', 'M13', 2),
+('97084676', 'B12', 4);
 
 CREATE TABLE Admin
 (

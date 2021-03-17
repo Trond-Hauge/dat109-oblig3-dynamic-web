@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import stand.Stand;
-import stand.StandDAO;
+import project.Project;
+import project.ProjectDAO;
 import utils.VoteUtils;
 import vote.Vote;
 import vote.VoteDAO;
@@ -26,13 +26,13 @@ public class MyVotesServlet extends HttpServlet {
 	private VoteDAO voteDAO;
 	
 	@EJB
-	private StandDAO standDAO;
+	private ProjectDAO standDAO;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String phone = request.getParameter("phone");
 		List<Vote> votes = voteDAO.getAllVotes();
-		List<Stand> stands = standDAO.getAllStands();
+		List<Project> stands = standDAO.getAllProjects();
 		HashMap<String,Integer> standsAndPoints = VoteUtils.getUserVotes(phone, votes, stands);
 
 		if(standsAndPoints == null) {

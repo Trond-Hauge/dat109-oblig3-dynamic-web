@@ -24,8 +24,8 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
-import stand.Stand;
-import stand.StandDAO;
+import project.Project;
+import project.ProjectDAO;
 
 /**
  * 
@@ -37,7 +37,7 @@ import stand.StandDAO;
 public class MyQr {
 	
 	@EJB
-	private static StandDAO sd = new StandDAO();
+	private static ProjectDAO sd = new ProjectDAO();
 	
     /**
      * Method used to create QR coded
@@ -105,16 +105,16 @@ public class MyQr {
         
         // List of stands to generate QR codes for.
         // Temporary code that assumes StandService will have a get-method for all stands.
-        List<Stand> stands = sd.getAllStands();
+        List<Project> stands = sd.getAllProjects();
  
-        for(Stand s: stands) {
+        for(Project s: stands) {
         	
         	Map<EncodeHintType, ErrorCorrectionLevel> hashMap
             	= new HashMap<EncodeHintType, ErrorCorrectionLevel>();
  
 	        hashMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 	 
-	        String id = s.getStandID();
+	        String id = s.getProjectNumber();
 	        
 	        // Create the QR code and save in the specified folder as a jpg file
 	        createQR(data + "id=" + id, path + "stand" + id, charset, hashMap, 200, 200);

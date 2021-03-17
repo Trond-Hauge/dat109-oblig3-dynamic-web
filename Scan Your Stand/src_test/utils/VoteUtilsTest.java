@@ -8,7 +8,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
-import stand.Stand;
+
+import project.Project;
 import vote.Vote;
 
 @TestInstance(Lifecycle.PER_CLASS)
@@ -17,7 +18,7 @@ public class VoteUtilsTest {
 	private Vote vote1;
 	private Vote vote2;
 	private List<Vote> votes;
-	private List<Stand> stands;
+	private List<Project> stands;
 	
 	@BeforeAll
 	public void setup() {
@@ -29,7 +30,7 @@ public class VoteUtilsTest {
 		vote2.setPoints(2);
 		
 		votes = Arrays.asList(vote1, vote2);
-		stands = Arrays.asList(new Stand("stand1", "stand1"));
+		stands = Arrays.asList(new Project("stand1", "stand1"));
 		
 	}
 	
