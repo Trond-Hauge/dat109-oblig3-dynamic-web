@@ -52,7 +52,7 @@ public class VoteUtils {
 		
 		votes.stream().filter(v -> v.getPhone().equals(phone)).forEach(v -> {
 			
-			stands.stream().filter(s -> s.getProjectNumber() == v.getProjectNumber()).forEach(s -> map.put(s.getStandName(), v.getPoints()));
+			stands.stream().filter(s -> s.getProjectNumber() == v.getProjectNumber()).forEach(s -> map.put(s.getProjectName(), v.getPoints()));
 			
 		});
 		

@@ -40,7 +40,7 @@ public class ResultServlet extends HttpServlet {
 		stands.forEach(s -> {
 			
 			int voteSum = VoteUtils.calculateVotes(s, votes);
-			resultMap.put(s.getStandName(), voteSum);
+			resultMap.put(s.getProjectName(), voteSum);
 			
 		});
 		

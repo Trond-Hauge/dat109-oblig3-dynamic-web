@@ -21,30 +21,30 @@ public class Project {
 
 	@Id
 	private String projectNumber; 
-	private String standName;
+	private String projectName;
 	private String standNumber;
 	
 	@OneToMany(mappedBy = "stand")
 	private List<Vote> votes;
 	
-	public Project(String projectNumber, String standName) {
+	public Project(String projectNumber, String projectName) {
 		this.projectNumber = projectNumber;
-		this.standName = standName;
+		this.projectName = projectName;
 		this.standNumber = null;
 	}
 
-	public Project(String projectNumber, String standName, String standNumber) {
+	public Project(String projectNumber, String projectName, String standNumber) {
 		this.projectNumber = projectNumber;
-		this.standName = standName;
+		this.projectName = projectName;
 		this.standNumber = standNumber;
 	}
 
-	public String getStandName() {
-		return standName;
+	public String getProjectName() {
+		return projectName;
 	}
 
-	public void setStandName(String standName) {
-		this.standName = standName;
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 
 	public String getProjectNumber() {
@@ -73,7 +73,7 @@ public class Project {
 
 	@Override
 	public String toString() {
-		return "Project [projectNumber=" + projectNumber + ", standName=" + standName + ", standNumber=" + standNumber
+		return "Project [projectNumber=" + projectNumber + ", projectName=" + projectName + ", standNumber=" + standNumber
 				+ ", votes=" + votes + "]";
 	}
 	

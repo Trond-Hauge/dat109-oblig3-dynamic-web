@@ -5,12 +5,12 @@ SET search_path = ScanYourStand;
 CREATE TABLE Project
 (
 projectNumber	CHARACTER (3) CHECK (char_length(projectNumber) = 3),
-standName		CHARACTER VARYING (20),
+projectName		CHARACTER VARYING (20),
 standNumber		CHARACTER VARYING (10),
 CONSTRAINT ProjectPK PRIMARY KEY (projectNumber)
 );
 
-INSERT INTO Project (projectNumber, standName, standNumber) VALUES
+INSERT INTO Project (projectNumber, projectName, standNumber) VALUES
 ('M13', 'Project 1', 1),
 ('B12', 'Project 2', 2);
 
