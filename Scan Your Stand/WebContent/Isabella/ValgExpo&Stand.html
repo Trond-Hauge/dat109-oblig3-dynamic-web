@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velg Expo & Stand</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/valg.css">
 </head>
 <body>
+    <div class="container clearfix">
+        <div class="valg-left">
+            <form class="valg-form" action="" method="POST">
+                <label for="exhibition">Utstilling</label>
+                <input type="text" class="exhibition" name="exhibition">
+                <label for="standnr">Standnummer</label>
 
-        <div class="container">
-            <div class="login-admin">
-                <h2 class="valg-expo-&-stand-title"> Logg inn</h2>
+                <select name="standnr" class="standnr">
+                    <option value="Stand 1">Stand 1</option>
+                    <option value="Stand 2">Stand 2</option>
+                    <option value="Stand 3">Stand 3</option>
+                    <option value="Stand 4">Stand 4</option>
+                </select>
 
-                <form class="login-admin-form" action="" method="POST">
-                        <label for="exhibition">Utstilling</label>
-                        <input type="text" class="exhibition" name="exchibition">
-                        <label for="standnr">Standnummer</label>
+                <input type="submit" class="vote-cta button-default" value="Stem">
+            </form>
+        </div> <!-- .valg-left -->
 
-                        <select name="standnr" class="standnr">
-                        <option value="Stand 1">Stand 1</option>
-                        <option value="Stand 2">Stand 2</option>
-                        <option value="Stand 3">Stand 3</option>
-                        <option value="Stand 4">Stand 4</option>
-                        </select>
-                        <input type="submit" class="vote-cta button-default" value="Stem">
-                </form> 
-                
-            </div>
-
-        </div> <!--.conteiner-->
+        <div class="valg-right">
+            <img class="login-logo" src="images/ScanYourStand.png" alt="">
+        </div>
+    </div> <!-- .container-->
 </body>
 </html>

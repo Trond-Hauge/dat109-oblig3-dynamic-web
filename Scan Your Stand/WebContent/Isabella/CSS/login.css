@@ -1,0 +1,49 @@
+
+.login {
+
+}
+
+.login-left {
+    float: left;
+    border-radius: 15px;
+    width: 300px;
+    background: rgba(255, 255, 255, .3);
+    padding: 40px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.login-title {
+    margin-top: 0;
+}
+
+.login label {
+    display: block;
+    padding-bottom: 5px;
+}
+
+.tlfnumber {
+    display: block;
+}
+
+.sign-in-cta {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.login-right {
+    float: right;
+    width: 400px;
+}
+
+/* ===== ADMIN LOGIN ===== */
+
+.username {
+    margin-bottom: 10px;
+}
+
+.password {
+    margin-bottom: 10px;
+}

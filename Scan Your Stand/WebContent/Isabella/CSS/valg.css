@@ -1,0 +1,31 @@
+
+.valg-left {
+    float: left;
+    border-radius: 15px;
+    width: var(--left-box);
+    background: rgba(255, 255, 255, .3);
+    padding: 40px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.exhibition {
+    margin-bottom: 20px;
+}
+
+.standnr {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.vote-cta {
+    width: 100%;
+}
+
+.valg-right {
+    float: right;
+    width: var(--right-box);
+}

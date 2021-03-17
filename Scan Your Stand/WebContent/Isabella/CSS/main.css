@@ -1,0 +1,162 @@
+/* Global variables goes here */
+:root {
+    --dark: #242424;
+    --left-box: 300px;
+    --right-box: 400px;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+audio, canvas, iframe, img, svg, video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.hidden, [hidden] {
+    display: none !important;
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    /* 1 */
+}
+
+.sr-only.focusable:active, .sr-only.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    white-space: inherit;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix::before, .clearfix::after {
+    content: " ";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: linear-gradient(var(--purple) #591fe0);
+    background-color: var(--dark);
+    background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+    height: 100vh;
+    color: white;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Squada One', cursive;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+button[type=submit] {
+    background-color: #2e045038;
+    border: none;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Squada One', cursive;
+    font-size: 16px;
+}
+
+input[type=text],
+input[type=password],
+input[type=tel],
+input[type=email],
+select {
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 15px;
+    width: 100%;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=tel]:focus,
+input[type=email]:focus,
+select:focus {
+    outline: none;
+}
+
+.button-default {
+    background-color: #000;
+    border: none;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-family: 'Squada One', cursive;
+    font-size: 16px;
+    border-radius: 15px;
+    opacity: .6;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 800px;
+    clear: both;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}

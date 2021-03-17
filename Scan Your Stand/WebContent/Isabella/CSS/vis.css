@@ -1,0 +1,41 @@
+.Vis.Stand{
+
+}
+
+.stem-left-top {
+    float: left;
+    border-radius: 15px;
+    width: var(--left-box);
+    background: rgba(255, 255, 255, .3);
+    padding: 40px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.login-logo{
+    float: left;
+}
+.vis-stand-title{
+    display: block;
+}
+
+.number {
+    margin-bottom: 20px;
+}
+
+.vote-stand-cta {
+    width: 100%;
+}
+
+.stem-right-top {
+    float: right;
+    display: block;
+
+}
+
+.containerstem-left-bot{
+    display: block;
+
+}
+
