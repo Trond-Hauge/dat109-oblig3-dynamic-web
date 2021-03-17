@@ -1,0 +1,31 @@
+
+.vote-success-inner {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.vote-success-title {
+    margin-top: 0;
+    text-align: center;
+}
+
+.vote-success-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.view-results,
+.new-vote {
+    width: 45%;
+}
+
+.vote-success-tilbake {
+    display: block;
+    margin-top: 20px;
+    text-align: left;
+    color: peachpuff;
+}
+
+.vote-success-tilbake:hover {
+    text-decoration: none;
+}

@@ -79,9 +79,10 @@ html {
 
 body {
     background-color: linear-gradient(var(--purple) #591fe0);
-    background-color: var(--dark);
-    background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+    background-color: #fff;
+    background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
     height: 100vh;
+    line-height: 1.5;
     color: white;
     font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -136,6 +137,13 @@ select:focus {
     outline: none;
 }
 
+.center-align {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
 .container-special {
     margin: 0 auto;
     width: 80%;
@@ -155,6 +163,7 @@ select:focus {
 
 .button-default {
     background-color: #000;
+    display: inline-block;
     border: none;
     color: white;
     text-decoration: none;
@@ -168,6 +177,6 @@ select:focus {
 
 .transparent-bg {
     border-radius: 15px;
-    background: rgba(255, 255, 255, .3);
+    background: rgba(61, 40, 73, 0.8);
     padding: 40px;
 }
