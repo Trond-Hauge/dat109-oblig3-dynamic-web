@@ -136,19 +136,6 @@ select:focus {
     outline: none;
 }
 
-.button-default {
-    background-color: #000;
-    border: none;
-    color: white;
-    text-decoration: none;
-    padding: 12px 30px;
-    cursor: pointer;
-    font-family: 'Squada One', cursive;
-    font-size: 16px;
-    border-radius: 15px;
-    opacity: .6;
-}
-
 .container-special {
     margin: 0 auto;
     width: 80%;
@@ -164,4 +151,23 @@ select:focus {
     margin: 0 auto;
     width: 80%;
     max-width: 960px;
+}
+
+.button-default {
+    background-color: #000;
+    border: none;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-family: 'Squada One', cursive;
+    font-size: 16px;
+    border-radius: 15px;
+    opacity: .6;
+}
+
+.transparent-bg {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .3);
+    padding: 40px;
 }
