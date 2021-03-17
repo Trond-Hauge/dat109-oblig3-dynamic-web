@@ -1,5 +1,5 @@
 
-.valg-left {
+.choose-left {
     float: left;
     border-radius: 15px;
     width: var(--left-box);
@@ -25,7 +25,7 @@
     width: 100%;
 }
 
-.valg-right {
+.choose-right {
     float: right;
     width: var(--right-box);
 }
