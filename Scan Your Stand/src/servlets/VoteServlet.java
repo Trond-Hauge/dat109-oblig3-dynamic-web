@@ -35,11 +35,11 @@ public class VoteServlet extends HttpServlet {
 		
 		if(projectId == null) {
 			
-			request.getRequestDispatcher("WEB-INF/ChooseStand.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/chooseStand.jsp").forward(request, response);
 		}
 		else {
 			
-			request.getRequestDispatcher("WEB-INF/Voting.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/voting.jsp").forward(request, response);
 		}
 	}
 
@@ -70,6 +70,6 @@ public class VoteServlet extends HttpServlet {
 		vote.setPoints(points);
 		dao.add(vote);
 		
-		request.getRequestDispatcher("WEB-INF/Confirmation.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/confirmation.jsp").forward(request, response);
 	}
 }
