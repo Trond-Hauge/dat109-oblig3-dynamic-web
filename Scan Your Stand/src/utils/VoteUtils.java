@@ -1,9 +1,9 @@
 package utils;
 
-import java.util.HashMap;
+import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import project.Project;
 import vote.Vote;
 
@@ -42,13 +42,13 @@ public class VoteUtils {
 	 * @param projects All projects
 	 * @return A HashMap of type <String,Integer> where the String value (key) is the name of a Project and the Integer value is the corresponding points.
 	 */
-	public static HashMap<String,Integer> getUserVotes(String phone, List<Vote> votes, List<Project> projects) {
+	public static Map<String,Integer> getUserVotes(String phone, List<Vote> votes, List<Project> projects) {
 		
 		if(phone == null || votes == null || projects == null) {
 			return null;
 		}
 		
-		HashMap<String,Integer> map = new HashMap<String,Integer>();
+		Map<String,Integer> map = new LinkedHashMap<String,Integer>();
 		
 		votes.stream().filter(v -> v.getPhone().equals(phone)).forEach(v -> {
 			

@@ -1,15 +1,16 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import project.Project;
 import project.ProjectDAO;
 import utils.VoteUtils;
@@ -34,7 +35,7 @@ public class ResultServlet extends HttpServlet {
 		List<Project> projects = projectDAO.getAllProjects();
 		
 		// Hashmap where each project is stored with their corresponding voter score
-		HashMap<String,Integer> resultMap = new HashMap<String,Integer>();
+		Map<String,Integer> resultMap = new LinkedHashMap<String,Integer>();
 		
 		// Calculates each voter score for every project and puts the values into the hashmap
 		projects.forEach(s -> {
