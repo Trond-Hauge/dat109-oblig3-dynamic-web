@@ -39,8 +39,8 @@ public class VoteDAO {
 	 * @param Vote
 	 * @return Vote
 	 */
-	public Vote findVote(Vote vote) {
-		return em.find(Vote.class, vote);
+	public Vote findVote(VoteID voteID) {
+		return em.find(Vote.class, voteID);
 	}
 
 	/**

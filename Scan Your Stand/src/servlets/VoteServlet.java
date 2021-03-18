@@ -16,6 +16,7 @@ import project.Project;
 import project.ProjectDAO;
 import vote.Vote;
 import vote.VoteDAO;
+import vote.VoteID;
 
 /**
  * 
@@ -64,8 +65,8 @@ public class VoteServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String phone = request.getParameter("phone");
-		String projectId = request.getParameter("projectId"); //Hidden parameter
+		String phone = request.getParameter("number");
+		String projectId = request.getParameter("projectid"); //Hidden parameter
 		int points = Integer.parseInt(request.getParameter("points"));
 		
 		HttpSession sesjon = request.getSession(false);
@@ -77,8 +78,9 @@ public class VoteServlet extends HttpServlet {
 		sesjon.setAttribute("phoneNumber", phone); //Can now be remembered the next time the spectator votes (prefilled)
         
 		Vote vote = new Vote(phone, projectId);
+		VoteID voteId = new VoteID(phone, projectId);
 		
-		Vote previous = voteDAO.findVote(vote);
+		Vote previous = voteDAO.findVote(voteId);
 		
 		if(previous != null) {
 			

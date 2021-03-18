@@ -11,6 +11,7 @@ import project.Project;
 import project.ProjectDAO;
 import vote.Vote;
 import vote.VoteDAO;
+import vote.VoteID;
 
 @WebServlet("/confirmation")
 public class ConfirmationServlet extends HttpServlet {
@@ -37,7 +38,7 @@ public class ConfirmationServlet extends HttpServlet {
 			Project project = null;
 			
 			try {
-				vote = voteDAO.findVote(new Vote(phone, projectId));
+				vote = voteDAO.findVote(new VoteID(phone, projectId));
 				project = projectDAO.findProjectByID(projectId);
 			}
 			catch(Exception e) {}
