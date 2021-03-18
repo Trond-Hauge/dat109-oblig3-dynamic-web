@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
-
 import project.Project;
 import vote.Vote;
 
@@ -18,7 +17,7 @@ public class VoteUtilsTest {
 	private Vote vote1;
 	private Vote vote2;
 	private List<Vote> votes;
-	private List<Project> stands;
+	private List<Project> projects;
 	
 	@BeforeAll
 	public void setup() {
@@ -30,14 +29,14 @@ public class VoteUtilsTest {
 		vote2.setPoints(2);
 		
 		votes = Arrays.asList(vote1, vote2);
-		stands = Arrays.asList(new Project("stand1", "stand1"));
+		projects = Arrays.asList(new Project("stand1", "stand1"));
 		
 	}
 	
 	@Test
 	public void calculateVotesTest() {
 		
-		int voterScore = VoteUtils.calculateVotes(stands.get(0), votes);
+		int voterScore = VoteUtils.calculateVotes(projects.get(0), votes);
 		Assertions.assertEquals(voterScore, 3);
 		
 	}
@@ -45,7 +44,7 @@ public class VoteUtilsTest {
 	@Test
 	public void getUserVotesTest() {
 		
-		HashMap<String,Integer> map = VoteUtils.getUserVotes("47474747", votes, stands);
+		HashMap<String,Integer> map = VoteUtils.getUserVotes("47474747", votes, projects);
 		
 		Assertions.assertTrue(map != null);
 		map.keySet().forEach(k -> Assertions.assertEquals(k,"stand1"));

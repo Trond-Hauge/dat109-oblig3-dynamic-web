@@ -2,6 +2,7 @@ package servlets;
 
 import utils.Constants;
 import java.io.IOException;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import project.Project;
+import project.ProjectDAO;
 import vote.Vote;
 import vote.VoteDAO;
 
@@ -27,19 +30,26 @@ public class VoteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private VoteDAO dao;
+	private VoteDAO voteDAO;
+	
+	@EJB
+	private ProjectDAO projectDAO;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String projectId = request.getParameter("id");
+		Project project = projectDAO.findProjectByID(projectId);
 		
-		if(projectId == null) {
+		if(project == null) {
 			
-			request.getRequestDispatcher("WEB-INF/ChooseStand.jsp").forward(request, response);
+			List<Project> projects = projectDAO.getAllProjects();
+			request.setAttribute("projects", projects);
+			request.getRequestDispatcher("WEB-INF/chooseStand.jsp").forward(request, response);
 		}
 		else {
 			
-			request.getRequestDispatcher("WEB-INF/Voting.jsp").forward(request, response);
+			request.setAttribute("project", project);
+			request.getRequestDispatcher("WEB-INF/voting.jsp").forward(request, response);
 		}
 	}
 
@@ -61,15 +71,15 @@ public class VoteServlet extends HttpServlet {
         
 		Vote vote = new Vote(phone, projectId);
 		
-		Vote previous = dao.findVote(vote);
+		Vote previous = voteDAO.findVote(vote);
 		
 		if(previous != null) {
 			
-			dao.remove(previous);
+			voteDAO.remove(previous);
 		}
 		vote.setPoints(points);
-		dao.add(vote);
+		voteDAO.add(vote);
 		
-		request.getRequestDispatcher("WEB-INF/Confirmation.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/confirmation.jsp").forward(request, response);
 	}
 }

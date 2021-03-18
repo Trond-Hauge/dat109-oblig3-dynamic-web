@@ -1,15 +1,16 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import project.Project;
 import project.ProjectDAO;
 import utils.VoteUtils;
@@ -25,19 +26,19 @@ public class ResultServlet extends HttpServlet {
 	private VoteDAO voteDAO;
 	
 	@EJB
-	private ProjectDAO standDAO;
+	private ProjectDAO projectDAO;
 	
 	// Readies data before forwarding to result.jsp
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<Vote> votes = voteDAO.getAllVotes();
-		List<Project> stands = standDAO.getAllProjects();
+		List<Project> projects = projectDAO.getAllProjects();
 		
-		// Hashmap where each Stand is stored with their corresponding voter score
-		HashMap<String,Integer> resultMap = new HashMap<String,Integer>();
+		// Hashmap where each project is stored with their corresponding voter score
+		Map<String,Integer> resultMap = new LinkedHashMap<String,Integer>();
 		
-		// Calculates each voter score for every stand and puts the values into the hashmap
-		stands.forEach(s -> {
+		// Calculates each voter score for every project and puts the values into the hashmap
+		projects.forEach(s -> {
 			
 			int voteSum = VoteUtils.calculateVotes(s, votes);
 			resultMap.put(s.getProjectName(), voteSum);

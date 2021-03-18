@@ -1,16 +1,14 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import project.Project;
 import project.ProjectDAO;
 import utils.VoteUtils;
@@ -26,16 +24,16 @@ public class MyVotesServlet extends HttpServlet {
 	private VoteDAO voteDAO;
 	
 	@EJB
-	private ProjectDAO standDAO;
+	private ProjectDAO projectDAO;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String phone = request.getParameter("phone");
 		List<Vote> votes = voteDAO.getAllVotes();
-		List<Project> stands = standDAO.getAllProjects();
-		HashMap<String,Integer> standsAndPoints = VoteUtils.getUserVotes(phone, votes, stands);
+		List<Project> projects = projectDAO.getAllProjects();
+		Map<String,Integer> projectsAndPoints = VoteUtils.getUserVotes(phone, votes, projects);
 
-		if(standsAndPoints == null) {
+		if(projectsAndPoints == null) {
 			request.getRequestDispatcher("WEB-INF/landing.jsp").forward(request, response);
 		}
 		else {
