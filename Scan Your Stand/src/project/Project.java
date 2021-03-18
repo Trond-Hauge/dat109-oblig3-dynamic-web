@@ -20,23 +20,15 @@ import vote.Vote;
 public class Project {
 
 	@Id
-	private String projectNumber; 
+	private String projectNumber;
 	private String projectName;
-	private String standNumber;
-	
+
 	@OneToMany(mappedBy = "stand")
 	private List<Vote> votes;
-	
+
 	public Project(String projectNumber, String projectName) {
 		this.projectNumber = projectNumber;
 		this.projectName = projectName;
-		this.standNumber = null;
-	}
-
-	public Project(String projectNumber, String projectName, String standNumber) {
-		this.projectNumber = projectNumber;
-		this.projectName = projectName;
-		this.standNumber = standNumber;
 	}
 
 	public String getProjectName() {
@@ -50,17 +42,9 @@ public class Project {
 	public String getProjectNumber() {
 		return projectNumber;
 	}
-	
+
 	public void setProjectNumber(String projectNumber) {
 		this.projectNumber = projectNumber;
-	}
-
-	public String getStandNumber() {
-		return standNumber;
-	}
-
-	public void setStandNumber(String standNumber) {
-		this.standNumber = standNumber;
 	}
 
 	public List<Vote> getVotes() {
@@ -73,10 +57,7 @@ public class Project {
 
 	@Override
 	public String toString() {
-		return "Project [projectNumber=" + projectNumber + ", projectName=" + projectName + ", standNumber=" + standNumber
-				+ ", votes=" + votes + "]";
+		return "Project [projectNumber=" + projectNumber + ", projectName=" + projectName + ", votes=" + votes + "]";
 	}
-	
-	
-	
+
 }
