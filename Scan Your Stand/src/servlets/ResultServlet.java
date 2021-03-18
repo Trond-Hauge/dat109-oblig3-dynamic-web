@@ -43,6 +43,8 @@ public class ResultServlet extends HttpServlet {
 			int voteSum = VoteUtils.calculateVotes(s, votes);
 			map.put(s.getProjectName(), voteSum);
 			
+			System.out.println("voteSum in doGet ResultServlet gives: " + voteSum + " for " + s.getProjectName());
+			
 		});
 		
 		// Gets the sorted map
