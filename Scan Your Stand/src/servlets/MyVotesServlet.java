@@ -34,7 +34,7 @@ public class MyVotesServlet extends HttpServlet {
 		Map<String,Integer> projectsAndPoints = VoteUtils.getUserVotes(phone, votes, projects);
 
 		if(projectsAndPoints == null) {
-			request.getRequestDispatcher("WEB-INF/landing.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/project.jsp").forward(request, response);
 		}
 		else {
 			request.getRequestDispatcher("WEB-INF/myvotes.jsp").forward(request, response);

@@ -49,7 +49,7 @@ public class ResultServlet extends HttpServlet {
 		request.setAttribute("resultMap", resultMap);
 		
 		// Forwards to result.jsp
-		request.getRequestDispatcher("WEB-INF/result.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/view-results.jsp").forward(request, response);
 		
 	}
 
