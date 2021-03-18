@@ -26,7 +26,7 @@ public class ProjectDAO {
 	 * @return Project
 	 */
 	public Project findProjectByID(String projectNumber) {
-		return em.find(Project.class, projectNumber);
+		return projectNumber == null ? null : em.find(Project.class, projectNumber);
 	}
 
 	/**
