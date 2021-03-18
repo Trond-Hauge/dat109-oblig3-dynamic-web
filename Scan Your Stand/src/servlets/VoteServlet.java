@@ -31,9 +31,9 @@ public class VoteServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String standId = request.getParameter("id");
+		String projectId = request.getParameter("id");
 		
-		if(standId == null) {
+		if(projectId == null) {
 			
 			request.getRequestDispatcher("WEB-INF/ChooseStand.jsp").forward(request, response);
 		}
@@ -48,7 +48,7 @@ public class VoteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String phone = request.getParameter("phone");
-		String standId = request.getParameter("standId"); //Hidden parameter
+		String projectId = request.getParameter("projectId"); //Hidden parameter
 		int points = Integer.parseInt(request.getParameter("points"));
 		
 		HttpSession sesjon = request.getSession(false);
@@ -59,7 +59,7 @@ public class VoteServlet extends HttpServlet {
         sesjon.setMaxInactiveInterval(Constants.USER_MAX_TIME_INACTIVE);
 		sesjon.setAttribute("phoneNumber", phone); //Can now be remembered the next time the spectator votes (prefilled)
         
-		Vote vote = new Vote(phone, standId);
+		Vote vote = new Vote(phone, projectId);
 		
 		Vote previous = dao.findVote(vote);
 		

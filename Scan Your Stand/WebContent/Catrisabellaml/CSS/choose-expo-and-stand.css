@@ -1,14 +1,17 @@
 
-.valg-left {
+.choose-left {
     float: left;
     border-radius: 15px;
-    width: var(--left-box);
-    background: rgba(255, 255, 255, .3);
+    width: var(--box-400);
     padding: 40px;
     margin: 0;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.choose-title {
+    margin-top: 0;
 }
 
 .exhibition {
@@ -25,7 +28,7 @@
     width: 100%;
 }
 
-.valg-right {
+.choose-right {
     float: right;
-    width: var(--right-box);
+    width: var(--box-400);
 }
