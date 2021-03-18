@@ -1,16 +1,16 @@
 
-.stand {
+.project {
     margin-top: 40px;
 }
 
-.stand-left {
+.project-left {
     float: left;
     border-radius: 15px;
     width: 300px;
     margin-right: 40px;
 }
 
-.vis-stand-title {
+.vis-project-title {
     display: block;
 }
 
@@ -18,41 +18,41 @@
     margin-bottom: 20px;
 }
 
-.vote-stand-cta {
+.vote-project-cta {
     width: 100%;
 }
 
-.stand-right {
+.project-right {
     float: right;
     width: 600px;
 }
 
-.stand-image {
+.project-image {
     margin-bottom: 20px;
 }
 
-.stand-form-left {
+.project-form-left {
     float: left;
     margin-right: 20px;
     width: 100px;
 }
 
-.stand-form-left label {
+.project-form-left label {
     display: inline-block;
     margin-bottom: 0;
     padding-bottom: 15px;
 }
 
-.stand-form-right {
+.project-form-right {
     float: right;
     width: var(--box-400);
 }
 
-.stand-vote {
+.project-vote {
     margin-top: 60px;
 }
 
-.stand-cta {
+.project-cta {
     margin-top: 15px;
     width: 100%;
 }
