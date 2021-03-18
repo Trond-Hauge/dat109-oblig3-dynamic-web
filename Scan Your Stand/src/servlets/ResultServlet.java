@@ -34,18 +34,21 @@ public class ResultServlet extends HttpServlet {
 		List<Vote> votes = voteDAO.getAllVotes();
 		List<Project> projects = projectDAO.getAllProjects();
 		
-		// Hashmap where each project is stored with their corresponding voter score
-		Map<String,Integer> resultMap = new LinkedHashMap<String,Integer>();
+		// Map where each project is stored with their corresponding voter score
+		Map<String,Integer> map = new LinkedHashMap<String,Integer>();
 		
-		// Calculates each voter score for every project and puts the values into the hashmap
+		// Calculates each voter score for every project and puts the values into the map
 		projects.forEach(s -> {
 			
 			int voteSum = VoteUtils.calculateVotes(s, votes);
-			resultMap.put(s.getProjectName(), voteSum);
+			map.put(s.getProjectName(), voteSum);
 			
 		});
 		
-		// Sets the hashmap as a request attribute
+		// Gets the sorted map
+		Map<String,Integer> resultMap = VoteUtils.getSortedProjectScoreMap(map);
+		
+		// Sets the sorted map as a request attribute
 		request.setAttribute("resultMap", resultMap);
 		
 		// Forwards to result.jsp

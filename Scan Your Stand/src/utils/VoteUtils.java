@@ -2,7 +2,6 @@ package utils;
 
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,13 +35,13 @@ public class VoteUtils {
 	/**
 	 * 
 	 * Accepts a phonenumber for identification of user votes, a list of all votes and a list of all projects.
-	 * Then collects the name of each stand the user has voted for and the corresponding points given in a HashMap.
+	 * Then collects the name of each stand the user has voted for and the corresponding points given in a map.
 	 * 
 	 * @author Oliver
 	 * @param phone Phonenumber
 	 * @param votes All votes
 	 * @param projects All projects
-	 * @return A HashMap of type <String,Integer> where the String value (key) is the name of a Project and the Integer value is the corresponding points.
+	 * @return A map of types <String,Integer> where the String value (key) is the name of a project and the Integer value is the corresponding points.
 	 */
 	public static Map<String,Integer> getUserVotes(String phone, List<Vote> votes, List<Project> projects) {
 		
@@ -62,7 +61,14 @@ public class VoteUtils {
 		
 	}
 	
-	public static Map<String,Integer> sortProjectScoreMap(Map<String,Integer> projectScoreMap) {
+	/**
+	 * Accepts an unsorted map of projects and points as parameter and returns a map containing the same elements, but sorted by points.
+	 * 
+	 * @author Oliver
+	 * @param projectScoreMap Unsorted map of projects and points to be sorted
+	 * @return sorted map of projects and score
+	 */
+	public static Map<String,Integer> getSortedProjectScoreMap(Map<String,Integer> projectScoreMap) {
 		
 		Map<String,Integer> sorted = new LinkedHashMap<String,Integer>();
 		List<String> projectNamesList = new ArrayList<String>();
@@ -80,27 +86,21 @@ public class VoteUtils {
 				
 				int sum = projectScoreMap.get(projectNamesList.get(i));
 				
-				if(i == projectNamesList.size() - 1) {
-					sorted.put(projectNamesList.get(maxIndex), maxSum);
-					projectNamesList.remove(maxIndex);
-				}
-				else if(sum > maxSum) {
+				if(sum > maxSum) {
 					maxSum = sum;
 					maxIndex = i;
+				}
+				
+				if(i == projectNamesList.size() - 1) {
+					sorted.put(projectNamesList.remove(maxIndex), maxSum);
 				}
 				
 			}
 			
 		}
-		
+
 		return sorted;
 		
 	}
+	
 }
-
-
-
-
-
-
-

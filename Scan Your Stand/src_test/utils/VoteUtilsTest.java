@@ -54,13 +54,13 @@ public class VoteUtilsTest {
 	}
 	
 	@Test
-	public void sortProjectScoreMapTest() {
+	public void getSortedProjectScoreMapTest() {
 		
 		Map<String,Integer> map = new LinkedHashMap<String,Integer>();
-		map.put("Key1", 4);
-		map.put("Key2", 1);
-		map.put("Key3", 2);
-		map.put("Key4", 3);
+		map.put("Key1", 1);
+		map.put("Key2", 4);
+		map.put("Key3", 3);
+		map.put("Key4", 2);
 		
 		int i = 0;
 		for(String s : map.keySet()) {
@@ -69,22 +69,22 @@ public class VoteUtilsTest {
 			
 			case 0: 
 				Assertions.assertEquals(s,"Key1"); 
-				Assertions.assertNotEquals(map.get(s), 1);
+				Assertions.assertNotEquals(map.get(s), 4);
 				break;
 			
 			case 1: 
 				Assertions.assertEquals(s,"Key2"); 
-				Assertions.assertNotEquals(map.get(s), 2);
+				Assertions.assertNotEquals(map.get(s), 3);
 				break;
 		
 			case 2: 
 				Assertions.assertEquals(s,"Key3"); 
-				Assertions.assertNotEquals(map.get(s), 3);
+				Assertions.assertNotEquals(map.get(s), 2);
 				break;
 			
 			case 3: 
 				Assertions.assertEquals(s,"Key4"); 
-				Assertions.assertNotEquals(map.get(s), 4);
+				Assertions.assertNotEquals(map.get(s), 1);
 				break;
 			
 			}
@@ -93,31 +93,31 @@ public class VoteUtilsTest {
 			
 		}
 		
-		Map<String,Integer> sorted = VoteUtils.sortProjectScoreMap(map);
+		Map<String,Integer> sorted = VoteUtils.getSortedProjectScoreMap(map);
 		
 		i = 0;
-		for(String s : map.keySet()) {
+		for(String s : sorted.keySet()) {
 			
 			switch(i) {
 			
 			case 0: 
 				Assertions.assertEquals(s,"Key2"); 
-				Assertions.assertEquals(map.get(s), 1);
+				Assertions.assertEquals(map.get(s), 4);
 				break;
 			
 			case 1: 
 				Assertions.assertEquals(s,"Key3"); 
-				Assertions.assertEquals(map.get(s), 2);
+				Assertions.assertEquals(map.get(s), 3);
 				break;
 		
 			case 2: 
 				Assertions.assertEquals(s,"Key4"); 
-				Assertions.assertEquals(map.get(s), 3);
+				Assertions.assertEquals(map.get(s), 2);
 				break;
 			
 			case 3: 
 				Assertions.assertEquals(s,"Key1"); 
-				Assertions.assertEquals(map.get(s), 4);
+				Assertions.assertEquals(map.get(s), 1);
 				break;
 			
 			}
@@ -126,14 +126,6 @@ public class VoteUtilsTest {
 			
 		}
 		
-		
 	}
-	
 
 }
-
-
-
-
-
-
