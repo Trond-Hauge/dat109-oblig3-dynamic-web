@@ -26,9 +26,7 @@
 				<label>Standnummer</label>
                 <select name="projectnr" class="standnr">
                     <c:forEach items="${projects}" var="p">
-						<option value="${p.project.projectNumber}">
-							${p.project.projectName}
-						</option>
+						<option value="${p.projectNumber}">${p.projectName}</option>
 					</c:forEach>
                 </select>
 
