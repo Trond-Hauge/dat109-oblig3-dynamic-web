@@ -48,6 +48,9 @@ public class VoteServlet extends HttpServlet {
 		if(project == null) {
 			
 			List<Project> projects = projectDAO.getAllProjects();
+			//testing
+			//projects.stream().map(p -> p.getProjectName()).forEach(System.out::println);
+			
 			request.setAttribute("projects", projects);
 			request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
 		}
