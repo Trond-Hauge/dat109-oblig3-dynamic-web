@@ -37,7 +37,7 @@ public class VoteServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String projectId = request.getParameter("id");
+		String projectId = request.getParameter("projectnr");
 		Project project = null;
 		
 		try {
@@ -52,7 +52,6 @@ public class VoteServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
 		}
 		else {
-			
 			request.setAttribute("project", project);
 			request.getRequestDispatcher("WEB-INF/project.jsp").forward(request, response);
 		}
