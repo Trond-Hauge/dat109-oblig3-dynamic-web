@@ -6,7 +6,7 @@
 .stand-left {
     float: left;
     border-radius: 15px;
-    width: var(--left-box);
+    width: 300px;
     margin-right: 40px;
 }
 
@@ -45,7 +45,7 @@
 
 .stand-form-right {
     float: right;
-    width: 400px;
+    width: var(--box-400);
 }
 
 .stand-vote {

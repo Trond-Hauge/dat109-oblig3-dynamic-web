@@ -1,8 +1,7 @@
 /* Global variables goes here */
 :root {
-    --dark: #242424;
-    --left-box: 300px;
-    --right-box: 400px;
+    --color-dark: #242424;
+    --box-400: 400px;
 }
 
 ::-moz-selection {
@@ -106,16 +105,8 @@ label {
     margin-bottom: 5px;
 }
 
-button[type=submit] {
-    background-color: #2e045038;
-    border: none;
-    color: white;
+a:hover {
     text-decoration: none;
-    padding: 12px 30px;
-    margin: 4px 2px;
-    cursor: pointer;
-    font-family: 'Squada One', cursive;
-    font-size: 16px;
 }
 
 input[type=text],
@@ -147,7 +138,7 @@ select:focus {
 .container-special {
     margin: 0 auto;
     width: 80%;
-    max-width: 800px;
+    max-width: 860px;
     overflow: hidden;
     position: absolute;
     top: 50%;
@@ -162,10 +153,10 @@ select:focus {
 }
 
 .button-default {
-    background-color: #000;
+    background-color: peachpuff;
     display: inline-block;
     border: none;
-    color: white;
+    color: #000;
     text-decoration: none;
     padding: 12px 30px;
     cursor: pointer;
@@ -173,6 +164,11 @@ select:focus {
     font-size: 16px;
     border-radius: 15px;
     opacity: .6;
+    transition: all .25s ease-in-out;
+}
+
+.button-default:hover {
+    opacity: .85;
 }
 
 .transparent-bg {

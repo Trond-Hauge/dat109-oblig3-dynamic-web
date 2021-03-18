@@ -9,49 +9,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/view-results.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="resultat-left">
-            <table class="results-table">
-                <tr>
-                  <th>Resultat</th>
-                  <th>Totale Stemmer</th>
-                </tr>
-                <tr>
-                  <td>Stand 1</td>
-                  <td>1000</td>
-                </tr>
-                <tr>
-                  <td>Stand 2</td>
-                  <td>200</td>
-                </tr>
-                <tr>
-                    <td>Stand 3</td>
-                    <td>50</td>
-                </tr>
-                  <tr>
-                    <td>Stand 4</td>
-                    <td>0</td>
-                  </tr>
-                </tr>
-              </table>
+    <div class="view-results container-special">
+        <div class="view-results-box transparent-bg">
+            <div class="view-results-left">
+                <table class="view-results-table">
+                    <tr class="view-results-table-top">
+                        <th class="view-results-col1">Resultat</th>
+                        <th class="view-results-col2">Totale Stemmer</th>
+                    </tr>
 
-            <form class="login-form" action="" method="POST">
-                <input type="submit" class="vote-again-cta button-default" value="Gi ny stemme">
-            </form>
-        </div><!--.resultat-left-->
-      </div> <!--.container-->
+                    <tr>
+                        <td>Stand 1</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>Stand 2</td>
+                        <td>200</td>
+                    </tr>
+                    <tr>
+                        <td>Stand 3</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>Stand 4</td>
+                        <td>0</td>
+                    </tr>
+                    </tr>
+                </table> <!--.view-results-table-->
 
-        <div class="container">
-            <div class="back">
-                <nav class="back-nav">
-                    <ul class="back-nav-button">
-                        <li class="main-nav-list-item"><a href="#">Tilbake</a></li>
-                    </ul>
-                </nav>
+                <form class="view-results-form" action="" method="POST">
+                    <input type="submit" class="vote-again-cta button-default" value="Gi ny stemme">
+                </form>
             </div>
-        </div><!--.container-->
+        </div>
+
+        <a class="vote-success-tilbake" href="#">&larr; Tilbake</a>
+    </div><!--.view-results-->
 </body>
 </html>

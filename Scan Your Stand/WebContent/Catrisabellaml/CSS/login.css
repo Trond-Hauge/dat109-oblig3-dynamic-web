@@ -1,11 +1,7 @@
 
-.login {
-
-}
-
 .login-left {
     float: left;
-    width: 300px;
+    width: var(--box-400);
     margin: 0;
     position: absolute;
     top: 50%;
@@ -26,13 +22,13 @@
 }
 
 .sign-in-cta {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 100%;
 }
 
 .login-right {
     float: right;
-    width: 400px;
+    width: var(--box-400);
 }
 
 /* ===== ADMIN LOGIN ===== */
@@ -43,4 +39,10 @@
 
 .password {
     margin-bottom: 10px;
+}
+
+.login-admin-cta {
+    display: inline-block;
+    margin-top: 10px;
+    width: 100%;
 }
