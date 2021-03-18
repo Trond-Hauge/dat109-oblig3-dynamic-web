@@ -1,6 +1,8 @@
 package utils;
 
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -59,5 +61,46 @@ public class VoteUtils {
 		return map;
 		
 	}
-
+	
+	public static Map<String,Integer> sortProjectScoreMap(Map<String,Integer> projectScoreMap) {
+		
+		Map<String,Integer> sorted = new LinkedHashMap<String,Integer>();
+		List<String> projectNamesList = new ArrayList<String>();
+		
+		for(String name : projectScoreMap.keySet()) {
+			projectNamesList.add(name);
+		}
+		
+		while(projectNamesList.size() > 0) {
+			
+			int maxIndex = 0;
+			int maxSum = 0;
+			
+			for(int i = 0; i < projectNamesList.size(); i++) {
+				
+				int sum = projectScoreMap.get(projectNamesList.get(i));
+				
+				if(i == projectNamesList.size() - 1) {
+					sorted.put(projectNamesList.get(maxIndex), maxSum);
+					projectNamesList.remove(maxIndex);
+				}
+				else if(sum > maxSum) {
+					maxSum = sum;
+					maxIndex = i;
+				}
+				
+			}
+			
+		}
+		
+		return sorted;
+		
+	}
 }
+
+
+
+
+
+
+

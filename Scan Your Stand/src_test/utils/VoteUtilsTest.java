@@ -1,8 +1,9 @@
 package utils;
 
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -44,12 +45,95 @@ public class VoteUtilsTest {
 	@Test
 	public void getUserVotesTest() {
 		
-		HashMap<String,Integer> map = VoteUtils.getUserVotes("47474747", votes, projects);
+		Map<String,Integer> map = VoteUtils.getUserVotes("47474747", votes, projects);
 		
 		Assertions.assertTrue(map != null);
 		map.keySet().forEach(k -> Assertions.assertEquals(k,"stand1"));
 		Assertions.assertEquals(map.get("stand1"), 1);
 		
 	}
+	
+	@Test
+	public void sortProjectScoreMapTest() {
+		
+		Map<String,Integer> map = new LinkedHashMap<String,Integer>();
+		map.put("Key1", 4);
+		map.put("Key2", 1);
+		map.put("Key3", 2);
+		map.put("Key4", 3);
+		
+		int i = 0;
+		for(String s : map.keySet()) {
+			
+			switch(i) {
+			
+			case 0: 
+				Assertions.assertEquals(s,"Key1"); 
+				Assertions.assertNotEquals(map.get(s), 1);
+				break;
+			
+			case 1: 
+				Assertions.assertEquals(s,"Key2"); 
+				Assertions.assertNotEquals(map.get(s), 2);
+				break;
+		
+			case 2: 
+				Assertions.assertEquals(s,"Key3"); 
+				Assertions.assertNotEquals(map.get(s), 3);
+				break;
+			
+			case 3: 
+				Assertions.assertEquals(s,"Key4"); 
+				Assertions.assertNotEquals(map.get(s), 4);
+				break;
+			
+			}
+			
+			i++;
+			
+		}
+		
+		Map<String,Integer> sorted = VoteUtils.sortProjectScoreMap(map);
+		
+		i = 0;
+		for(String s : map.keySet()) {
+			
+			switch(i) {
+			
+			case 0: 
+				Assertions.assertEquals(s,"Key2"); 
+				Assertions.assertEquals(map.get(s), 1);
+				break;
+			
+			case 1: 
+				Assertions.assertEquals(s,"Key3"); 
+				Assertions.assertEquals(map.get(s), 2);
+				break;
+		
+			case 2: 
+				Assertions.assertEquals(s,"Key4"); 
+				Assertions.assertEquals(map.get(s), 3);
+				break;
+			
+			case 3: 
+				Assertions.assertEquals(s,"Key1"); 
+				Assertions.assertEquals(map.get(s), 4);
+				break;
+			
+			}
+			
+			i++;
+			
+		}
+		
+		
+	}
+	
 
 }
+
+
+
+
+
+
