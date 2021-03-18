@@ -1,8 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,12 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import project.Project;
 import project.ProjectDAO;
-import utils.VoteUtils;
 import vote.Vote;
 import vote.VoteDAO;
 
-@WebServlet("/myvotes")
-public class MyVotesServlet extends HttpServlet {
+@WebServlet("/confirmation")
+public class ConfirmationServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -25,19 +22,35 @@ public class MyVotesServlet extends HttpServlet {
 	
 	@EJB
 	private ProjectDAO projectDAO;
-
+ 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String phone = request.getParameter("phone");
-		List<Vote> votes = voteDAO.getAllVotes();
-		List<Project> projects = projectDAO.getAllProjects();
-		Map<String,Integer> projectsAndPoints = VoteUtils.getUserVotes(phone, votes, projects);
-
-		if(projectsAndPoints == null) {
-			request.getRequestDispatcher("WEB-INF/project.jsp").forward(request, response);
+		String projectId = request.getParameter("id");
+		String phone = (String) request.getSession().getAttribute("phone");
+		
+		if(projectId == null || phone == null) {
+			response.sendRedirect("result");
 		}
 		else {
-			request.getRequestDispatcher("WEB-INF/myvotes.jsp").forward(request, response);
+			
+			Vote vote = null;
+			Project project = null;
+			
+			try {
+				vote = voteDAO.findVote(new Vote(phone, projectId));
+				project = projectDAO.findProjectByID(projectId);
+			}
+			catch(Exception e) {}
+			
+			if(vote == null || project == null) {
+				response.sendRedirect("result");
+			}
+			else {
+				request.setAttribute("project", project);
+				request.setAttribute("vote", vote);
+				request.getRequestDispatcher("WEB-INF/vote-success").forward(request, response);
+			}
+	
 		}
 		
 	}
@@ -45,16 +58,7 @@ public class MyVotesServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		
-		String phone = (String) request.getSession().getAttribute("phoneNumber");
-		if(phone == null) {
-			phone = "";
-		}
-		else {
-			phone = "?phone=" + phone;
-		}
-		
-		response.sendRedirect("myvotes" + phone);
+		response.sendRedirect("result");
 		
 	}
 

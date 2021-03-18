@@ -17,49 +17,55 @@
 <body>
     <div class="project container clearfix">
         <div class="project-left transparent-bg">
-            <img class="login-logo" src="https://via.placeholder.com/400x400.png/" alt="">
-            <p class="project-name">${project.author}</p>
-            <p class="project-project-name">Prosjekt: ${project.name}</p>
+            <img class="project-avatar" src="https://via.placeholder.com/400x400.png/" alt="">
+            <p class="project-author"><c:out value="${project.author}"></c:out></p>
+            <p class="project-name">Prosjekt: <c:out value="${project.name}"></c:out></p>
         </div> <!--.project-left-->
 
         <div class="project-right transparent-bg">
             <div class="project-right-top">
                 <img class="project-image" src="https://via.placeholder.com/600x300.png/" alt="">
-                <p></p>
+                <p><c:out value="${project.description}"></c:out></p>
             </div>
 
             <div class="project-vote">
                 <form class="project-form clearfix" action="" method="POST">
                     <div class="project-form-left">
                         <label>
-                            <input type="radio" name="number" value="0">
+                            <input type="radio" name="points" value="0">
                             0 poeng
                         </label>
                         <label>
-                            <input type="radio" name="number" value="1">
+                            <input type="radio" name="points" value="1">
                             1 poeng
                         </label>
                         <label>
-                            <input type="radio" name="number" value="2">
+                            <input type="radio" name="points" value="2">
                             2 poeng
                         </label>
                         <label>
-                            <input type="radio" name="number" value="3">
+                            <input type="radio" name="points" value="3">
                             3 poeng
                         </label>
                         <label>
-                            <input type="radio" name="number" value="4">
+                            <input type="radio" name="points" value="4">
                             4 poeng
                         </label>
                         <label>
-                            <input type="radio" name="number" value="5">
+                            <input type="radio" name="points" value="5">
                             5 poeng
                         </label>
                     </div>
 
                     <div class="project-form-right">
                         <label for="project-phone">Telefonnummer</label>
-                        <input type="text" class="project-phonenumber" name="number" placeholder="Telefonnummer">
+                        <input
+                            type="text"
+                            class="project-phonenumber"
+                            name="number"
+                            placeholder="Telefonnummer"
+                            value="<c:out value='${user.phonenumber}'></c:out>"
+                        >
                         <input type="submit" class="project-cta button-default" value="Stem">
                     </div>
                 </form> <!--.project-form-->

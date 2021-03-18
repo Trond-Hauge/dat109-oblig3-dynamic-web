@@ -38,18 +38,23 @@ public class VoteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String projectId = request.getParameter("id");
-		Project project = projectDAO.findProjectByID(projectId);
+		Project project = null;
+		
+		try {
+			project = projectDAO.findProjectByID(projectId);
+		}
+		catch(Exception e) {}
 		
 		if(project == null) {
 			
 			List<Project> projects = projectDAO.getAllProjects();
 			request.setAttribute("projects", projects);
-			request.getRequestDispatcher("WEB-INF/chooseStand.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
 		}
 		else {
 			
 			request.setAttribute("project", project);
-			request.getRequestDispatcher("WEB-INF/voting.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/project.jsp").forward(request, response);
 		}
 	}
 
@@ -80,6 +85,6 @@ public class VoteServlet extends HttpServlet {
 		vote.setPoints(points);
 		voteDAO.add(vote);
 		
-		request.getRequestDispatcher("WEB-INF/confirmation.jsp").forward(request, response);
+		response.sendRedirect("confirmation?id" + projectId);
 	}
 }

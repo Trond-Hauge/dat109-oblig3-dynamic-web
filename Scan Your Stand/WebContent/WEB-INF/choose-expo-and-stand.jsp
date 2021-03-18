@@ -17,18 +17,18 @@
 <body>
 	<div class="choose container-special clearfix">
         <div class="choose-left transparent-bg">
-            <form class="choose-form" action="" method="POST">
+            <form class="choose-form" action="vote" method="GET">
                 <h1 class="choose-title">Velg expo</h1>
 
-                <label for="exhibition">Utstilling</label>
+                <label>Utstilling</label>
                 <input type="text" class="exhibition" name="exhibition">
-                <label for="standnr">Standnummer</label>
 
-                <select name="standnr" class="standnr">
-                    <option value="Stand 1">Stand 1</option>
-                    <option value="Stand 2">Stand 2</option>
-                    <option value="Stand 3">Stand 3</option>
-                    <option value="Stand 4">Stand 4</option>
+				<label>Standnummer</label>
+                <select name="projectnr" class="standnr">
+                    <option value="1">Stand 1</option>
+                    <option value="2">Stand 2</option>
+                    <option value="3">Stand 3</option>
+                    <option value="4">Stand 4</option>
                 </select>
 
                 <input type="submit" class="vote-cta button-default" value="Stem">

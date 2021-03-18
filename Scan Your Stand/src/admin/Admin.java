@@ -13,6 +13,8 @@ public class Admin {
 	private String username;
 	private String hashedPassword;
 	
+	public Admin() {}
+	
 	public Admin(String username, String password) {
 		this.username = username;
 		this.hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(12));
