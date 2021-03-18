@@ -18,14 +18,14 @@
     <div class="project container clearfix">
         <div class="project-left transparent-bg">
             <img class="project-avatar" src="https://via.placeholder.com/400x400.png/" alt="">
-            <p class="project-author"><c:out value="${project.author}"></c:out></p>
-            <p class="project-name">Prosjekt: <c:out value="${project.name}"></c:out></p>
+            <p class="project-author"></p>
+            <p class="project-name">Prosjekt: <c:out value="${project.projectName}"></c:out></p>
         </div> <!--.project-left-->
 
         <div class="project-right transparent-bg">
             <div class="project-right-top">
                 <img class="project-image" src="https://via.placeholder.com/600x300.png/" alt="">
-                <p><c:out value="${project.description}"></c:out></p>
+                <p></p>
             </div>
 
             <div class="project-vote">
@@ -33,7 +33,7 @@
                     <input
                         type="hidden"
                         name="projectid"
-                        value="<c:out value='${project.id}'></c:out>"
+                        value="<c:out value='${project.projectNumber}'></c:out>"
                     >
 
                     <div class="project-form-left">
@@ -70,7 +70,7 @@
                             class="project-phonenumber"
                             name="number"
                             placeholder="Telefonnummer"
-                            value="<c:out value='${user.phonenumber}'></c:out>"
+                            value="${phone}"
                         >
                         <input type="submit" class="project-cta button-default" value="Stem">
                     </div>
