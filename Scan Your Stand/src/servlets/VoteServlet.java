@@ -49,12 +49,12 @@ public class VoteServlet extends HttpServlet {
 			
 			List<Project> projects = projectDAO.getAllProjects();
 			request.setAttribute("projects", projects);
-			request.getRequestDispatcher("WEB-INF/chooseStand.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
 		}
 		else {
 			
 			request.setAttribute("project", project);
-			request.getRequestDispatcher("WEB-INF/voting.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/project.jsp").forward(request, response);
 		}
 	}
 
