@@ -40,11 +40,8 @@ public class VoteServlet extends HttpServlet {
 		
 		String projectId = request.getParameter("projectnr");
 		Project project = null;
-		
-		try {
-			project = projectDAO.findProjectByID(projectId);
-		}
-		catch(Exception e) {}
+	
+		project = projectDAO.findProjectByID(projectId);	
 		
 		if(project == null) {
 			
@@ -56,6 +53,7 @@ public class VoteServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
 		}
 		else {
+			
 			request.setAttribute("project", project);
 			request.getRequestDispatcher("WEB-INF/project.jsp").forward(request, response);
 		}
