@@ -85,6 +85,6 @@ public class VoteServlet extends HttpServlet {
 		vote.setPoints(points);
 		voteDAO.add(vote);
 		
-		request.getRequestDispatcher("WEB-INF/confirmation.jsp").forward(request, response);
+		response.sendRedirect("confirmation?id" + projectId);
 	}
 }
