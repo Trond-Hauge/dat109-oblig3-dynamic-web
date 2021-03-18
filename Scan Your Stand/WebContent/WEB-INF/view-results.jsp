@@ -24,32 +24,21 @@
                         <th class="view-results-col2">Totale Stemmer</th>
                     </tr>
 
-                    <tr>
-                        <td>Stand 1</td>
-                        <td>1000</td>
-                    </tr>
-                    <tr>
-                        <td>Stand 2</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>Stand 3</td>
-                        <td>50</td>
-                    </tr>
-                    <tr>
-                        <td>Stand 4</td>
-                        <td>0</td>
-                    </tr>
-                    </tr>
+                    <c:forEach items="${resultMap}" var="p">
+                        <tr>
+                            <td>${p.key}</td>
+                            <td>${p.value}</td>
+                        </tr>
+                    </c:forEach>
                 </table> <!--.view-results-table-->
 
-                <form class="view-results-form" action="" method="POST">
+                <form class="view-results-form" action="vote" method="GET">
                     <input type="submit" class="vote-again-cta button-default" value="Gi ny stemme">
                 </form>
-            </div>
-        </div>
+            </div> <!--.view-results-left-->
+        </div> <!--.view-results-box-->
 
         <a class="vote-success-tilbake" href="#">&larr; Tilbake</a>
-    </div><!--.view-results-->
+    </div> <!--.view-results-->
 </body>
 </html>

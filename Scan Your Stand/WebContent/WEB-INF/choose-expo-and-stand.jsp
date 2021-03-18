@@ -25,10 +25,11 @@
 
 				<label>Standnummer</label>
                 <select name="projectnr" class="standnr">
-                    <option value="1">Stand 1</option>
-                    <option value="2">Stand 2</option>
-                    <option value="3">Stand 3</option>
-                    <option value="4">Stand 4</option>
+                    <c:forEach items="${projects}" var="p">
+						<option value="${p.project.projectNumber}">
+							${p.project.projectName}
+						</option>
+					</c:forEach>
                 </select>
 
                 <input type="submit" class="vote-cta button-default" value="Stem">

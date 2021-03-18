@@ -30,6 +30,12 @@
 
             <div class="project-vote">
                 <form class="project-form clearfix" action="" method="POST">
+                    <input
+                        type="hidden"
+                        name="projectid"
+                        value="<c:out value='${project.id}'></c:out>"
+                    >
+
                     <div class="project-form-left">
                         <label>
                             <input type="radio" name="points" value="0">
