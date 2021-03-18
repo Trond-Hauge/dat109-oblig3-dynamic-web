@@ -30,7 +30,7 @@ public class AdminServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 		}
 		else {
-			request.getRequestDispatcher("WEB-INF/adminLogin.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/login-admin.jsp").forward(request, response);
 		}
 		
 	}

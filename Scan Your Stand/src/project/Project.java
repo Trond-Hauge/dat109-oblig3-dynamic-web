@@ -25,6 +25,8 @@ public class Project {
 
 	@OneToMany(mappedBy = "stand")
 	private List<Vote> votes;
+	
+	public Project() {}
 
 	public Project(String projectNumber, String projectName) {
 		this.projectNumber = projectNumber;
