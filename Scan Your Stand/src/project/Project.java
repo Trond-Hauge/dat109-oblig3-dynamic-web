@@ -23,7 +23,7 @@ public class Project {
 	private String projectNumber;
 	private String projectName;
 
-	@OneToMany(mappedBy = "stand")
+	@OneToMany(mappedBy = "project")
 	private List<Vote> votes;
 	
 	public Project() {}

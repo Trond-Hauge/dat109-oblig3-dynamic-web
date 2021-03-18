@@ -26,7 +26,7 @@ public class VoteDAO {
 	 */
 	public List<Vote> getAllVotes() {
 
-		String jpql = "SELECT v from VOTE v";
+		String jpql = "SELECT v FROM Vote v";
 		TypedQuery<Vote> query = em.createQuery(jpql, Vote.class);
 
 		return query.getResultList();
@@ -49,6 +49,7 @@ public class VoteDAO {
 	 * @param Vote previous
 	 */
 	public void remove(Vote previous) {
+		previous = em.merge(previous);
 		em.remove(previous);
 	}
 

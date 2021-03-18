@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -30,7 +29,7 @@ public class Vote implements Serializable{
 	
 	@ManyToOne
 	@PrimaryKeyJoinColumn(name = "projectNumber", referencedColumnName = "projectNumber")
-	private Project stand;
+	private Project project;
 	
 	public Vote() {}
 
@@ -54,6 +53,7 @@ public class Vote implements Serializable{
 	public void setProjectNumber(String projectNumber) {
 		this.projectNumber = projectNumber;
 	}
+	
 	public void setPoints(int points) {
 		this.points = points;
 	}
