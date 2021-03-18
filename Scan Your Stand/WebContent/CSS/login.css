@@ -46,3 +46,6 @@
     margin-top: 10px;
     width: 100%;
 }
+.login-error {
+    color: red;
+}
