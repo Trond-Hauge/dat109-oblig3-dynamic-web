@@ -25,19 +25,19 @@ public class ResultServlet extends HttpServlet {
 	private VoteDAO voteDAO;
 	
 	@EJB
-	private ProjectDAO standDAO;
+	private ProjectDAO projectDAO;
 	
 	// Readies data before forwarding to result.jsp
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<Vote> votes = voteDAO.getAllVotes();
-		List<Project> stands = standDAO.getAllProjects();
+		List<Project> projects = projectDAO.getAllProjects();
 		
-		// Hashmap where each Stand is stored with their corresponding voter score
+		// Hashmap where each project is stored with their corresponding voter score
 		HashMap<String,Integer> resultMap = new HashMap<String,Integer>();
 		
-		// Calculates each voter score for every stand and puts the values into the hashmap
-		stands.forEach(s -> {
+		// Calculates each voter score for every project and puts the values into the hashmap
+		projects.forEach(s -> {
 			
 			int voteSum = VoteUtils.calculateVotes(s, votes);
 			resultMap.put(s.getProjectName(), voteSum);
