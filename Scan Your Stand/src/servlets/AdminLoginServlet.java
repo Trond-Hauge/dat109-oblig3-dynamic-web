@@ -14,7 +14,7 @@ import utils.AdminUtils;
 import utils.BCrypt;
 
 @WebServlet("/admin")
-public class AdminServlet extends HttpServlet {
+public class AdminLoginServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
