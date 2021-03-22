@@ -75,7 +75,6 @@ public class MyQr {
 	        LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);
 	        BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
 
-
 	        try {
 	            Result result = new MultiFormatReader().decode(bitmap);
 	            return result.getText();
@@ -97,9 +96,6 @@ public class MyQr {
         // Encoding charset
         String charset = "UTF-8";
         
-        // List of stands to generate QR codes for.
-  
-        
         for(Project p: projects) {
         	
         	Map<EncodeHintType, ErrorCorrectionLevel> hashMap
@@ -108,7 +104,6 @@ public class MyQr {
 	        hashMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 	 
 	        String id = p.getProjectNumber();
-	        
 	    
 	        // Create the QR code and save in the specified folder as a jpg file
 	        try {
