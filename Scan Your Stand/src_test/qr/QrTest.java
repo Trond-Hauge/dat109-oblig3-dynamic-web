@@ -27,20 +27,21 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 public class QrTest {
 
     private String URL = "www.testing?id=1";
+    private MyQr qr = new MyQr();
 
     @BeforeAll
     public void setUp() throws WriterException, IOException {
         Map<EncodeHintType, ErrorCorrectionLevel> hashMap
         = new HashMap<EncodeHintType, ErrorCorrectionLevel>();
 
-        MyQr.createQR(URL, "src/qr/qr-codes/testQR.png", "UTF-8", hashMap, 200, 200);
+        qr.createQR(URL, "src/qr/qr-codes/testQR.png", "UTF-8", hashMap, 200, 200);
     }
 
     @Test
     public void correctURLStored() throws IOException {
 
         File file = new File("src/qr/qr-codes/testQR.png");
-        String readURL = MyQr.QRCodeValidator(file);
+        String readURL = qr.QRCodeValidator(file);
 
         assertEquals(readURL, URL);
 
@@ -50,7 +51,7 @@ public class QrTest {
     public void OnlyCorrectURLStored() throws IOException {
 
         File file = new File("src/qr/qr-codes/testQR.png");
-        String readURL = MyQr.QRCodeValidator(file);
+        String readURL = qr.QRCodeValidator(file);
 
         assertNotEquals(readURL, URL + "2");
         assertNotEquals(readURL, URL.substring(1));
