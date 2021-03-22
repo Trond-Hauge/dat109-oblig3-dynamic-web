@@ -33,7 +33,7 @@ import project.Project;
  */
 
 public class MyQr {
-	
+
     /**
      * Method used to create QR coded
      * 
@@ -46,7 +46,7 @@ public class MyQr {
      * @throws WriterException
      * @throws IOException
      */
-    public void createQR(String data, String path,
+    public static void createQR(String data, String path,
                                 String charset, Map hashMap,
                                 int height, int width)
         throws WriterException, IOException
@@ -69,7 +69,7 @@ public class MyQr {
      * @return the URL or null
      * @throws IOException
      */
-    public String QRCodeValidator(File qrCodeimage) throws IOException 
+    public static String QRCodeValidator(File qrCodeimage) throws IOException 
     {
 		    BufferedImage bufferedImage = ImageIO.read(qrCodeimage);
 	        LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);
@@ -84,7 +84,7 @@ public class MyQr {
  	  }
 	}
     
-    public void createQrCodesForProjects(List<Project> projects) {
+    public static void createQrCodesForProjects(List<Project> projects) {
     	
     	// The data that the QR code will contain
     	// Will concatenate corresponding ID
