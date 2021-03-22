@@ -29,8 +29,7 @@ public class MainQR {
 		list.add(p3);
 		list.add(p4);
 		list.add(p5);
-		
-		MyQr qr = new MyQr();
+	
 		MyQr.createQrCodesForProjects(list);
 	}
 
