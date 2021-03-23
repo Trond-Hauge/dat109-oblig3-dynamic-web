@@ -21,11 +21,13 @@
             <h1 class="vote-success-title">Takk for din stemme!</h1>
 
             <div class="vote-success-links">
-                <a class="view-results button-default" href="view-results">
+                <a class="view-results button-default" href="result">
                     Vis resultat
                 </a>
+                
+                <p></p>
 
-                <a class="new-vote button-default" href="#">
+                <a class="new-vote button-default" href="vote">
                     Endre min stemme
                 </a>
             </div>

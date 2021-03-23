@@ -75,6 +75,7 @@ public class VoteServlet extends HttpServlet {
         sesjon = request.getSession(true);
         sesjon.setMaxInactiveInterval(Constants.USER_MAX_TIME_INACTIVE);
 		sesjon.setAttribute("phoneNumber", phone); //Can now be remembered the next time the spectator votes (prefilled)
+		sesjon.setAttribute("lastVotedProjectId", projectId); // Session remembers lasted voted project, this allows confirmation page to properly display in more cases
         
 		VoteID voteId = new VoteID(phone, projectId);
 		Vote previous = voteDAO.findVote(voteId);
@@ -86,6 +87,6 @@ public class VoteServlet extends HttpServlet {
 		Vote vote = new Vote(phone, projectId, points);
 		voteDAO.add(vote);
 		
-		response.sendRedirect("confirmation?id=" + projectId);
+		response.sendRedirect("confirmation");
 	}
 }

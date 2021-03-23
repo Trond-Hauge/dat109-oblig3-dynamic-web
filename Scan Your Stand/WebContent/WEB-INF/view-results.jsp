@@ -39,7 +39,7 @@
             </div> <!--.view-results-left-->
         </div> <!--.view-results-box-->
 
-        <a class="vote-success-tilbake" href="#">&larr; Tilbake</a>
+        <a class="vote-success-tilbake" href="confirmation">&larr; Tilbake</a>
     </div> <!--.view-results-->
 </body>
 </html>

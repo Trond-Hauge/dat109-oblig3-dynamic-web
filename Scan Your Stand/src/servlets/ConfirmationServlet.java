@@ -26,7 +26,7 @@ public class ConfirmationServlet extends HttpServlet {
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String projectId = request.getParameter("id");
+		String projectId = (String) request.getSession().getAttribute("lastVotedProjectId");
 		String phone = (String) request.getSession().getAttribute("phoneNumber");
 		
 		if(projectId == null || phone == null) {
@@ -58,6 +58,7 @@ public class ConfirmationServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// Should not post to this servlet, by default redirects to result
 		request.setCharacterEncoding("UTF-8");
 		response.sendRedirect("result");
 		
