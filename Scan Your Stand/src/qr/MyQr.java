@@ -90,10 +90,6 @@ public class MyQr {
     	// Will concatenate corresponding ID
         String data = "www.ourApplication.com?";
  
-        // The path where the image will get saved, the QR Codes folder under the src folder.
-        //String path = "src/qr/qr-codes/";
-        String path = "/Scan Your Stand/WebContent/qr-codes/";
- 
         // Encoding charset
         String charset = "UTF-8";
         
@@ -101,14 +97,15 @@ public class MyQr {
         	
         	Map<EncodeHintType, ErrorCorrectionLevel> hashMap
             	= new HashMap<EncodeHintType, ErrorCorrectionLevel>();
- 
-	        hashMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 	 
 	        String id = p.getProjectNumber();
-	      
-	        // Create the QR code and save in the specified folder as a jpg file
+	        
+	        //Path relative to webcontent. Path should be correct, but file cant be found. The file was created when testing 
+	        String path = "/qr-codes/" + id + ".png";
+	        
+	        // Create the QR code and save in the specified folder as a png file
 	        try {
-				createQR(data + "id=" + id, path + id + ".png", charset, hashMap, 200, 200);
+				createQR(data + "id=" + id, path, charset, hashMap, 200, 200);
 			} catch (WriterException | IOException e) {
 				e.printStackTrace();
 			}    
