@@ -35,6 +35,7 @@ public class AdminDAO {
 	 * @param Admin
 	 */
 	public void removeAdmin(Admin admin) {
+		admin = em.merge(admin);
 		em.remove(admin);
 	}
 }
