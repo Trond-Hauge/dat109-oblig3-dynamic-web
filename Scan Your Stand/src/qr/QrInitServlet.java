@@ -1,4 +1,4 @@
-package servlets;
+package qr;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import project.Project;
 import project.ProjectDAO;
-import qr.MyQr;
 
 /**
  * Servlet implementation class QrInitServlet
