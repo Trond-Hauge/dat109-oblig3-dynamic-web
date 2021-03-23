@@ -30,6 +30,6 @@ INSERT INTO Vote (phone, projectNumber, points) VALUES
 CREATE TABLE Admin
 (
 username		CHARACTER VARYING (20),
-hashedPassword	CHARACTER VARYING (50), --Assuming no set length
+hashedPassword	CHARACTER VARYING (64), --Assuming no set length
 CONSTRAINT AdminPK PRIMARY KEY (username)
 );
