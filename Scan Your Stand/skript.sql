@@ -30,6 +30,20 @@ INSERT INTO Vote (phone, projectNumber, points) VALUES
 CREATE TABLE Admin
 (
 username		CHARACTER VARYING (20),
-hashedPassword	CHARACTER VARYING (64), --Assuming no set length
+hashedPassword	CHARACTER VARYING (64), 
 CONSTRAINT AdminPK PRIMARY KEY (username)
 );
+
+CREATE TABLE Exhibition
+(
+id				SERIAL,
+name			CHARACTER VARYING (20),
+isActive		BOOLEAN,
+start			DATE,
+stop			DATE,
+CONSTRAINT ExhibitionPK PRIMARY KEY (id)
+);
+
+INSERT INTO Exhibition (name, isActive, start, stop) VALUES
+('EXPO 2021', true, '2021-08-04', '2021-08-08'),
+('EXPO 2020', false, '2020-08-01', '2020-08-04');
