@@ -23,6 +23,13 @@
     text-align: center;
 
 }
+.choose-date-admin {
+    margin-bottom: 20px;
+}
+
+.control {
+    margin-bottom: 20px;
+}
 .start-vote {
     margin-right: 10px;
 }

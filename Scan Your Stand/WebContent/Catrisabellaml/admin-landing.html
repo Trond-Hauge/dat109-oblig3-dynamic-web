@@ -20,6 +20,20 @@
         
         <div class="admin-landing-bot transparent-bg">
             <div class="admin-landing-links">
+                <div class="choose-date-admin">
+                    <label for="starttado">Starttado:</label>
+                    <input th:field="${vote.timeVote}" type="date" id="starttado" name="starttado">
+                </div>
+                <div class="timer">
+                    <span class="hour">00</span>:<span class="minute">00</span>:<span class="second">10</span>
+                </div>
+                <div class="control">
+                    <button onClick="timer.start(1000)">Start</button> 
+                    <button onClick="timer.stop()">Stop</button> 
+                    <button onClick="timer.reset(60)">Reset</button> 
+                    <button onClick="timer.mode(1)">Count up</button> 
+                    <button onClick="timer.mode(0)">Count down</button>
+                </div>
                 <a class="start-vote button-default" href="view-results.html">
                     Start avstemning
                 </a>
