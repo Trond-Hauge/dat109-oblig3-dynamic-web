@@ -41,4 +41,13 @@ public class ProjectDAO {
 	    TypedQuery<Project> query = em.createQuery(jpql, Project.class);
 	    return query.getResultList();
 	}
+	
+	/**
+	 * Adds a project
+	 * 
+	 * @param project
+	 */
+	public void addProject(Project project) {
+		em.persist(project);
+	}
 }
