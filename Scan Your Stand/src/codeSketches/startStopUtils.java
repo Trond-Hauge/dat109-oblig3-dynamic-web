@@ -48,6 +48,11 @@ public class startStopUtils {
 		}
 	}
 	
-	
-
+	/*In the VoteServlet {
+		
+		//concept/ thought/ pseudocode - clearly won't work by itself
+		if(ExhibitionDAO.getActives() == 0) {
+			
+		}
+	}*/
 }
