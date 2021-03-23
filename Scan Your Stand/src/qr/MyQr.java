@@ -91,7 +91,8 @@ public class MyQr {
         String data = "www.ourApplication.com?";
  
         // The path where the image will get saved, the QR Codes folder under the src folder.
-        String path = "src/qr/qr-codes/";
+        //String path = "src/qr/qr-codes/";
+        String path = "/Scan Your Stand/WebContent/qr-codes/";
  
         // Encoding charset
         String charset = "UTF-8";
@@ -104,10 +105,10 @@ public class MyQr {
 	        hashMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 	 
 	        String id = p.getProjectNumber();
-	    
+	      
 	        // Create the QR code and save in the specified folder as a jpg file
 	        try {
-				createQR(data + "id=" + id, path + "project" + id + ".png", charset, hashMap, 200, 200);
+				createQR(data + "id=" + id, path + id + ".png", charset, hashMap, 200, 200);
 			} catch (WriterException | IOException e) {
 				e.printStackTrace();
 			}    
