@@ -22,6 +22,19 @@ public class startStopUtils {
 		private Date start;
 		private Date stop;
 		
+		//If problems with date formatting, check:
+		//https://stackabuse.com/how-to-get-current-date-and-time-in-java/
+		
+		public void startNow() {
+			isActive = true;
+			start = new Date(System.currentTimeMillis());
+		}
+		
+		public void stopNow() {
+			isActive = false;
+			stop = new Date(System.currentTimeMillis());
+		}
+		
 		//For the exhibition evaluator
 		public boolean evaluateStartStop() {
 			//temporary return
@@ -34,5 +47,7 @@ public class startStopUtils {
 			*/
 		}
 	}
+	
+	
 
 }
