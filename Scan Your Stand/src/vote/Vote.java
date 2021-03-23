@@ -37,6 +37,11 @@ public class Vote implements Serializable{
 		this.phone = phone;
 		this.projectNumber = projectNumber;
 	}
+	public Vote(String phone, String projectNumber, int points) {
+		this.phone = phone;
+		this.projectNumber = projectNumber;
+		this.points = points;
+	}
 
 	public String getPhone() {
 		return phone;

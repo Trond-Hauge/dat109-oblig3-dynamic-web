@@ -33,7 +33,7 @@ public class QrTest {
         Map<EncodeHintType, ErrorCorrectionLevel> hashMap
         = new HashMap<EncodeHintType, ErrorCorrectionLevel>();
 
-        MyQr.createQR(URL, "src/qr/qr-codes/testQR.png", "UTF-8", hashMap, 200, 200);
+        MyQr.createQR(URL, "src/qr/qr-codes/testQr.png", "UTF-8", hashMap, 200, 200);
     }
 
     @Test

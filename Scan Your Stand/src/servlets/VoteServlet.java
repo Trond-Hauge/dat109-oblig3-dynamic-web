@@ -75,16 +75,14 @@ public class VoteServlet extends HttpServlet {
         sesjon.setMaxInactiveInterval(Constants.USER_MAX_TIME_INACTIVE);
 		sesjon.setAttribute("phoneNumber", phone); //Can now be remembered the next time the spectator votes (prefilled)
         
-		Vote vote = new Vote(phone, projectId);
 		VoteID voteId = new VoteID(phone, projectId);
-		
 		Vote previous = voteDAO.findVote(voteId);
 		
 		if(previous != null) {
 			
 			voteDAO.remove(previous);
 		}
-		vote.setPoints(points);
+		Vote vote = new Vote(phone, projectId, points);
 		voteDAO.add(vote);
 		
 		response.sendRedirect("confirmation?id=" + projectId);

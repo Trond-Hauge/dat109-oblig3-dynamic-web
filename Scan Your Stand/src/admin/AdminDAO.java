@@ -20,5 +20,22 @@ public class AdminDAO {
 		return em.find(Admin.class, username);
 	}
 
-
+	/**
+	 * Add administrator
+	 * 
+	 * @param admin
+	 */
+	public void addAdmin(Admin admin) {
+		em.persist(admin);
+	}
+	
+	/**
+	 * Remove administrator
+	 * 
+	 * @param Admin
+	 */
+	public void removeAdmin(Admin admin) {
+		admin = em.merge(admin);
+		em.remove(admin);
+	}
 }

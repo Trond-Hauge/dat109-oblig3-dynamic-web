@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ejb.EJB;
 import javax.imageio.ImageIO;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
@@ -25,7 +24,6 @@ import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 import project.Project;
-import project.ProjectDAO;
 
 /**
  * 
@@ -35,10 +33,7 @@ import project.ProjectDAO;
  */
 
 public class MyQr {
-	
-	@EJB
-	private static ProjectDAO sd = new ProjectDAO();
-	
+
     /**
      * Method used to create QR coded
      * 
@@ -80,7 +75,6 @@ public class MyQr {
 	        LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);
 	        BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
 
-
 	        try {
 	            Result result = new MultiFormatReader().decode(bitmap);
 	            return result.getText();
@@ -89,35 +83,32 @@ public class MyQr {
 	            return null;
  	  }
 	}
-   
-    // Driver code
-    public static void main(String[] args) throws WriterException, IOException, NotFoundException{
+    
+    public static void createQrCodesForProjects(List<Project> projects) {
     	
-        // The data that the QR code will contain
+    	// The data that the QR code will contain
     	// Will concatenate corresponding ID
         String data = "www.ourApplication.com?";
- 
-        // The path where the image will get saved, the QR Codes folder under the src folder.
-        String path = "QR Codes/";
  
         // Encoding charset
         String charset = "UTF-8";
         
-        // List of stands to generate QR codes for.
-        // Temporary code that assumes StandService will have a get-method for all stands.
-        List<Project> stands = sd.getAllProjects();
- 
-        for(Project s: stands) {
+        for(Project p: projects) {
         	
         	Map<EncodeHintType, ErrorCorrectionLevel> hashMap
             	= new HashMap<EncodeHintType, ErrorCorrectionLevel>();
- 
-	        hashMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 	 
-	        String id = s.getProjectNumber();
+	        String id = p.getProjectNumber();
 	        
-	        // Create the QR code and save in the specified folder as a jpg file
-	        createQR(data + "id=" + id, path + "stand" + id, charset, hashMap, 200, 200);
+	        //Path relative to webcontent. Path should be correct, but file cant be found. The file was created when testing 
+	        String path = "/qr-codes/" + id + ".png";
+	        
+	        // Create the QR code and save in the specified folder as a png file
+	        try {
+				createQR(data + "id=" + id, path, charset, hashMap, 200, 200);
+			} catch (WriterException | IOException e) {
+				e.printStackTrace();
+			}    
         }
     }
 }
