@@ -27,17 +27,18 @@ public class MyVotesServlet extends HttpServlet {
 	private ProjectDAO projectDAO;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String phone = request.getParameter("phone");
+
+		String phone = "95991519"; // Temporary replacement for: (String) request.getSession().getAttribute("phoneNumber");
 		List<Vote> votes = voteDAO.getAllVotes();
 		List<Project> projects = projectDAO.getAllProjects();
+		
 		Map<String,Integer> projectsAndPoints = VoteUtils.getUserVotes(phone, votes, projects);
 
 		if(projectsAndPoints == null) {
-			request.getRequestDispatcher("WEB-INF/project.jsp").forward(request, response);
+			response.sendRedirect("vote");
 		}
 		else {
-			request.getRequestDispatcher("WEB-INF/myvotes.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/my-votes.jsp").forward(request, response);
 		}
 		
 	}

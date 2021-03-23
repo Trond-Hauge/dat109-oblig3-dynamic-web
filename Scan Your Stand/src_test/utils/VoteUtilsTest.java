@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -20,8 +21,8 @@ public class VoteUtilsTest {
 	private List<Vote> votes;
 	private List<Project> projects;
 	
-	@BeforeAll
-	public void setup() {
+	@BeforeEach
+	public void reset() {
 		
 		vote1 = new Vote("47474747", "stand1");
 		vote2 = new Vote("25252525", "stand1");

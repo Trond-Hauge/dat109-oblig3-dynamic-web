@@ -53,11 +53,18 @@ public class VoteUtils {
 		
 		votes.stream().filter(v -> v.getPhone().equals(phone)).forEach(v -> {
 			
-			projects.stream().filter(s -> s.getProjectNumber() == v.getProjectNumber()).forEach(s -> map.put(s.getProjectName(), v.getPoints()));
+			for(Project p : projects) {
+				
+				if(p.getProjectNumber().equals(v.getProjectNumber())) {
+					map.put(p.getProjectName(), v.getPoints());
+					break;
+				}
+				
+			}
 			
 		});
 		
-		return map;
+		return map.isEmpty() ? null : map;
 		
 	}
 	

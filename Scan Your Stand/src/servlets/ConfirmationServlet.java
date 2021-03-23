@@ -27,10 +27,10 @@ public class ConfirmationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String projectId = request.getParameter("id");
-		String phone = (String) request.getSession().getAttribute("phone");
+		String phone = (String) request.getSession().getAttribute("phoneNumber");
 		
 		if(projectId == null || phone == null) {
-			response.sendRedirect("result");
+			response.sendRedirect("vote");
 		}
 		else {
 			
@@ -49,7 +49,7 @@ public class ConfirmationServlet extends HttpServlet {
 			else {
 				request.setAttribute("project", project);
 				request.setAttribute("vote", vote);
-				request.getRequestDispatcher("WEB-INF/vote-success").forward(request, response);
+				request.getRequestDispatcher("WEB-INF/vote-success.jsp").forward(request, response);
 			}
 	
 		}
