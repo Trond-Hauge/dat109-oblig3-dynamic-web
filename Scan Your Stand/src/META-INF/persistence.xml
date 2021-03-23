@@ -6,7 +6,7 @@
 	<persistence-unit name="scanyourstandUP"
 		transaction-type="JTA">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<jta-data-source>DAT108LocalDS</jta-data-source> 
+		<jta-data-source>DAT109Project3</jta-data-source> 
 		<class>exhibition.Exhibition.java</class>
 		<class>project.Project.java</class>
 		<class>vote.Vote.java</class>
