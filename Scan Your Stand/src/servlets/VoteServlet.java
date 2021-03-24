@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import exhibition.Exhibition;
+import exhibition.ExhibitionDAO;
 import project.Project;
 import project.ProjectDAO;
 import vote.Vote;
@@ -37,19 +39,22 @@ public class VoteServlet extends HttpServlet {
 	@EJB
 	private ProjectDAO projectDAO;
 	
+	@EJB
+	private ExhibitionDAO exhibitionDAO;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String projectId = request.getParameter("projectnr");
-		Project project = null;
-	
-		project = projectDAO.findProjectByID(projectId);	
+		Project project = projectDAO.findProjectByID(projectId);	
 		
 		if(project == null) {
 			
+			List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
 			List<Project> projects = projectDAO.getAllProjects();
 			//testing
 			//projects.stream().map(p -> p.getProjectName()).forEach(System.out::println);
 			
+			request.setAttribute("exhibitions", exhibitions);
 			request.setAttribute("projects", projects);
 			request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
 		}

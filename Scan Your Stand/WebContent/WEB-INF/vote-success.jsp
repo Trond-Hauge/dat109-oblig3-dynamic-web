@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <a class="vote-success-tilbake" href="#">&larr; Tilbake</a>
+        <a class="vote-success-tilbake" href="vote">&larr; Tilbake</a>
     </div> <!--.vote-success-->
 </body>
 </html>
