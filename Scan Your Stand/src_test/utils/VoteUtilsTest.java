@@ -48,7 +48,8 @@ public class VoteUtilsTest {
 		
 		Map<String,Integer> map = VoteUtils.getUserVotes("47474747", votes, projects);
 		
-		Assertions.assertTrue(map != null);
+		Assertions.assertNotEquals(map, null);
+		Assertions.assertFalse(map.isEmpty());
 		map.keySet().forEach(k -> Assertions.assertEquals(k,"stand1"));
 		Assertions.assertEquals(map.get("stand1"), 1);
 		
