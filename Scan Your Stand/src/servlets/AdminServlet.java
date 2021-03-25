@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import exhibition.Exhibition;
 import exhibition.ExhibitionDAO;
+import project.Project;
+import project.ProjectDAO;
 import utils.AdminUtils;
 
 @WebServlet("/admin")
@@ -21,7 +23,10 @@ public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
-	private ExhibitionDAO dao;
+	private ExhibitionDAO exhibitionDao;
+	
+	@EJB
+	private ProjectDAO projectDao;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -41,7 +46,7 @@ public class AdminServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int exhibitionid = Integer.parseInt(request.getParameter("exhibitionid"));
-		Exhibition exhibition = dao.findExhibitionById(exhibitionid);
+		Exhibition exhibition = exhibitionDao.findExhibitionById(exhibitionid);
 		
 		String operation = request.getParameter("operation");
 		
@@ -52,6 +57,28 @@ public class AdminServlet extends HttpServlet {
 		else if(operation.equalsIgnoreCase("stop")){
 			exhibition.setStop(LocalDateTime.now());
 			exhibition.setActive(false);
+		}
+		
+		//Adding or removing projects from the exhibition
+		else {
+			
+			String projectNumber = request.getParameter("projectnr");
+			
+			if(operation.equalsIgnoreCase("add")) {
+				
+				String projectName = request.getParameter("projectname");
+				Project project = new Project(projectNumber, projectName);
+				projectDao.addProject(project);
+				exhibitionDao.addProject(project);
+			}
+			else if(operation.equalsIgnoreCase("remove")) {
+				
+				Project project = projectDao.findProjectByID(projectNumber);
+				exhibitionDao.removeProject(project);
+				
+				//Fjerne prosjektet fullstendig?
+				//projectDao.remove(project);
+			}
 		}
 		response.sendRedirect("admin");
 	}
