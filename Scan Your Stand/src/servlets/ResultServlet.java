@@ -1,10 +1,8 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,19 +32,8 @@ public class ResultServlet extends HttpServlet {
 		List<Vote> votes = voteDAO.getAllVotes();
 		List<Project> projects = projectDAO.getAllProjects();
 		
-		// Map where each project is stored with their corresponding voter score
-		Map<String,Integer> map = new LinkedHashMap<String,Integer>();
-		
-		// Calculates each voter score for every project and puts the values into the map
-		projects.forEach(s -> {
-			
-			int voteSum = VoteUtils.calculateVotes(s, votes);
-			map.put(s.getProjectName(), voteSum);
-			
-		});
-		
-		// Gets the sorted map
-		Map<String,Integer> resultMap = VoteUtils.getSortedProjectScoreMap(map);
+		// Gets the sorted project score map
+		Map<String,Integer> resultMap = VoteUtils.getSortedProjectScoreMap(projects, votes);
 		
 		// Sets the sorted map as a request attribute
 		request.setAttribute("resultMap", resultMap);

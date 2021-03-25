@@ -69,18 +69,29 @@ public class VoteUtils {
 	}
 	
 	/**
-	 * Accepts an unsorted map of projects and points as parameter and returns a map containing the same elements, but sorted by points.
+	 * Creates and returns a sorted map of projects and their associated voter score.
 	 * 
 	 * @author Oliver
-	 * @param projectScoreMap Unsorted map of projects and points to be sorted
-	 * @return sorted map of projects and score
+	 * @param projects List of projects
+	 * @param votes List of votes
+	 * @return sorted map of projects and associated score
 	 */
-	public static Map<String,Integer> getSortedProjectScoreMap(Map<String,Integer> projectScoreMap) {
+	public static Map<String,Integer> getSortedProjectScoreMap(List<Project> projects, List<Vote> votes) {
+		
+		Map<String,Integer> map = new LinkedHashMap<String,Integer>();
+		
+		// Calculates each voter score for every project and puts the values into the map
+		projects.forEach(s -> {
+			
+			int voteSum = calculateVotes(s, votes);
+			map.put(s.getProjectName(), voteSum);
+			
+		});
 		
 		Map<String,Integer> sorted = new LinkedHashMap<String,Integer>();
 		List<String> projectNamesList = new ArrayList<String>();
 		
-		for(String name : projectScoreMap.keySet()) {
+		for(String name : map.keySet()) {
 			projectNamesList.add(name);
 		}
 		
@@ -91,7 +102,7 @@ public class VoteUtils {
 			
 			for(int i = 0; i < projectNamesList.size(); i++) {
 				
-				int sum = projectScoreMap.get(projectNamesList.get(i));
+				int sum = map.get(projectNamesList.get(i));
 				
 				if(sum > maxSum) {
 					maxSum = sum;

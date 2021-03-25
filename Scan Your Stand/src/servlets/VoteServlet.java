@@ -45,9 +45,10 @@ public class VoteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String projectId = request.getParameter("projectnr");
-		Project project = projectDAO.findProjectByID(projectId);	
+		Project project = projectDAO.findProjectByID(projectId);
+		Exhibition exhibiton = exhibitionDAO.findExhibitionById(project.getExhibitonId());
 		
-		if(project == null) {
+		if(project == null || !exhibiton.isActive()) {
 			
 			List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
 			List<Project> projects = projectDAO.getAllProjects();
@@ -71,27 +72,36 @@ public class VoteServlet extends HttpServlet {
 		
 		String phone = request.getParameter("number");
 		String projectId = request.getParameter("projectid"); //Hidden parameter
+		Project project = projectDAO.findProjectByID(projectId);
+		Exhibition exhibiton = exhibitionDAO.findExhibitionById(project.getExhibitonId());
 		int points = Integer.parseInt(request.getParameter("points"));
 		
-		HttpSession sesjon = request.getSession(false);
-        if (sesjon != null && sesjon.getAttribute("phoneNumber") == null) {
-            sesjon.invalidate();
-        }
-        sesjon = request.getSession(true);
-        sesjon.setMaxInactiveInterval(Constants.USER_MAX_TIME_INACTIVE);
-		sesjon.setAttribute("phoneNumber", phone); //Can now be remembered the next time the spectator votes (prefilled)
-		sesjon.setAttribute("lastVotedProjectId", projectId); // Session remembers lasted voted project, this allows confirmation page to properly display in more cases
-        
-		VoteID voteId = new VoteID(phone, projectId);
-		Vote previous = voteDAO.findVote(voteId);
-		
-		if(previous != null) {
+		if(exhibiton.isActive()) {
 			
-			voteDAO.remove(previous);
+			HttpSession sesjon = request.getSession(false);
+	        if (sesjon != null && sesjon.getAttribute("phoneNumber") == null) {
+	            sesjon.invalidate();
+	        }
+	        sesjon = request.getSession(true);
+	        sesjon.setMaxInactiveInterval(Constants.USER_MAX_TIME_INACTIVE);
+			sesjon.setAttribute("phoneNumber", phone); //Can now be remembered the next time the spectator votes (prefilled)
+			sesjon.setAttribute("lastVotedProjectId", projectId); // Session remembers lasted voted project, this allows confirmation page to properly display in more cases
+	        
+			VoteID voteId = new VoteID(phone, projectId);
+			Vote previous = voteDAO.findVote(voteId);
+			
+			if(previous != null) {
+				
+				voteDAO.remove(previous);
+			}
+			Vote vote = new Vote(phone, projectId, points);
+			voteDAO.add(vote);
+			
+			response.sendRedirect("confirmation");
+			
 		}
-		Vote vote = new Vote(phone, projectId, points);
-		voteDAO.add(vote);
-		
-		response.sendRedirect("confirmation");
+		else {
+			response.sendRedirect("vote");
+		}
 	}
 }
