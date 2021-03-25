@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -45,11 +46,11 @@ public class AdminServlet extends HttpServlet {
 		String operation = request.getParameter("operation");
 		
 		if(operation.equalsIgnoreCase("start")) {
-			exhibition.setStart(LocalDate.now());
+			exhibition.setStart(LocalDateTime.now());
 			exhibition.setActive(true);
 		}
 		else if(operation.equalsIgnoreCase("stop")){
-			exhibition.setStop(LocalDate.now());
+			exhibition.setStop(LocalDateTime.now());
 			exhibition.setActive(false);
 		}
 		response.sendRedirect("admin");
