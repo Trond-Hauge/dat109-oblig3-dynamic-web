@@ -15,11 +15,23 @@ import exhibition.ExhibitionDAO;
  */
 public class CurrentExhibitionHandler implements Runnable {
 	
-	private Exhibition activeExhibition;
 	private ExhibitionDAO ex;
 	
 	public CurrentExhibitionHandler(ExhibitionDAO ex) {
 		this.ex = ex;
+	}
+	
+	private void evaluateTime(Exhibition e) {
+		if (!e.isActive() && e.getStart().isBefore(LocalDateTime.now()) && e.getStop().isAfter(LocalDateTime.now())) {
+			e.setActive(true);
+			ex.updateExhibition(e);
+			System.out.println("Exhibition " + e.getName() + " had its active status changed to true.");
+		} 
+		if(e.isActive() && (e.getStart().isAfter(LocalDateTime.now()) || e.getStop().isBefore(LocalDateTime.now()))){
+			e.setActive(false);
+			ex.updateExhibition(e);
+			System.out.println("Exhibition " + e.getName() + " had its active status changed to false.");
+		}
 	}
 	
 	@Override
@@ -28,19 +40,8 @@ public class CurrentExhibitionHandler implements Runnable {
 		while (true) {
 			long startTime = System.nanoTime();
 			
-			LocalDateTime lt = LocalDateTime.now();
-			
-			try {
-				List<Exhibition> list = ex.getAllExhibitions();
-				
-				//Check this list for exhibitions that need to be updates, or if ther eare conflicts.
-				//NB: The default isActive value may need to be false. to be more dumb-proof. As long as the server is running, the thread should be running and controlling
-				List<Exhibition> activeList = list.stream().filter(ex -> ex.isActive() == true).collect(Collectors.toList());
-			} catch (Exception e) {
-				System.out.println("ExhibitionDAO error");
-			}
-			
-			//more to come
+			//Turn on by uncommenting the line under
+			//ex.getAllExhibitions().forEach(e -> evaluateTime(e));
 			
 			System.out.println("Execution time in seconds: " + (double)((System.nanoTime() - startTime)/1_000_000_000));
 			try {

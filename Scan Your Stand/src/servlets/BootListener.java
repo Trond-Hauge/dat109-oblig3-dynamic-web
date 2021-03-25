@@ -22,19 +22,19 @@ public class BootListener implements ServletContextListener {
 	
 	@EJB
 	private ExhibitionDAO ex;
-    /**
+    
+	/**
      * Default constructor. 
      */
     public BootListener() {
-        // TODO Auto-generated constructor stub
     }
 
 	/**
      * @see ServletContextListener#contextDestroyed(ServletContextEvent)
      */
     public void contextDestroyed(ServletContextEvent sce)  { 
-         System.out.println("Hillbilly 1 has died. RIP.");
          this.scheduler.shutdown();
+         System.out.println("Server shut down.");
     }
 
 	/**
