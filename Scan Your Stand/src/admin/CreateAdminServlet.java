@@ -26,6 +26,8 @@ public class CreateAdminServlet extends HttpServlet {
 		
 		adminDAO.addAdmin(admin);
 		
+		System.out.println("Admin user: " + username + " has been created");
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

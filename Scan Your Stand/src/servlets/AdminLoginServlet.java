@@ -13,7 +13,7 @@ import admin.AdminDAO;
 import utils.AdminUtils;
 import utils.BCrypt;
 
-@WebServlet("/adminLogin")
+@WebServlet("/login-admin")
 public class AdminLoginServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;

@@ -20,13 +20,13 @@
         <div class="login-left transparent-bg">
             <h1 class="login-title">Logg inn som admin</h1>
 
-			<c:if test="${login.error} != null}">
+			<c:if test="${error} != null}">
                 <div class="login-error">
                     Brukernavn eller passord er feil.
                 </div>
             </c:if>
 
-            <form class="login-admin-form" action="" method="POST">
+            <form class="login-admin-form" action="login-admin" method="POST">
                 <label>Brukernavn</label>
                 <input type="text" class="username" name="username" placeholder="Skriv inn navnet ditt">
                 <label>Passord:</label>
