@@ -32,3 +32,22 @@
     float: right;
     width: var(--box-400);
 }
+
+@media only screen and (max-width: 930px) {
+    .choose-left {
+        position: relative;
+        float: none;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        transform: none;
+    }
+
+    .choose-right {
+        float: none;
+        width: 200px;
+        margin-right: auto;
+        margin-bottom: 40px;
+        margin-left: auto;
+    }
+}
