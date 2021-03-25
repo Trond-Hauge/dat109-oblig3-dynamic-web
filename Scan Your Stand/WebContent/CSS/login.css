@@ -1,7 +1,7 @@
 
 .login-left {
     float: left;
-    width: var(--box-400);
+    max-width: var(--box-400);
     margin: 0;
     position: absolute;
     top: 50%;
@@ -48,4 +48,23 @@
 }
 .login-error {
     color: red;
+}
+
+@media only screen and (max-width: 930px) {
+    .login-left {
+        position: relative;
+        float: none;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        transform: none;
+    }
+
+    .login-right {
+        float: none;
+        width: 200px;
+        margin-right: auto;
+        margin-bottom: 40px;
+        margin-left: auto;
+    }
 }
