@@ -64,4 +64,13 @@ public class ExhibitionDAO {
 		exhibition = em.merge(exhibition);
 		em.remove(exhibition);
 	}
+	
+	/**
+	 * Updates and exhibition
+	 * 
+	 * @param exhibition
+	 */
+	public void updateExhibition(Exhibition exhibition) {
+		em.merge(exhibition);
+	}
 }

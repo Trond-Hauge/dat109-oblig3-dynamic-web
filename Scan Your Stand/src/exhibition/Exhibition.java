@@ -1,6 +1,6 @@
 package exhibition;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,12 +17,12 @@ public class Exhibition {
 	private int id;
 	private String name;
 	private boolean isActive;
-	private LocalDate start;
-	private LocalDate stop;
+	private LocalDateTime start;
+	private LocalDateTime stop;
 	
 	public Exhibition() {};
 
-	public Exhibition(String name, boolean isActive, LocalDate start, LocalDate stop) {
+	public Exhibition(String name, boolean isActive, LocalDateTime start, LocalDateTime stop) {
 		this.name = name;
 		this.isActive = isActive;
 		this.start = start;
@@ -45,19 +45,19 @@ public class Exhibition {
 		this.isActive = isActive;
 	}
 
-	public LocalDate getStart() {
+	public LocalDateTime getStart() {
 		return start;
 	}
 
-	public void setStart(LocalDate start) {
+	public void setStart(LocalDateTime start) {
 		this.start = start;
 	}
 
-	public LocalDate getStop() {
+	public LocalDateTime getStop() {
 		return stop;
 	}
 
-	public void setStop(LocalDate stop) {
+	public void setStop(LocalDateTime stop) {
 		this.stop = stop;
 	}
 

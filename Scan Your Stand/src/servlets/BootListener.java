@@ -42,11 +42,11 @@ public class BootListener implements ServletContextListener {
      */
     public void contextInitialized(ServletContextEvent sce)  {
     	CurrentExhibitionHandler task = new CurrentExhibitionHandler(ex);
-    	System.out.println("Hallelooooojah! This is hillbilly 1!");
-    	
     	
     	scheduler = Executors.newSingleThreadScheduledExecutor();
     	scheduler.execute(task);
+    	
+    	System.out.println("Exhibition handler is now running.");
     }
 	
 }

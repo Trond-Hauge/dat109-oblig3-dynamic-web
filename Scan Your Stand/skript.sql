@@ -39,8 +39,8 @@ CREATE TABLE Exhibition
 id				SERIAL,
 name			CHARACTER VARYING (20),
 isActive		BOOLEAN,
-start			DATE,
-stop			DATE,
+start			TIMESTAMP,
+stop			TIMESTAMP,
 CONSTRAINT ExhibitionPK PRIMARY KEY (id)
 );
 
