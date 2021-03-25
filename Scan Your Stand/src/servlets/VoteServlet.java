@@ -46,7 +46,7 @@ public class VoteServlet extends HttpServlet {
 		
 		String projectId = request.getParameter("projectnr");
 		Project project = projectDAO.findProjectByID(projectId);
-		Exhibition exhibiton = exhibitionDAO.findExhibitionById(project.getExhibitonId());
+		Exhibition exhibiton = project == null ? null : exhibitionDAO.findExhibitionById(project.getExhibitonId());
 		
 		if(project == null || !exhibiton.isActive()) {
 			
