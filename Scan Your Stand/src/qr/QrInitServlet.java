@@ -26,16 +26,8 @@ public class QrInitServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<Project> projects = dao.getAllProjects();
-		
 		MyQr.createQrCodesForProjects(projects);
 
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("QR codes generated and stored in: " + System.getProperty("user.home"));
 	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }
