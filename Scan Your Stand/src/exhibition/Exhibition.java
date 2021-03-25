@@ -1,12 +1,16 @@
 package exhibition;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.eclipse.persistence.sessions.Project;
 
 @Entity
 @Table(schema = "scanyourstand")
@@ -19,6 +23,9 @@ public class Exhibition {
 	private boolean isActive;
 	private LocalDateTime start;
 	private LocalDateTime stop;
+	
+//	@OneToMany(mappedBy = "exhibition")
+//	private List<Project> projects;
 	
 	public Exhibition() {};
 
@@ -64,5 +71,15 @@ public class Exhibition {
 	public int getId() {
 		return id;
 	}
+
+//	public List<Project> getProjects() {
+//		return projects;
+//	}
+//
+//	public void setProjects(List<Project> projects) {
+//		this.projects = projects;
+//	}
+	
+	
 
 }

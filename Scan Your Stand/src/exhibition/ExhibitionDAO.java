@@ -6,6 +6,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import project.Project;
+
 
 @Stateless
 public class ExhibitionDAO {
@@ -72,5 +74,25 @@ public class ExhibitionDAO {
 	 */
 	public void updateExhibition(Exhibition exhibition) {
 		em.merge(exhibition);
+	}
+
+	
+	/**
+	 * Add a project 
+	 * 
+	 * @param project
+	 */
+	public void addProject(Project project) {
+		em.persist(project);
+	}
+
+	/**
+	 * Remove a project
+	 * 
+	 * @param project
+	 */
+	public void removeProject(Project project) {
+		project = em.merge(project);
+		em.remove(project);
 	}
 }

@@ -46,7 +46,7 @@ public class VoteServlet extends HttpServlet {
 		
 		String projectId = request.getParameter("projectnr");
 		Project project = projectDAO.findProjectByID(projectId);
-		Exhibition exhibiton = project == null ? null : exhibitionDAO.findExhibitionById(project.getExhibitonId());
+		Exhibition exhibiton = project == null ? null : exhibitionDAO.findExhibitionById(project.getExhibitionId());
 		
 		if(project == null || !exhibiton.isActive()) {
 			
@@ -73,7 +73,7 @@ public class VoteServlet extends HttpServlet {
 		String phone = request.getParameter("number");
 		String projectId = request.getParameter("projectid"); //Hidden parameter
 		Project project = projectDAO.findProjectByID(projectId);
-		Exhibition exhibiton = exhibitionDAO.findExhibitionById(project.getExhibitonId());
+		Exhibition exhibiton = exhibitionDAO.findExhibitionById(project.getExhibitionId());
 		int points = Integer.parseInt(request.getParameter("points"));
 		
 		if(exhibiton.isActive()) {

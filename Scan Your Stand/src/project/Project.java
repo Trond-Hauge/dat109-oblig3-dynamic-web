@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import exhibition.Exhibition;
 import vote.Vote;
 
 /**
@@ -25,6 +28,10 @@ public class Project {
 
 	@OneToMany(mappedBy = "project")
 	private List<Vote> votes;
+	
+//	@ManyToOne
+//	@JoinColumn(name = "exhibitionId", referencedColumnName = "id")
+//	private Exhibition exhibition;
 	
 	public Project() {}
 
@@ -60,6 +67,15 @@ public class Project {
 	@Override
 	public String toString() {
 		return "Project [projectNumber=" + projectNumber + ", projectName=" + projectName + ", votes=" + votes + "]";
+	}
+
+	/**
+	 * Not finished, due to issues with relationship setup
+	 * 
+	 * @return zero
+	 */
+	public int getExhibitionId() {
+		return 0;    //exhibition.getId();
 	}
 
 }
