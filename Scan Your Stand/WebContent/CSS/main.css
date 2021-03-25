@@ -129,6 +129,11 @@ select:focus {
     outline: none;
 }
 
+input[type='radio'] {
+    margin-right: 10px;
+    transform: scale(2);
+}
+
 .center-align {
     position: absolute;
     top: 50%;
