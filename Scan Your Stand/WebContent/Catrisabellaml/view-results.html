@@ -17,27 +17,43 @@
         <div class="view-results-box transparent-bg">
             <div class="view-results-left">
                 <table class="view-results-table">
-                    <tr class="view-results-table-top">
-                        <th class="view-results-col1">Resultat</th>
-                        <th class="view-results-col2">Totale Stemmer</th>
-                    </tr>
+                    <thead class="view-results-table-head">
+                        <tr class="view-results-table-head-tr">
+                            <th class="view-results-col1">Resultat</th>
+                            <th class="view-results-col2">Stemmer</th>
+                        </tr>
+                    </thead>
 
-                    <tr>
-                        <td>Stand 1</td>
-                        <td>1000</td>
-                    </tr>
-                    <tr>
-                        <td>Stand 2</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>Stand 3</td>
-                        <td>50</td>
-                    </tr>
-                    <tr>
-                        <td>Stand 4</td>
-                        <td>0</td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td data-label="resultat">
+                                <span class="table-numbering">1</span>
+                                <span class="view-results-td-label">Den fantastiske standen</span>
+                            </td>
+                            <td data-label="stemmer">1000</td>
+                        </tr>
+                        <tr>
+                            <td data-label="resultat">
+                                <span class="table-numbering">2</span>
+                                <span class="view-results-td-label">Stand 2</span>
+                            </td>
+                            <td data-label="stemmer">200</td>
+                        </tr>
+                        <tr>
+                            <td data-label="resultat">
+                                <span class="table-numbering">3</span>
+                                <span class="view-results-td-label">Stand 3</span>
+                            </td>
+                            <td data-label="stemmer">50</td>
+                        </tr>
+                        <tr>
+                            <td data-label="resultat">
+                                <span class="table-numbering">4</span>
+                                <span class="view-results-td-label">Stand 4</span>
+                            </td>
+                            <td data-label="stemmer">0</td>
+                        </tr>
+                    </tbody>
                 </table> <!--.view-results-table-->
 
                 <form class="view-results-form" action="" method="POST">

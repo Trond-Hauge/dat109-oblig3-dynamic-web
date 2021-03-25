@@ -2,6 +2,7 @@
 :root {
     --color-dark: #242424;
     --box-400: 400px;
+    --mq-small-h: 600px;
 }
 
 ::-moz-selection {
@@ -137,18 +138,30 @@ select:focus {
 
 .container-special {
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     max-width: 860px;
     overflow: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+
+}
+
+@media only screen and (min-height: 900px) {
+    .container-special {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+}
+
+@media only screen and (max-height: 899px) {
+    .container-special {
+        margin-top: 40px;
+    }
 }
 
 .container {
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     max-width: 960px;
 }
 
@@ -175,4 +188,21 @@ select:focus {
     border-radius: 15px;
     background: rgba(61, 40, 73, 0.8);
     padding: 40px;
+}
+
+.table-numbering {
+    margin-right: 10px;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 12px;
+    background-color: #444;
+    color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+    .table-numbering {
+        position: absolute;
+        left: 5px;
+        top: 20px;
+    }
 }
