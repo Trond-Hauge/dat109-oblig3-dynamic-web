@@ -48,7 +48,7 @@ public class AdminServlet extends HttpServlet {
 			exhibition.setStart(LocalDate.now());
 			exhibition.setActive(true);
 		}
-		else {
+		else if(operation.equalsIgnoreCase("stop")){
 			exhibition.setStop(LocalDate.now());
 			exhibition.setActive(false);
 		}
