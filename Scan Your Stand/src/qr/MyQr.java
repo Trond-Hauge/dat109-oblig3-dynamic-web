@@ -100,8 +100,7 @@ public class MyQr {
 	 
 	        String id = p.getProjectNumber();
 	        
-	        //Path relative to webcontent. Path should be correct, but file cant be found. The file was created when testing 
-	        String path = "/qr-codes/" + id + ".png";
+	        String path = System.getProperty("user.home") + File.separator + "Desktop" + File.separator + id + ".png";
 	        
 	        // Create the QR code and save in the specified folder as a png file
 	        try {
