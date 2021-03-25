@@ -38,7 +38,6 @@ public class AdminServlet extends HttpServlet {
 		else {
 			request.getRequestDispatcher("WEB-INF/login-admin.jsp").forward(request, response);
 		}
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -40,7 +40,6 @@ public class MyVotesServlet extends HttpServlet {
 		else {
 			request.getRequestDispatcher("WEB-INF/my-votes.jsp").forward(request, response);
 		}
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,9 +53,6 @@ public class MyVotesServlet extends HttpServlet {
 		else {
 			phone = "?phone=" + phone;
 		}
-		
 		response.sendRedirect("myvotes" + phone);
-		
 	}
-
 }

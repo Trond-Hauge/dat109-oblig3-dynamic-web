@@ -32,7 +32,6 @@ public class AdminLoginServlet extends HttpServlet {
 		else {
 			request.getRequestDispatcher("WEB-INF/login-admin.jsp").forward(request, response);
 		}
-		
 	}
 
 	// Checks login data to see if user has correctly entered admin username and password, if successful the user is logged in, redirects to AdminServlet doGet()
@@ -58,9 +57,6 @@ public class AdminLoginServlet extends HttpServlet {
 		else {
 			error = "?error=Feil passord oppgitt";
 		}
-		
 		response.sendRedirect("admin" + error);
-		
 	}
-
 }

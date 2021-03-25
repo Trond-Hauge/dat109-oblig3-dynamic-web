@@ -39,16 +39,6 @@ public class ResultServlet extends HttpServlet {
 		request.setAttribute("resultMap", resultMap);
 		
 		// Forwards to result.jsp
-		request.getRequestDispatcher("WEB-INF/view-results.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("WEB-INF/view-results.jsp").forward(request, response);	
 	}
-
-	// Redirects to ResultServlet doGet()
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
-		response.sendRedirect("result");
-		
-	}
-
 }

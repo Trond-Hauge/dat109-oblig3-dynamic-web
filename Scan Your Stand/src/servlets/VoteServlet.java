@@ -20,14 +20,6 @@ import vote.Vote;
 import vote.VoteDAO;
 import vote.VoteID;
 
-/**
- * 
- * @author anders
- * 
- * Servlet for voting
- *
- */
-
 @WebServlet("/vote")
 public class VoteServlet extends HttpServlet {
 	
@@ -98,7 +90,6 @@ public class VoteServlet extends HttpServlet {
 			voteDAO.add(vote);
 			
 			response.sendRedirect("confirmation");
-			
 		}
 		else {
 			response.sendRedirect("vote");
