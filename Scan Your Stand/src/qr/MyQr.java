@@ -100,7 +100,7 @@ public class MyQr {
 	 
 	        String id = p.getProjectNumber();
 	        
-	        String path = System.getProperty("user.home") + File.separator + "Desktop" + File.separator + id + ".png";
+	        String path = System.getProperty("user.home") + File.separator + id + ".png";
 	        
 	        // Create the QR code and save in the specified folder as a png file
 	        try {
