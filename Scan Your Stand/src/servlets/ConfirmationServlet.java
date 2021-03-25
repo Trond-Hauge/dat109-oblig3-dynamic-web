@@ -51,17 +51,6 @@ public class ConfirmationServlet extends HttpServlet {
 				request.setAttribute("vote", vote);
 				request.getRequestDispatcher("WEB-INF/vote-success.jsp").forward(request, response);
 			}
-	
-		}
-		
+		}	
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		// Should not post to this servlet, by default redirects to result
-		request.setCharacterEncoding("UTF-8");
-		response.sendRedirect("result");
-		
-	}
-
 }
