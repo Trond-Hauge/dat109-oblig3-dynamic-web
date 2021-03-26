@@ -48,9 +48,7 @@ public class MyQr {
      */
     public static void createQR(String data, String path,
                                 String charset, Map hashMap,
-                                int height, int width)
-        throws WriterException, IOException
-    {
+                                int height, int width) throws WriterException, IOException {
  
         BitMatrix matrix = new MultiFormatWriter().encode(
             new String(data.getBytes(charset), charset),
@@ -69,8 +67,7 @@ public class MyQr {
      * @return the URL or null
      * @throws IOException
      */
-    public static String QRCodeValidator(File qrCodeimage) throws IOException 
-    {
+    public static String QRCodeValidator(File qrCodeimage) throws IOException {
 		    BufferedImage bufferedImage = ImageIO.read(qrCodeimage);
 	        LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);
 	        BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
@@ -83,7 +80,11 @@ public class MyQr {
 	            return null;
  	  }
 	}
-    
+    /**
+     * Make a QR code for each of the projects in the list
+     * 
+     * @param projects: list of projects that each will get a corresponding QR code
+     */
     public static void createQrCodesForProjects(List<Project> projects) {
     	
     	// The data that the QR code will contain
@@ -100,6 +101,7 @@ public class MyQr {
 	 
 	        String id = p.getProjectNumber();
 	        
+	        //Path to users home folder independent of OS
 	        String path = System.getProperty("user.home") + File.separator + id + ".png";
 	        
 	        // Create the QR code and save in the specified folder as a png file
