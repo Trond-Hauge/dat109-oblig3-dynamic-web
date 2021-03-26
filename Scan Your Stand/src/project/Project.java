@@ -29,9 +29,9 @@ public class Project {
 	@OneToMany(mappedBy = "project")
 	private List<Vote> votes;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "exhibitionId", referencedColumnName = "id")
-//	private Exhibition exhibition;
+	@ManyToOne
+	@JoinColumn(name = "exhibitionId", referencedColumnName = "id")
+	private Exhibition exhibition;
 	
 	public Project() {}
 
@@ -75,7 +75,7 @@ public class Project {
 	 * @return zero
 	 */
 	public int getExhibitionId() {
-		return 0;    //exhibition.getId();
+		return exhibition.getId();
 	}
 
 }

@@ -16,18 +16,22 @@ CREATE TABLE Project
 (
 projectNumber	CHARACTER (3) CHECK (char_length(projectNumber) = 3),
 projectName		CHARACTER VARYING (20),
---exhibitionId		INTEGER,
---CONSTRAINT ExhibitionFK FOREIGN KEY (exhibitionId) REFERENCES Exhibition (id),
+exhibitionId	INTEGER NOT NULL,
+CONSTRAINT ExhibitionFK FOREIGN KEY (exhibitionId) REFERENCES Exhibition (id),
 CONSTRAINT ProjectPK PRIMARY KEY (projectNumber)
 );
 
-INSERT INTO Exhibition (name, isActive, start, stop) VALUES
+INSERT INTO 
+Exhibition (name, isActive, start, stop) 
+VALUES
 ('EXPO 2021', true, '2021-08-04', '2021-08-08'),
 ('EXPO 2020', false, '2020-08-01', '2020-08-04');
 
-INSERT INTO Project (projectNumber, projectName) VALUES
-('M13', 'Project 1'),
-('B12', 'Project 2');
+INSERT INTO 
+Project (projectNumber, projectName, exhibitionId) 
+VALUES
+('M13', 'Project 1', 1),
+('B12', 'Project 2', 1);
 
 CREATE TABLE Vote
 (
@@ -38,7 +42,9 @@ CONSTRAINT VotePK PRIMARY KEY (phone, projectNumber),
 CONSTRAINT ProjectFK FOREIGN KEY (projectNumber) REFERENCES Project (projectNumber)
 );
 
-INSERT INTO Vote (phone, projectNumber, points) VALUES
+INSERT INTO 
+Vote (phone, projectNumber, points) 
+VALUES
 ('97084676', 'M13', 5),
 ('95991519', 'M13', 2),
 ('97084676', 'B12', 4);

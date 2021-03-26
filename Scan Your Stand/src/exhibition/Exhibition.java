@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.eclipse.persistence.sessions.Project;
+import project.Project;
 
 @Entity
 @Table(schema = "scanyourstand")
@@ -24,8 +24,8 @@ public class Exhibition {
 	private LocalDateTime start;
 	private LocalDateTime stop;
 	
-//	@OneToMany(mappedBy = "exhibition")
-//	private List<Project> projects;
+	@OneToMany(mappedBy = "exhibition")
+	private List<Project> projects;
 	
 	public Exhibition() {};
 
@@ -72,13 +72,13 @@ public class Exhibition {
 		return id;
 	}
 
-//	public List<Project> getProjects() {
-//		return projects;
-//	}
-//
-//	public void setProjects(List<Project> projects) {
-//		this.projects = projects;
-//	}
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
 	
 	
 
