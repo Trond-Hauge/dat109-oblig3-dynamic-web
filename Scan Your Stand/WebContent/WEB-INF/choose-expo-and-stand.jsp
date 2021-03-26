@@ -22,14 +22,20 @@
                 <h1 class="choose-title">Velg expo</h1>
 
                 <label>Utstilling</label>
-                <input type="text" class="exhibition" name="exhibition">
-
-				<label>Standnummer</label>
-                <select name="projectnr" class="standnr">
-                    <c:forEach items="${projects}" var="p">
-						<option value="${p.projectNumber}">${p.projectName}</option>
+				<select name="exhibitionid" class="exhibition">
+                    <c:forEach items="${exhibitions}" var="p">
+						<option value="${p.id}">${p.name}</option>
 					</c:forEach>
                 </select>
+
+				<c:if test="${projects != null}">
+					<label>Standnummer</label>
+	                <select name="projectnr" class="standnr">
+	                    <c:forEach items="${projects}" var="p">
+							<option value="${p.projectNumber}">${p.projectName}</option>
+						</c:forEach>
+	                </select>
+				</c:if>
 
                 <input type="submit" class="vote-cta button-default" value="Stem">
             </form>

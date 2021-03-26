@@ -42,24 +42,22 @@ public class VoteServlet extends HttpServlet {
 		
 		int chosenExhibitionId = -1; 
 		try {
-			chosenExhibitionId = Integer.parseInt(request.getParameter("exhibtionId"));
+			chosenExhibitionId = Integer.parseInt(request.getParameter("exhibitionid"));
 		}
 		catch(NumberFormatException e) {}
 		
 		Exhibition chosenExhibition = chosenExhibitionId == -1 ? null : exhibitionDAO.findExhibitionById(chosenExhibitionId);
 		
-		if(project == null) { // Will include:  || !exhibiton.isActive()
+		if(project == null || !exhibiton.isActive()) {
 			
 			List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
-			List<Project> projects = projectDAO.getAllProjects(); // Temporary, will be replaced by lines beneath
 	
-//			if(chosenExhibition != null && chosenExhibition.isActive()) {
-//				request.setAttribute("exhibition", chosenExhibition);
-//				List<Project> projects = chosenExhibition.getProjects();
-//				request.setAttribute("projects", projects);
-//			}
+			if(chosenExhibition != null && chosenExhibition.isActive()) {
+				request.setAttribute("exhibition", chosenExhibition);
+				List<Project> projects = chosenExhibition.getProjects();
+				request.setAttribute("projects", projects);
+			}
 			
-			request.setAttribute("projects", projects); // will be replaced by lines above
 			request.setAttribute("exhibitions", exhibitions);
 			request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
 		}
@@ -80,7 +78,7 @@ public class VoteServlet extends HttpServlet {
 		Exhibition exhibiton = exhibitionDAO.findExhibitionById(project.getExhibitionId());
 		int points = Integer.parseInt(request.getParameter("points"));
 		
-		if(true) { // Will be: exhibiton.isActive()
+		if(exhibiton.isActive()) {
 			
 			HttpSession sesjon = request.getSession(false);
 	        if (sesjon != null && sesjon.getAttribute("phoneNumber") == null) {
