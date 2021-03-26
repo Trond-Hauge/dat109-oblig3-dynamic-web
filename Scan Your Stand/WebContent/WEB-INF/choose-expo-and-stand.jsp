@@ -24,7 +24,7 @@
                 <label>Utstilling</label>
 				<select name="exhibitionid" class="exhibition">
                     <c:forEach items="${exhibitions}" var="p">
-						<option value="${p.id}">${p.name}</option>
+						<option value="${p.id}" selected="${p.id == exhibition.id ? 'seleted' : ''}">${p.name}</option>
 					</c:forEach>
                 </select>
 
