@@ -59,8 +59,8 @@ public class VoteServlet extends HttpServlet {
 //				request.setAttribute("projects", projects);
 //			}
 			
+			request.setAttribute("projects", projects); // will be replaced by lines above
 			request.setAttribute("exhibitions", exhibitions);
-			request.setAttribute("projects", projects);
 			request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
 		}
 		else {
