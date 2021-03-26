@@ -40,7 +40,7 @@ public class VoteServlet extends HttpServlet {
 		Project project = projectDAO.findProjectByID(projectId);
 		Exhibition exhibiton = project == null ? null : exhibitionDAO.findExhibitionById(project.getExhibitionId());
 		
-		if(project == null || !exhibiton.isActive()) {
+		if(project == null) { // Should include:  || !exhibiton.isActive()
 			
 			List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
 			List<Project> projects = projectDAO.getAllProjects();
@@ -68,7 +68,7 @@ public class VoteServlet extends HttpServlet {
 		Exhibition exhibiton = exhibitionDAO.findExhibitionById(project.getExhibitionId());
 		int points = Integer.parseInt(request.getParameter("points"));
 		
-		if(exhibiton.isActive()) {
+		if(true) { // Should be: exhibiton.isActive()
 			
 			HttpSession sesjon = request.getSession(false);
 	        if (sesjon != null && sesjon.getAttribute("phoneNumber") == null) {
