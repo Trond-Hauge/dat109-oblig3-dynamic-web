@@ -40,12 +40,24 @@ public class VoteServlet extends HttpServlet {
 		Project project = projectDAO.findProjectByID(projectId);
 		Exhibition exhibiton = project == null ? null : exhibitionDAO.findExhibitionById(project.getExhibitionId());
 		
-		if(project == null) { // Should include:  || !exhibiton.isActive()
+		int chosenExhibitionId = -1; 
+		try {
+			chosenExhibitionId = Integer.parseInt(request.getParameter("exhibtionId"));
+		}
+		catch(NumberFormatException e) {}
+		
+		Exhibition chosenExhibition = chosenExhibitionId == -1 ? null : exhibitionDAO.findExhibitionById(chosenExhibitionId);
+		
+		if(project == null) { // Will include:  || !exhibiton.isActive()
 			
 			List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
-			List<Project> projects = projectDAO.getAllProjects();
-			//testing
-			//projects.stream().map(p -> p.getProjectName()).forEach(System.out::println);
+			List<Project> projects = projectDAO.getAllProjects(); // Temporary, will be replaced by lines beneath
+	
+//			if(chosenExhibition != null && chosenExhibition.isActive()) {
+//				request.setAttribute("exhibition", chosenExhibition);
+//				List<Project> projects = chosenExhibition.getProjects();
+//				request.setAttribute("projects", projects);
+//			}
 			
 			request.setAttribute("exhibitions", exhibitions);
 			request.setAttribute("projects", projects);
@@ -68,7 +80,7 @@ public class VoteServlet extends HttpServlet {
 		Exhibition exhibiton = exhibitionDAO.findExhibitionById(project.getExhibitionId());
 		int points = Integer.parseInt(request.getParameter("points"));
 		
-		if(true) { // Should be: exhibiton.isActive()
+		if(true) { // Will be: exhibiton.isActive()
 			
 			HttpSession sesjon = request.getSession(false);
 	        if (sesjon != null && sesjon.getAttribute("phoneNumber") == null) {
