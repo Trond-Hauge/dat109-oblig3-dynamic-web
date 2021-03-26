@@ -47,7 +47,7 @@ public class MyQr {
      * @throws IOException
      */
     public static void createQR(String data, String path,
-                                String charset, Map hashMap,
+                                String charset, Map<EncodeHintType, ErrorCorrectionLevel> hashMap,
                                 int height, int width) throws WriterException, IOException {
  
         BitMatrix matrix = new MultiFormatWriter().encode(
