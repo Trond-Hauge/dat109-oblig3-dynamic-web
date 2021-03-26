@@ -1,0 +1,64 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>100</x><y>380</y><w>210</w><h>130</h></coordinates><panel_attributes>Vote
+--
++phone: String
++projectNumber: String
++points: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>630</y><w>210</w><h>130</h></coordinates><panel_attributes>VoteDAO
+--
+--
++getAllVotes(): List&lt;Vote&gt;
++findVote(voteID: VoteID): Vote
++remove(vote: Vote)
++add(vote: Vote)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>500</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>420</y><w>350</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*
+m2=1
+gets</panel_attributes><additional_attributes>10;20;330;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>630</x><y>380</y><w>210</w><h>130</h></coordinates><panel_attributes>Project
+--
++projectNumber: String
++projectName: String
+--
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>630</y><w>210</w><h>130</h></coordinates><panel_attributes>Result
+--
++projects: HashMap
++leading: Project
++limit: int
+--
++showResults()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>500</y><w>270</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=*
+m2=1
+gets</panel_attributes><additional_attributes>10;10;10;70;240;70;240;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>630</y><w>270</w><h>130</h></coordinates><panel_attributes>ProjectDAO
+--
+--
++findProjectByID(projectNumber: String): Project
++getAllProjects(): List&lt;Project&gt;
++addProject(project: Project)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>730</x><y>500</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>960</x><y>380</y><w>210</w><h>130</h></coordinates><panel_attributes>Exhibition
+--
++id: Long
++name: String
++isActive: boolean
++start: LocalDateTime
++stop: LocalDateTime</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>830</x><y>420</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*
+m2=1
+gets</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>930</x><y>630</y><w>290</w><h>130</h></coordinates><panel_attributes>ExhibitionDAO
+--
+--
++findExhibitionByID(id: int): Exhibition
++getAllExhibitions(): List&lt;Exhibition&gt;
++getAllActiveExhibitions(): List&lt;Exhibition&gt;
++addExhibition(exhibition: Exhibition)
++removeExhibition(exhibition: Exhibition)
++updateExhibition(exhibition: Exhibition)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1060</x><y>500</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>120</y><w>210</w><h>130</h></coordinates><panel_attributes>Admin
+--
++username: String
++hashedPassword: Password</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>170</y><w>160</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>440</x><y>120</y><w>210</w><h>130</h></coordinates><panel_attributes>AdminDAO
+--
+--
++findAdmin(username: String): Admin
++addAdmin(admin: Admin)
++removeAdmin(admin: Admin)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>920</x><y>120</y><w>290</w><h>130</h></coordinates><panel_attributes>MyQr
+--
+--
++createQr()
++QRCodeValidator(qrCodeImage: File): String
++createQrCodesForProjects(projects: List&lt;Project&gt;)</panel_attributes><additional_attributes></additional_attributes></element></diagram>
