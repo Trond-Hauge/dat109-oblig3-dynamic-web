@@ -69,13 +69,8 @@ public class Project {
 		return "Project [projectNumber=" + projectNumber + ", projectName=" + projectName + ", votes=" + votes + "]";
 	}
 
-	/**
-	 * Not finished, due to issues with relationship setup
-	 * 
-	 * @return zero
-	 */
-	public int getExhibitionId() {
-		return exhibition.getId();
+	public Exhibition getExhibition() {
+		return exhibition;
 	}
 
 }

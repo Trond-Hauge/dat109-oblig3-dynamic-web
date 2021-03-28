@@ -71,7 +71,7 @@
                             class="project-phonenumber"
                             name="number"
                             placeholder="Telefonnummer"
-                            value="${phone}"
+                            value="${phoneNumber}"
                         >
                         <input type="submit" class="project-cta button-default" value="Stem">
                     </div>
