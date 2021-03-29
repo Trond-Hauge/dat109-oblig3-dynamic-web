@@ -2,10 +2,8 @@ package servlets;
 
 import utils.Constants;
 import utils.Validator;
-
 import java.io.IOException;
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import exhibition.Exhibition;
 import exhibition.ExhibitionDAO;
 import project.Project;
@@ -95,7 +92,7 @@ public class VoteServlet extends HttpServlet {
 	        sesjon = request.getSession(true);
 	        sesjon.setMaxInactiveInterval(Constants.USER_MAX_TIME_INACTIVE);
 			sesjon.setAttribute("phoneNumber", phoneNumber); //Can now be remembered the next time the spectator votes (prefilled)
-			sesjon.setAttribute("lastVotedProjectId", projectId); // Session remembers lasted voted project, this allows confirmation page to properly display in more cases
+			sesjon.setAttribute("lastVotedProjectId", projectId); // Session remembers last voted project, this allows confirmation page to properly display in more cases
 	        
 			VoteID voteId = new VoteID(phoneNumber, projectId);
 			Vote previous = voteDAO.findVote(voteId);
