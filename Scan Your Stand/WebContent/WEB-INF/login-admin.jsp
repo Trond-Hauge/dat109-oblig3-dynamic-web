@@ -20,9 +20,9 @@
         <div class="login-left transparent-bg">
             <h1 class="login-title">Logg inn som admin</h1>
 
-			<c:if test="${error} != null}">
+			<c:if test="${param.error != null}">
                 <div class="login-error">
-                    Brukernavn eller passord er feil.
+                    ${param.error}
                 </div>
             </c:if>
 
