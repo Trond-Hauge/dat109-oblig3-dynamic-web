@@ -1,7 +1,9 @@
 package exhibition;
 
 import java.time.LocalDateTime;
+import java.time.format.TextStyle;
 import java.util.List;
+import java.util.Locale;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -79,7 +81,20 @@ public class Exhibition {
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-	
-	
-
+	private String timeString(LocalDateTime tidsstempel) {
+		
+		Locale locale = new Locale("nb");
+		String dayStringTemp = tidsstempel.toLocalDate().getDayOfWeek().getDisplayName(TextStyle.FULL, locale);
+		String dayString = 	dayStringTemp.substring(0, 1).toUpperCase() + dayStringTemp.substring(1);
+		String monthString = tidsstempel.toLocalDate().getMonth().getDisplayName(TextStyle.FULL, locale);
+		
+		return dayString + " " + tidsstempel.getDayOfMonth() + ". " + monthString + " " + tidsstempel.getYear()
+			+ " kl. " + tidsstempel.toLocalTime().toString();
+	}
+	public String timeStringStart() {
+		return timeString(start);
+	}
+	public String timeStringStop() {
+		return timeString(stop);
+	}
 }
