@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import exhibition.Exhibition;
 import exhibition.ExhibitionDAO;
+import project.Project;
+import project.ProjectDAO;
 import utils.AdminUtils;
 
 @WebServlet("/admin")
@@ -22,14 +24,17 @@ public class AdminServlet extends HttpServlet {
 	
 	@EJB
 	private ExhibitionDAO exhibitionDao;
+	
+	@EJB
+	private ProjectDAO projectDao;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		boolean loggedIn = AdminUtils.isLoggedIn(request);
 		
 		if(loggedIn) {
-			List<Exhibition> expos = exhibitionDao.getAllExhibitions();
-			request.setAttribute("expos", expos);
+			List<Project> projects = projectDao.getAllProjects();
+			request.setAttribute("projects", projects);
 			request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 		}
 		else {
