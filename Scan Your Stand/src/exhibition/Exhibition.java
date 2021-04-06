@@ -37,6 +37,14 @@ public class Exhibition {
 		this.start = start;
 		this.stop = stop;
 	}
+	
+	public void addProject(Project project) {
+        projects.add(project);
+    }
+
+    public void removeProject(Project project) {
+        projects.remove(project);
+    }
 
 	public String getName() {
 		return name;
