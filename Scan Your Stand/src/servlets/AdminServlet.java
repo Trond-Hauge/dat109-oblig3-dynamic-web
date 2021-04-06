@@ -1,7 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import exhibition.Exhibition;
 import exhibition.ExhibitionDAO;
-import project.Project;
-import project.ProjectDAO;
 import utils.AdminUtils;
 
 @WebServlet("/admin")
@@ -25,9 +22,6 @@ public class AdminServlet extends HttpServlet {
 	
 	@EJB
 	private ExhibitionDAO exhibitionDao;
-	
-	@EJB
-	private ProjectDAO projectDao;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -60,10 +54,16 @@ public class AdminServlet extends HttpServlet {
 			exhibition.setStop(LocalDateTime.now());
 			exhibition.setActive(false);
 		}
-		
-		else {
-			
+		else if(operation.equalsIgnoreCase("logout")){
+			AdminUtils.logOut(request);
+			request.getRequestDispatcher("WEB-INF/login-admin.jsp").forward(request, response);
 		}
-		response.sendRedirect("admin");
+		else if(operation.equalsIgnoreCase("administrate")) {
+			request.getSession().setAttribute("exhibition", exhibition);
+			response.sendRedirect("manageExhibition");
+			
+		}else {
+			response.sendRedirect("admin"); //Should not happen
+		}
 	}
 }

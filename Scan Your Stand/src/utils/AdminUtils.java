@@ -39,4 +39,13 @@ public class AdminUtils {
 	
 	}
 
+	public static void logOut(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession(false);
+		
+		if(session != null) {
+			session.removeAttribute("loggedIn"); //Just to be sure
+			session.invalidate();
+		}
+	}
 }
