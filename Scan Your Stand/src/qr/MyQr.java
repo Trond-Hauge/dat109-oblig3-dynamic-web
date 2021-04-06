@@ -89,7 +89,7 @@ public class MyQr {
     	
     	// The data that the QR code will contain
     	// Will concatenate corresponding ID
-        String data = "www.ourApplication.com?";
+        String data = " http://data1.hib.no:9090/scanyourstand?";
  
         // Encoding charset
         String charset = "UTF-8";

@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -33,6 +34,8 @@ public class AdminServlet extends HttpServlet {
 		boolean loggedIn = AdminUtils.isLoggedIn(request);
 		
 		if(loggedIn) {
+			List<Exhibition> expos = exhibitionDao.getAllExhibitions();
+			request.setAttribute("expos", expos);
 			request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 		}
 		else {
@@ -58,26 +61,8 @@ public class AdminServlet extends HttpServlet {
 			exhibition.setActive(false);
 		}
 		
-		//Adding or removing projects from the exhibition
 		else {
 			
-			String projectNumber = request.getParameter("projectnr");
-			
-			if(operation.equalsIgnoreCase("add")) {
-				
-				String projectName = request.getParameter("projectname");
-				Project project = new Project(projectNumber, projectName);
-				projectDao.addProject(project);
-				exhibitionDao.addProject(project);
-			}
-			else if(operation.equalsIgnoreCase("remove")) {
-				
-				Project project = projectDao.findProjectByID(projectNumber);
-				exhibitionDao.removeProject(project);
-				
-				//Fjerne prosjektet fullstendig?
-				//projectDao.remove(project);
-			}
 		}
 		response.sendRedirect("admin");
 	}
