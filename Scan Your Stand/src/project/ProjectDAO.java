@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import exhibition.Exhibition;
+
 /**
  * Defines the Data Access Object for Project
  * 
@@ -50,5 +52,15 @@ public class ProjectDAO {
 	 */
 	public void addProject(Project project) {
 		em.persist(project);
+	}
+	
+	/**
+	 * Remove a project
+	 * 
+	 * @param project
+	 */
+	public void removeExhibition(Project project) {
+		project = em.merge(project);
+		em.remove(project);
 	}
 }
