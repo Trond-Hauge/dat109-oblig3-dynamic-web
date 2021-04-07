@@ -1,0 +1,24 @@
+
+.admin-expo-config-top {
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--color-dark);
+}
+
+.admin-expo-config-box {
+    margin-bottom: 20px;
+}
+
+.admin-expo-config-box h2 {
+    margin-top: 0;
+}
+
+.admin-expo-config-box label {
+    display: inline-block;
+}
+
+.admin-expo-config-input-inline[type="text"] {
+    width: 53%;
+    float: right;
+    margin-bottom: 20px;
+}
