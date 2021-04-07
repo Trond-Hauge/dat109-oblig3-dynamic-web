@@ -35,7 +35,7 @@ public class VoteServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String projectId = request.getParameter("projectnr");
+		String projectId = request.getParameter("id");
 		Project project = projectDAO.findProjectByID(projectId);
 		Exhibition exhibiton = project == null ? null : project.getExhibition();
 		
@@ -47,7 +47,7 @@ public class VoteServlet extends HttpServlet {
 		
 		Exhibition chosenExhibition = chosenExhibitionId == -1 ? null : exhibitionDAO.findExhibitionById(chosenExhibitionId);
 		
-		if(project == null || exhibiton == null || !exhibiton.isActive()) {
+		if(project == null || exhibiton == null || !exhibiton.isActive()) { //Always goes into this if
 			
 			List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
 	
