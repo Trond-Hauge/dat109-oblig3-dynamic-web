@@ -1,7 +1,9 @@
 package servlets;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -12,17 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import exhibition.Exhibition;
-import exhibition.ExhibitionDAO;
 import project.Project;
 import project.ProjectDAO;
 import utils.AdminUtils;
+import utils.TimeUtils;
 
 @WebServlet("/manageExhibition")
 public class ManageExhibitionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
-	@EJB
-	private ExhibitionDAO exhibitionDao;
 	
 	@EJB
 	private ProjectDAO projectDao;
@@ -46,8 +45,8 @@ public class ManageExhibitionServlet extends HttpServlet {
 				String timestampStringStop = exhibition.timeStringStop();
 				request.setAttribute("stopTimeString", timestampStringStop);
 				
-				List<Exhibition> expos = exhibitionDao.getAllExhibitions();
-				request.setAttribute("expos", expos);
+				List<Project> projects = exhibition.getProjects();
+				request.setAttribute("projects", projects);
 				
 				request.getRequestDispatcher("WEB-INF/manage-exhibition.jsp").forward(request, response);
 			}
@@ -58,6 +57,8 @@ public class ManageExhibitionServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
 		
 		if(!AdminUtils.isLoggedIn(request)) {
 			response.sendRedirect("login-admin");
@@ -77,15 +78,20 @@ public class ManageExhibitionServlet extends HttpServlet {
 						if(operation.equalsIgnoreCase("add")) {
 							
 							String projectName = request.getParameter("projectName");
-							Project project = new Project(projectNumber, projectName);
-							projectDao.addProject(project);
-							exhibitionDao.addProject(project);
+							
+							if(projectName != null) {
+								
+								Project project = new Project(projectNumber, projectName);
+								projectDao.addProject(project);
+							}
 						}
 						else {
+							
 							Project project = projectDao.findProjectByID(projectNumber);
+							
 							if(project != null) {
-								exhibitionDao.removeProject(project);
-								//projectDao.remove(project); Remove project completely?
+			
+								projectDao.removeProject(project);
 							}
 						}
 					}
@@ -97,29 +103,23 @@ public class ManageExhibitionServlet extends HttpServlet {
 					
 					if(exhibition != null) {
 						
-						int date = 0;
-						int hour = 0;
+						String date = request.getParameter("date");
+						String time = request.getParameter("time");
 						
-						try {
-							date = Integer.parseInt(request.getParameter("date"));
-							hour = Integer.parseInt(request.getParameter("hour"));
+						boolean dateValid = TimeUtils.validDate(date);
+						boolean timeValid = TimeUtils.validTime(time);
+						
+						if(dateValid && timeValid) {
 							
-						}catch(NumberFormatException e) {
-							response.sendRedirect("manageExhibition"); //Did not choose date/time
-						}
-						
-						if(operation.equalsIgnoreCase("start")) {
-							LocalDateTime newStart = LocalDateTime.of(exhibition.getStart().getYear(),
-									exhibition.getStart().getMonthValue(),
-									date, hour, 0);
-							exhibition.setStart(newStart);
-						}
-						else {
-							LocalDateTime newStop = LocalDateTime.of(exhibition.getStop().getYear(),
-									exhibition.getStop().getMonthValue(),
-									date, hour, 0);
-							exhibition.setStop(newStop);;
-						}
+							if(operation.equalsIgnoreCase("updateStart")) {
+								LocalDateTime newStart = LocalDateTime.of(LocalDate.parse(date), LocalTime.parse(time));
+								exhibition.setStart(newStart);
+							}
+							else {
+								LocalDateTime newStop = LocalDateTime.of(LocalDate.parse(date), LocalTime.parse(time));
+								exhibition.setStop(newStop);;
+							}
+						}	
 					}
 				}
 				else if(operation.equalsIgnoreCase("import")) {

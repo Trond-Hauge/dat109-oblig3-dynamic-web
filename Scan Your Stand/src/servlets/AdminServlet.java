@@ -51,23 +51,29 @@ public class AdminServlet extends HttpServlet {
 			
 			String operation = request.getParameter("operation");
 			
-			if(operation.equalsIgnoreCase("start")) {
-				exhibition.setStart(LocalDateTime.now());
-				exhibition.setActive(true);
-				response.sendRedirect("admin"); //Continue doing operations
-			}
-			else if(operation.equalsIgnoreCase("stop")){
-				exhibition.setStop(LocalDateTime.now());
-				exhibition.setActive(false);
-				response.sendRedirect("admin"); //Continue doing operations
-			}
-			else if(operation.equalsIgnoreCase("logout")){
-				AdminUtils.logOut(request);
-				response.sendRedirect("login-admin");
-			}
-			else if(operation.equalsIgnoreCase("administrate")) {
-				request.getSession().setAttribute("exhibition", exhibition);
-				response.sendRedirect("manageExhibition");
+			if(operation != null) {
+				
+				if(operation.equalsIgnoreCase("start")) {
+					exhibition.setStart(LocalDateTime.now());
+					exhibition.setActive(true);
+					response.sendRedirect("admin"); //Continue doing operations
+				}
+				else if(operation.equalsIgnoreCase("stop")){
+					exhibition.setStop(LocalDateTime.now());
+					exhibition.setActive(false);
+					response.sendRedirect("admin"); //Continue doing operations
+				}
+				else if(operation.equalsIgnoreCase("logout")){
+					AdminUtils.logOut(request);
+					response.sendRedirect("login-admin");
+				}
+				else if(operation.equalsIgnoreCase("administrate")) {
+					request.getSession().setAttribute("exhibition", exhibition);
+					response.sendRedirect("manageExhibition");
+				}
+				else {
+					response.sendRedirect("admin"); //Should not happen
+				}
 			}
 			else {
 				response.sendRedirect("admin"); //Should not happen
