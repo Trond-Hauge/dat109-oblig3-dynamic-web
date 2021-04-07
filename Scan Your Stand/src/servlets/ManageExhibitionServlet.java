@@ -111,7 +111,7 @@ public class ManageExhibitionServlet extends HttpServlet {
 						
 						if(dateValid && timeValid) {
 							
-							if(operation.equalsIgnoreCase("start")) {
+							if(operation.equalsIgnoreCase("updateStart")) {
 								LocalDateTime newStart = LocalDateTime.of(LocalDate.parse(date), LocalTime.parse(time));
 								exhibition.setStart(newStart);
 							}
