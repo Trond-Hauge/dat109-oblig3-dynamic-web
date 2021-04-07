@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	<div class="choose container-special clearfix">
+	<div class="choose container-special">
         <div class="choose-right">
             <img class="login-logo" src="${pageContext.request.contextPath}/images/ScanYourStand.png" alt="">
         </div>
@@ -45,6 +45,6 @@
                 <input type="submit" class="vote-cta button-default" value="Stem">
             </form>
         </div> <!-- .choose-left -->
-    </div> <!-- .container-->
+    </div> <!-- .choose-->
 </body>
 </html>
