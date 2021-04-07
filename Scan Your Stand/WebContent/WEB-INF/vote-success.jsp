@@ -8,11 +8,12 @@
 	<!--  See if a string can't be used for title -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vellykket stemme</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/images/favicon.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="..css/normalize.css">
-    <link rel="stylesheet" href="..css/main.css">
-    <link rel="stylesheet" href="..css/vote-success.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/normalize.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/vote-success.css">
 </head>
 
 <body>
@@ -24,7 +25,7 @@
                 <a class="view-results button-default" href="result">
                     Vis resultat
                 </a>
-                
+
                 <p></p>
 
                 <a class="new-vote button-default" href="vote">
