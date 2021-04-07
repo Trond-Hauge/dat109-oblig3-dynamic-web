@@ -50,19 +50,40 @@
             <input type="submit" class="button-default" value="Fjern prosjekt">
         </form> <!--.admin-expo-config-remove-->
 
-        <div class="admin-expo-config-dates admin-expo-config-box transparent-bg">
+        <h2 class="admin-expo-config-title">
+            Endre stemmetidspunkt
+        </h2>
+
+        <div class="admin-expo-config-dates admin-expo-config-box transparent-bg clearfix">
             <form class="admin-expo-config-startdate" action="" method="POST">
-                <h2>Endre stemmetidspunkt - start</h2>
+                <h2>Start</h2>
                 <p>Nåværende startdato og -klokkeslett:</p>
                 <p>Tirsdag 1. mai 2022 kl. 09.00</p>
-                <label>Dato</label>
-                <input type="text" name="startdate">
-                <label>Klokkeslett</label>
-                <input type="text" name="starttime">
+                <div class="input-half">
+                    <label>Dato</label>
+                    <input type="text" name="startdate">
+                </div>
+                <div class="input-half">
+                    <label>Klokkeslett</label>
+                    <input type="text" name="starttime">
+                </div>
                 <input type="submit" class="button-default" value="Oppdater starttidspunkt">
-            </form>
+            </form> <!--.admin-expo-config-dates-->
 
-            <!--sluttdato her-->
+            <form class="admin-expo-config-enddate" action="" method="POST">
+                <h2>Slutt</h2>
+                <p>Nåværende sluttdato og -klokkeslett:</p>
+                <p>Tirsdag 1. mai 2022 kl. 09.00</p>
+                <div class="input-half">
+                    <label>Dato</label>
+                    <input type="text" name="enddate">
+                </div>
+                <div class="input-half">
+                    <label>Klokkeslett</label>
+                    <input type="text" name="endtime">
+                </div>
+                <input type="submit" class="button-default" value="Oppdater sluttidspunkt">
+            </form> <!--.admin-expo-config-enddate-->
         </div> <!--.admin-expo-config-dates-->
     </div> <!--.admin-expo-config-->
 </body>
