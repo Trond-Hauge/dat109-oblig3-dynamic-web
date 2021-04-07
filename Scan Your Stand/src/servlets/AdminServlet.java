@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import exhibition.Exhibition;
 import exhibition.ExhibitionDAO;
-import project.Project;
-import project.ProjectDAO;
 import utils.AdminUtils;
 
 @WebServlet("/admin")
@@ -24,17 +22,14 @@ public class AdminServlet extends HttpServlet {
 	
 	@EJB
 	private ExhibitionDAO exhibitionDao;
-	
-	@EJB
-	private ProjectDAO projectDao;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		boolean loggedIn = AdminUtils.isLoggedIn(request);
 		
 		if(loggedIn) {
-			List<Project> projects = projectDao.getAllProjects();
-			request.setAttribute("projects", projects);
+			List<Exhibition> exhibitions = exhibitionDao.getAllExhibitions();
+			request.setAttribute("exhibitions", exhibitions);
 			request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 		}
 		else {
@@ -46,29 +41,37 @@ public class AdminServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		int exhibitionid = Integer.parseInt(request.getParameter("exhibitionid"));
-		Exhibition exhibition = exhibitionDao.findExhibitionById(exhibitionid);
-		
-		String operation = request.getParameter("operation");
-		
-		if(operation.equalsIgnoreCase("start")) {
-			exhibition.setStart(LocalDateTime.now());
-			exhibition.setActive(true);
-		}
-		else if(operation.equalsIgnoreCase("stop")){
-			exhibition.setStop(LocalDateTime.now());
-			exhibition.setActive(false);
-		}
-		else if(operation.equalsIgnoreCase("logout")){
-			AdminUtils.logOut(request);
-			request.getRequestDispatcher("WEB-INF/login-admin.jsp").forward(request, response);
-		}
-		else if(operation.equalsIgnoreCase("administrate")) {
-			request.getSession().setAttribute("exhibition", exhibition);
-			response.sendRedirect("manageExhibition");
+		if(!AdminUtils.isLoggedIn(request)) {
+			response.sendRedirect("login-admin");
 			
 		}else {
-			response.sendRedirect("admin"); //Should not happen
+		
+			int exhibitionid = Integer.parseInt(request.getParameter("exhibitionid"));
+			Exhibition exhibition = exhibitionDao.findExhibitionById(exhibitionid);
+			
+			String operation = request.getParameter("operation");
+			
+			if(operation.equalsIgnoreCase("start")) {
+				exhibition.setStart(LocalDateTime.now());
+				exhibition.setActive(true);
+				response.sendRedirect("admin"); //Continue doing operations
+			}
+			else if(operation.equalsIgnoreCase("stop")){
+				exhibition.setStop(LocalDateTime.now());
+				exhibition.setActive(false);
+				response.sendRedirect("admin"); //Continue doing operations
+			}
+			else if(operation.equalsIgnoreCase("logout")){
+				AdminUtils.logOut(request);
+				response.sendRedirect("login-admin");
+			}
+			else if(operation.equalsIgnoreCase("administrate")) {
+				request.getSession().setAttribute("exhibition", exhibition);
+				response.sendRedirect("manageExhibition");
+			}
+			else {
+				response.sendRedirect("admin"); //Should not happen
+			}
 		}
 	}
 }
