@@ -28,7 +28,7 @@
 						<option value="${p.id}">${p.name}</option>
 					</c:forEach>
                 </select>
-                <input type="submit" class="vote-cta button-default" value="Velg Utstilling">
+                <input type="submit" class="vote-cta button-default" value="Velg">
 			</form>
 		</c:if>
 
@@ -48,7 +48,7 @@
 						<tbody>
 							<c:forEach items="${resultMap}" var="p">
 								<c:set var="count" value="${count + 1}" scope="page" />
-								
+
 								<tr>
 									<td data-label="resultat">
 										<span class="table-numbering">

@@ -42,7 +42,7 @@
 	                </select>
 				</c:if>
 
-                <input type="submit" class="vote-cta button-default" value="Stem">
+                <input type="submit" class="vote-cta button-default" value="Velg">
             </form>
         </div> <!-- .choose-left -->
     </div> <!-- .choose-->
