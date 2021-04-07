@@ -35,7 +35,7 @@ public class VoteServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String projectId = request.getParameter("id");
+		String projectId = request.getParameter("projectnr");
 		Project project = projectDAO.findProjectByID(projectId);
 		Exhibition exhibiton = project == null ? null : project.getExhibition();
 		
