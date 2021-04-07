@@ -1,38 +1,57 @@
 
-.admin-landing-top {
-    width: 70%;
-    display: block;
-    
-}
-.admin-landing-bot {
-    display: block;
-}
-
-
-.admin-pb {
-    width: 20%;
-    border-radius: 100px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.admin-name {
-    text-align: center;
-}
 .admin-landing-links {
     text-align: center;
 
-}
-.choose-date-admin {
-    margin-bottom: 20px;
 }
 
 .control {
     margin-bottom: 20px;
 }
 .start-vote {
+    margin-top: 20px;
     margin-right: 10px;
+    width: 45%;
+
 }
 .stop-vote {
+    margin-top: 20px;
     margin-left: 10px;
+    width: 45%;
+}
+
+.administrate-expo {
+margin: auto;
+margin-top: 20px;
+width: 45%;
+display: block;
+}
+
+.admin-logout {
+margin-top: 60px;
+width: 40%;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+display: block;
+}
+
+@media only screen and (max-width: 816px) {
+    .start-vote {
+        margin-right: 0px;
+        width: 100%;
+    
+    }
+    .stop-vote {
+        margin-left: 0px;
+        width: 100%;
+    }
+    
+    .administrate-expo{
+    width: 100%;
+    }
+    
+    .admin-logout{
+    width: 100%;
+    
+    }  
 }

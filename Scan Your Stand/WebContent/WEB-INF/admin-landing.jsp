@@ -17,35 +17,33 @@
 </head>
 
 <body>
-	<div class="admin-landing-top transparent-bg center-align">
-        <img class="admin-pb" src="https://via.placeholder.com/400x400.png/" alt="">
-        <p class="admin-name">Per Viskelær</p>
-
+	<div class="admin-landing-top transparent-bg container-special">
         <div class="admin-landing-bot transparent-bg">
             <div class="admin-landing-links">
-                <div class="choose-date-admin">
-                    <label for="starttado">Starttado:</label>
-                    <input th:field="${vote.timeVote}" type="date" id="starttado" name="starttado">
-                </div>
-                <div class="timer">
-                    <span class="hour">00</span>:<span class="minute">00</span>:<span class="second">10</span>
-                </div>
-                <div class="control">
-                    <button onClick="timer.start(1000)">Start</button>
-                    <button onClick="timer.stop()">Stop</button>
-                    <button onClick="timer.reset(60)">Reset</button>
-                    <button onClick="timer.mode(1)">Count up</button>
-                    <button onClick="timer.mode(0)">Count down</button>
-                </div>
-                <a class="start-vote button-default" href="view-results.html">
+                <label>Utstilling</label>
+                <select name="exponr" class="exponr">
+                    <option value="1">EXPO1</option>
+                    <option value="2">EXPO2</option>
+                    <option value="3">EXPO3</option>
+                    <option value="4">EXPO4</option>
+                </select>
+                <a class="start-vote button-default" href="#">
                     Start avstemning
                 </a>
 
                 <a class="stop-vote button-default" href="#">
                     Stopp avstamning
                 </a>
+
+                <a class="administrate-expo button-default" href="admin-expo-config.jsp">
+                    Administrer utstilling
+                </a>
+                
             </div>
         </div>
+        <a class="admin-logout button-default" href="login-admin.jsp">
+                    Logg ut
+                </a>
     </div>
 </body>
 </html>
