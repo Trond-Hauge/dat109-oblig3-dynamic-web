@@ -1,7 +1,7 @@
 
 .login-left {
     float: left;
-    max-width: var(--box-400);
+    width: var(--box-400);
     margin: 0;
     position: absolute;
     top: 50%;
