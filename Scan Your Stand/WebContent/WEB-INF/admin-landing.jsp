@@ -34,7 +34,7 @@
                 <a class="stop-vote button-default" href="#">
                     Stopp avstamning
                 </a>
-
+                <hr>
                 <a class="administrate-expo button-default" href="admin-expo-config.jsp">
                     Administrer utstilling
                 </a>

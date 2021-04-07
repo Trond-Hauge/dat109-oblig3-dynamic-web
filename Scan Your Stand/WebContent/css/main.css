@@ -29,6 +29,10 @@ textarea {
     resize: vertical;
 }
 
+hr {
+    border: 1px solig white;
+}
+
 .hidden, [hidden] {
     display: none !important;
 }

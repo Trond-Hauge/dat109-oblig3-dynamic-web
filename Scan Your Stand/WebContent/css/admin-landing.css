@@ -18,7 +18,9 @@
     margin-left: 10px;
     width: 45%;
 }
-
+hr {
+    margin-top: 20px;
+}
 .administrate-expo {
 margin: auto;
 margin-top: 20px;
@@ -48,6 +50,7 @@ display: block;
     
     .administrate-expo{
     width: 100%;
+    margin-top: 40px;
     }
     
     .admin-logout{
