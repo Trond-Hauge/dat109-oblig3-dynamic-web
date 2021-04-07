@@ -17,10 +17,11 @@
 </head>
 
 <body>
-    <div class="project container clearfix">
+    <div class="project container-special">
         <div class="project-left transparent-bg">
             <img class="login-logo" src="https://via.placeholder.com/400x400.png/" alt="">
             <p class="project-name"></p>
+            <p class="project-exhibition-name">Utstilling: (må fylles inn dynamisk)</p>
             <p class="project-project-name">Prosjekt: <c:out value="${project.projectName}"></c:out></p>
         </div> <!--.project-left-->
 
@@ -64,7 +65,7 @@
                             <input type="radio" name="points" value="5">
                             5 poeng
                         </label>
-                    </div>
+                    </div> <!--.project-form-left-->
 
                     <div class="project-form-right">
                         <label>Telefonnummer</label>
