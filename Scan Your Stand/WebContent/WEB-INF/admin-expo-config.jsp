@@ -20,7 +20,7 @@
     <div class="admin-expo-config container">
         <div class="admin-expo-config-top">
             <h1 class="admin-expo-config-title">Administrer utstilling</h1>
-            <p class="admin-expo-config-name">Utstillingsnavn:<c:out value="${exhibition.expoName}"></c:out></p>
+            <p class="admin-expo-config-name">Utstillingsnavn:<c:out value="${expoName}"></c:out></p>
         </div>
 
         <form class="admin-expo-config-add admin-expo-config-box transparent-bg" action="" method="POST">
@@ -63,7 +63,7 @@
             <form class="admin-expo-config-startdate" action="" method="POST">
                 <h2>Start</h2>
                 <p>Nåværende startdato og -klokkeslett:</p>
-                <p>Tirsdag 1. mai 2022 kl. 09.00</p>
+                <p><c:out value="${startTimeString}"></c:out></p>
                 <div class="input-half">
                     <label>Dato</label>
                     <input type="text" name="date">
@@ -78,7 +78,7 @@
             <form class="admin-expo-config-enddate" action="" method="POST">
                 <h2>Slutt</h2>
                 <p>Nåværende sluttdato og -klokkeslett:</p>
-                <p>Tirsdag 1. mai 2022 kl. 09.00</p>
+                <p><c:out value="${stopTimeString}"></c:out></p>
                 <div class="input-half">
                     <label>Dato</label>
                     <input type="text" name="date">
