@@ -19,7 +19,7 @@
     <div class="admin-expo-config container">
         <div class="admin-expo-config-top">
             <h1 class="admin-expo-config-title">Administrer utstilling</h1>
-            <p class="admin-expo-config-name">Utstillingsnavn:<c:out value="${expoName}"></c:out></p>
+            <p class="admin-expo-config-name">Utstillingsnavn: <c:out value="${expoName}"></c:out></p>
         </div>
 
         <form class="admin-expo-config-add admin-expo-config-box transparent-bg" action="" method="POST">
