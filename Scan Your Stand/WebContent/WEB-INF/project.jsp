@@ -38,28 +38,28 @@
                     >
 
                     <div class="project-form-left">
-                        <label>
-                            <input type="radio" name="points" value="0">
+						<label>
+                            <input type="radio" name="points" value="0" ${points == null || points == '0' ? 'checked' : ''}>
                             0 poeng
                         </label>
                         <label>
-                            <input type="radio" name="points" value="1">
+                            <input type="radio" name="points" value="1" ${points == '1' ? 'checked' : ''}>
                             1 poeng
                         </label>
                         <label>
-                            <input type="radio" name="points" value="2">
+                            <input type="radio" name="points" value="2" ${points == '2' ? 'checked' : ''}>
                             2 poeng
                         </label>
                         <label>
-                            <input type="radio" name="points" value="3">
+                            <input type="radio" name="points" value="3" ${points == '3' ? 'checked' : ''}>
                             3 poeng
                         </label>
                         <label>
-                            <input type="radio" name="points" value="4">
+                            <input type="radio" name="points" value="4" ${points == '4' ? 'checked' : ''}>
                             4 poeng
                         </label>
                         <label>
-                            <input type="radio" name="points" value="5">
+                            <input type="radio" name="points" value="5" ${points == '5' ? 'checked' : ''}>
                             5 poeng
                         </label>
                     </div>
@@ -72,8 +72,13 @@
                             name="number"
                             placeholder="Telefonnummer"
                             value="${phoneNumber}"
+                            required
                         >
                         <input type="submit" class="project-cta button-default" value="Stem">
+                        <c:if test="${revote != null}">
+                       		<input type="hidden" name="revote" value="revote">
+                        	<p>Du har allerede stemt på dette prosjektet, vil du stemme på nytt?</p>
+                        </c:if>
                     </div>
                 </form> <!--.project-form-->
             </div> <!--.project-vote-->

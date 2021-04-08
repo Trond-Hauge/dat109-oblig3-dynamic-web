@@ -61,7 +61,10 @@ public class VoteServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
 		}
 		else {
-			
+			String revote = request.getParameter("revote");
+			String points = request.getParameter("points");
+			request.setAttribute("points", points);
+			request.setAttribute("revote", revote);
 			request.setAttribute("project", project);
 			request.getRequestDispatcher("WEB-INF/project.jsp").forward(request, response);
 		}
@@ -97,14 +100,21 @@ public class VoteServlet extends HttpServlet {
 			VoteID voteId = new VoteID(phoneNumber, projectId);
 			Vote previous = voteDAO.findVote(voteId);
 			
-			if(previous != null) {
-				
-				voteDAO.remove(previous);
-			}
-			Vote vote = new Vote(phoneNumber, projectId, points);
-			voteDAO.add(vote);
+			String revoteApproved = request.getParameter("revote");
 			
-			response.sendRedirect("confirmation");
+			if(previous != null && revoteApproved == null) {
+				response.sendRedirect("vote?revote=true&projectnr=" + projectId + "&points=" + points);
+			}
+			else {
+				if(previous != null && revoteApproved != null) {
+					voteDAO.remove(previous);
+				}
+				
+				Vote vote = new Vote(phoneNumber, projectId, points);
+				voteDAO.add(vote);
+				
+				response.sendRedirect("confirmation");
+			}
 		}
 		else {
 			response.sendRedirect("vote");
