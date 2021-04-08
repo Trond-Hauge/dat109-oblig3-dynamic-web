@@ -59,19 +59,19 @@ public class AdminServlet extends HttpServlet {
 					exhibition.setStart(LocalDateTime.now());
 					exhibition.setActive(true);
 					exhibitionDao.updateExhibition(exhibition);
+					response.sendRedirect("admin-landing"); 
 				}
 				else if(operation.equalsIgnoreCase(Constants.STOP_STRING)){
 					exhibition.setStop(LocalDateTime.now());
 					exhibition.setActive(false);
 					exhibitionDao.updateExhibition(exhibition);
+					response.sendRedirect("admin-landing"); 
 				}
 				else if(operation.equalsIgnoreCase(Constants.ADMINISTRATE_STRING)) {
 					request.getSession().setAttribute("exhibition", exhibition);
 					response.sendRedirect("manageExhibition");
-					
 				}
 				
-				response.sendRedirect("admin-landing"); 
 			}
 			else {
 				System.out.println("-- SOMETHING WRONG --");
