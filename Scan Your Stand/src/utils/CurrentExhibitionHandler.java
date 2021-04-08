@@ -8,7 +8,6 @@ import exhibition.Exhibition;
 import exhibition.ExhibitionDAO;
 
 /**
- * 
  * @author trond
  *
  * Runnable class that checks and determines whether Exhibition entities should be active or not.
@@ -21,6 +20,11 @@ public class CurrentExhibitionHandler implements Runnable {
 		this.ex = ex;
 	}
 	
+	/**
+	 * Checks time for exhibiton object, and manages activation/ deactivation in database.
+	 * 
+	 * @param exhibition object
+	 */
 	private void evaluateTime(Exhibition e) {
 		if (!e.isActive() && e.getStart().isBefore(LocalDateTime.now()) && e.getStop().isAfter(LocalDateTime.now())) {
 			e.setActive(true);
@@ -41,7 +45,7 @@ public class CurrentExhibitionHandler implements Runnable {
 			long startTime = System.nanoTime();
 			
 			//Turn on by uncommenting the line under
-			//ex.getAllExhibitions().forEach(e -> evaluateTime(e));
+			ex.getAllExhibitions().forEach(e -> evaluateTime(e));
 			
 			System.out.println("Execution time in seconds: " + (double)((System.nanoTime() - startTime)/1_000_000_000));
 			try {
