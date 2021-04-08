@@ -48,7 +48,7 @@ public class ManageExhibitionServlet extends HttpServlet {
 				List<Project> projects = exhibition.getProjects();
 				request.setAttribute("projects", projects);
 				
-				request.getRequestDispatcher("WEB-INF/manage-exhibition.jsp").forward(request, response);
+				request.getRequestDispatcher("WEB-INF/admin-expo-config.jsp").forward(request, response);
 			}
 		}
 		else {

@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrer utstilling</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/images/favicon.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/admin-expo-config.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/normalize.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin-expo-config.css">
 </head>
 
 <body>
@@ -62,7 +61,7 @@
         <div class="admin-expo-config-dates admin-expo-config-box transparent-bg clearfix">
             <form class="admin-expo-config-startdate" action="" method="POST">
                 <h2>Start</h2>
-                <p>Nåværende startdato og -klokkeslett:</p>
+                <p>NÃ¥vÃ¦rende startdato og -klokkeslett:</p>
                 <p><c:out value="${startTimeString}"></c:out></p>
                 <div class="input-half">
                     <label>Dato</label>
@@ -77,7 +76,7 @@
 
             <form class="admin-expo-config-enddate" action="" method="POST">
                 <h2>Slutt</h2>
-                <p>Nåværende sluttdato og -klokkeslett:</p>
+                <p>NÃ¥vÃ¦rende sluttdato og -klokkeslett:</p>
                 <p><c:out value="${stopTimeString}"></c:out></p>
                 <div class="input-half">
                     <label>Dato</label>
