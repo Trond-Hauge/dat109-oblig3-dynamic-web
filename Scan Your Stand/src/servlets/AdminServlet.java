@@ -3,17 +3,16 @@ package servlets;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import exhibition.Exhibition;
 import exhibition.ExhibitionDAO;
 import utils.AdminUtils;
+import utils.Constants;
 
 @WebServlet("/admin-landing")
 public class AdminServlet extends HttpServlet {
@@ -29,6 +28,9 @@ public class AdminServlet extends HttpServlet {
 		
 		if(loggedIn) {
 			List<Exhibition> exhibitions = exhibitionDao.getAllExhibitions();
+			request.setAttribute("startStr", Constants.START_STRING);
+			request.setAttribute("stopStr", Constants.STOP_STRING);
+			request.setAttribute("administrateStr", Constants.ADMINISTRATE_STRING);
 			request.setAttribute("exhibitions", exhibitions);
 			request.getRequestDispatcher("WEB-INF/admin-landing.jsp").forward(request, response);
 		}
@@ -53,15 +55,15 @@ public class AdminServlet extends HttpServlet {
 			
 			if(operation != null) {
 				
-				if(operation.equalsIgnoreCase("start")) {
+				if(operation.equalsIgnoreCase(Constants.START_STRING)) {
 					exhibition.setStart(LocalDateTime.now());
 					exhibition.setActive(true);
 				}
-				else if(operation.equalsIgnoreCase("stop")){
+				else if(operation.equalsIgnoreCase(Constants.STOP_STRING)){
 					exhibition.setStop(LocalDateTime.now());
 					exhibition.setActive(false);
 				}
-				else if(operation.equalsIgnoreCase("administrate")) {
+				else if(operation.equalsIgnoreCase(Constants.ADMINISTRATE_STRING)) {
 					request.getSession().setAttribute("exhibition", exhibition);
 				}
 				
@@ -70,6 +72,9 @@ public class AdminServlet extends HttpServlet {
 			else {
 				response.sendRedirect("admin-landing"); //Should not happen
 			}
+			
 		}
+		
 	}
+	
 }
