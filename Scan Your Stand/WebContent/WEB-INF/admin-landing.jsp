@@ -35,7 +35,7 @@
                     Stopp avstamning
                 </a>
                 <hr>
-                <a class="administrate-expo button-default" href="admin-expo-config.jsp">
+                <a class="administrate-expo button-default" href="manageExhibition">
                     Administrer utstilling
                 </a>
                 
