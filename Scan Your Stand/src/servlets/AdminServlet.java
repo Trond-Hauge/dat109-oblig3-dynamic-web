@@ -63,10 +63,6 @@ public class AdminServlet extends HttpServlet {
 					exhibition.setActive(false);
 					response.sendRedirect("admin-landing"); //Continue doing operations
 				}
-				else if(operation.equalsIgnoreCase("logout")){
-					AdminUtils.logOut(request);
-					response.sendRedirect("login-admin");
-				}
 				else if(operation.equalsIgnoreCase("administrate")) {
 					request.getSession().setAttribute("exhibition", exhibition);
 					response.sendRedirect("manageExhibition");
