@@ -20,12 +20,7 @@
     <div class="admin-expo-config container">
         <div class="admin-expo-config-top">
             <h1 class="admin-expo-config-title">Administrer utstilling</h1>
-            <p class="admin-expo-config-name">Utstillingsnavn:</p>
-            <select name="id" class="exhibition">
-                    <c:forEach items="${exhibitions}" var="p">
-						<option value="${p.id}">${p.name}</option>
-					</c:forEach>
-                </select>
+            <p class="admin-expo-config-name">Utstillingsnavn:<c:out value="${exhibition.expoName}"></c:out></p>
         </div>
 
         <form class="admin-expo-config-add admin-expo-config-box transparent-bg" action="" method="POST">
