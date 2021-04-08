@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +61,7 @@
         <div class="admin-expo-config-dates admin-expo-config-box transparent-bg clearfix">
             <form class="admin-expo-config-startdate" action="" method="POST">
                 <h2>Start</h2>
-                <p>Nåværende startdato og -klokkeslett:</p>
+                <p>NÃ¥vÃ¦rende startdato og -klokkeslett:</p>
                 <p><c:out value="${startTimeString}"></c:out></p>
                 <div class="input-half">
                     <label>Dato</label>
@@ -77,7 +76,7 @@
 
             <form class="admin-expo-config-enddate" action="" method="POST">
                 <h2>Slutt</h2>
-                <p>Nåværende sluttdato og -klokkeslett:</p>
+                <p>NÃ¥vÃ¦rende sluttdato og -klokkeslett:</p>
                 <p><c:out value="${stopTimeString}"></c:out></p>
                 <div class="input-half">
                     <label>Dato</label>
