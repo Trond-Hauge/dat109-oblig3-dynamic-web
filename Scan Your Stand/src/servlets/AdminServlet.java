@@ -52,7 +52,7 @@ public class AdminServlet extends HttpServlet {
 			Exhibition exhibition = exhibitionDao.findExhibitionById(exhibitionid);
 			
 			String operation = request.getParameter("operation");
-			
+
 			if(operation != null && exhibition != null) {
 				
 				if(operation.equalsIgnoreCase(Constants.START_STRING)) {
@@ -64,7 +64,6 @@ public class AdminServlet extends HttpServlet {
 					exhibition.setStop(LocalDateTime.now());
 					exhibition.setActive(false);
 					exhibitionDao.updateExhibition(exhibition);
-					System.out.println("-- TEST! --");
 				}
 				else if(operation.equalsIgnoreCase(Constants.ADMINISTRATE_STRING)) {
 					request.getSession().setAttribute("exhibition", exhibition);

@@ -21,7 +21,7 @@
         <h1 class="admin-landing-title">Kontrollpanel</h1>
 
         <div class="admin-landing-bot transparent-bg">
-            <form class="admin-landing-form" action="manageExhibition" method="POST">
+            <form class="admin-landing-form" action="admin-landing" method="POST">
                 <label>Utstilling</label>
                 <select name="exhibitionid" class="exponr">
                     <c:forEach items="${exhibitions}" var="p">
