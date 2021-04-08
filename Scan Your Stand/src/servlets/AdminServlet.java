@@ -56,20 +56,16 @@ public class AdminServlet extends HttpServlet {
 				if(operation.equalsIgnoreCase("start")) {
 					exhibition.setStart(LocalDateTime.now());
 					exhibition.setActive(true);
-					response.sendRedirect("admin-landing"); //Continue doing operations
 				}
 				else if(operation.equalsIgnoreCase("stop")){
 					exhibition.setStop(LocalDateTime.now());
 					exhibition.setActive(false);
-					response.sendRedirect("admin-landing"); //Continue doing operations
 				}
 				else if(operation.equalsIgnoreCase("administrate")) {
 					request.getSession().setAttribute("exhibition", exhibition);
-					response.sendRedirect("manageExhibition");
 				}
-				else {
-					response.sendRedirect("admin-landing"); //Should not happen
-				}
+				
+				response.sendRedirect("admin-landing"); 
 			}
 			else {
 				response.sendRedirect("admin-landing"); //Should not happen
