@@ -53,19 +53,17 @@ public class AdminServlet extends HttpServlet {
 			
 			String operation = request.getParameter("operation");
 			
-			if(operation != null) {
+			if(operation != null && exhibition != null) {
 				
 				if(operation.equalsIgnoreCase(Constants.START_STRING)) {
-					exhibitionDao.removeExhibition(exhibition);
 					exhibition.setStart(LocalDateTime.now());
 					exhibition.setActive(true);
-					exhibitionDao.addExhibition(exhibition);
+					exhibitionDao.updateExhibition(exhibition);
 				}
 				else if(operation.equalsIgnoreCase(Constants.STOP_STRING)){
-					exhibitionDao.removeExhibition(exhibition);
 					exhibition.setStop(LocalDateTime.now());
 					exhibition.setActive(false);
-					exhibitionDao.addExhibition(exhibition);
+					exhibitionDao.updateExhibition(exhibition);
 				}
 				else if(operation.equalsIgnoreCase(Constants.ADMINISTRATE_STRING)) {
 					request.getSession().setAttribute("exhibition", exhibition);
@@ -74,6 +72,7 @@ public class AdminServlet extends HttpServlet {
 				response.sendRedirect("admin-landing"); 
 			}
 			else {
+				System.out.println("-- SOMETHING WRONG --");
 				response.sendRedirect("admin-landing"); //Should not happen
 			}
 			
