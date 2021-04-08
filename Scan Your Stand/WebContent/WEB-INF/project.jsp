@@ -75,6 +75,7 @@
                             name="number"
                             placeholder="Telefonnummer"
                             value="${phoneNumber}"
+                            pattern="^[1-9]{1}[0-9]{7}$"
                             required
                         >
                         <input type="submit" class="project-cta button-default" value="Stem">
