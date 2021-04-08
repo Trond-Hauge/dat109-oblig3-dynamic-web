@@ -25,7 +25,7 @@
         <form class="admin-expo-config-add admin-expo-config-box transparent-bg" action="" method="POST">
             <h2>Legg til nytt prosjekt</h2>
 
-            <label>Filnavn:</label>
+            <label>Filnavn (xlsx):</label>
             <input type="file" class="admin-expo-config-input" name="projects">
             <input type="submit" class="button-default" value="Importer prosjekter">
 
