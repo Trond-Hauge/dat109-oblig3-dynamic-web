@@ -29,6 +29,10 @@ textarea {
     resize: vertical;
 }
 
+hr {
+    border: 1px solig white;
+}
+
 .hidden, [hidden] {
     display: none !important;
 }
@@ -92,6 +96,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Squada One', cursive;
 }
 
+h1 {
+    font-size: 3em;
+}
+
 h2 {
     font-size: 32px;
 }
@@ -134,6 +142,22 @@ input[type='radio'] {
     transform: scale(2);
 }
 
+.input-half {
+    float: left;
+    width: 47%;
+    margin-left: 5%;
+}
+.input-half:nth-child(2n) {
+    margin-left: 0;
+}
+
+@media only screen and (max-width: 460px) {
+    .input-half {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
 .center-align {
     position: absolute;
     top: 50%;
@@ -145,8 +169,6 @@ input[type='radio'] {
     margin: 0 auto;
     width: 90%;
     max-width: 860px;
-    overflow: hidden;
-
 }
 
 @media only screen and (min-height: 900px) {
@@ -173,6 +195,7 @@ input[type='radio'] {
 .button-default {
     background-color: peachpuff;
     display: inline-block;
+    margin-top: 20px;
     border: none;
     color: #000;
     text-decoration: none;
@@ -196,9 +219,12 @@ input[type='radio'] {
 }
 
 .table-numbering {
+    display: inline-block;
+    min-width: 40px;
     margin-right: 10px;
     padding: 8px;
     border-radius: 50%;
+    text-align: center;
     font-size: 12px;
     background-color: #444;
     color: #fff;

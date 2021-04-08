@@ -47,7 +47,7 @@ public class VoteServlet extends HttpServlet {
 		
 		Exhibition chosenExhibition = chosenExhibitionId == -1 ? null : exhibitionDAO.findExhibitionById(chosenExhibitionId);
 		
-		if(project == null || exhibiton == null || !exhibiton.isActive()) {
+		if(project == null || exhibiton == null || !exhibiton.isActive()) { //Always goes into this if
 			
 			List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
 	

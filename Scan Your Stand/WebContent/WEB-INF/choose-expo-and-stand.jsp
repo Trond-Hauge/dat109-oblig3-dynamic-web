@@ -8,15 +8,20 @@
 	<!--  See if a string can't be used for title -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velg expo og stand</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/images/favicon.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="..css/normalize.css">
-    <link rel="stylesheet" href="..css/main.css">
-	<link rel="stylesheet" href="..css/choose-expo-and-stand.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/normalize.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/choose-expo-and-stand.css">
 </head>
 
 <body>
-	<div class="choose container-special clearfix">
+	<div class="choose container-special">
+        <div class="choose-right">
+            <img class="login-logo" src="${pageContext.request.contextPath}/images/ScanYourStand.png" alt="">
+        </div>
+
         <div class="choose-left transparent-bg">
             <form class="choose-form" action="vote" method="GET">
                 <h1 class="choose-title">Velg expo</h1>
@@ -37,13 +42,9 @@
 	                </select>
 				</c:if>
 
-                <input type="submit" class="vote-cta button-default" value="Stem">
+                <input type="submit" class="vote-cta button-default" value="Velg">
             </form>
         </div> <!-- .choose-left -->
-
-        <div class="choose-right">
-            <img class="login-logo" src="../images/ScanYourStand.png" alt="">
-        </div>
-    </div> <!-- .container-->
+    </div> <!-- .choose-->
 </body>
 </html>

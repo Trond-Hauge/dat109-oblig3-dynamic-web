@@ -51,4 +51,14 @@ public class ProjectDAO {
 	public void addProject(Project project) {
 		em.persist(project);
 	}
+	
+	/**
+	 * Remove a project
+	 * 
+	 * @param project
+	 */
+	public void removeProject(Project project) {
+		project = em.merge(project);
+		em.remove(project);
+	}
 }

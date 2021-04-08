@@ -39,6 +39,10 @@ public class Project {
 		this.projectNumber = projectNumber;
 		this.projectName = projectName;
 	}
+	
+	public void setExhibition(Exhibition exhibition) {
+		this.exhibition = exhibition;
+	}
 
 	public String getProjectName() {
 		return projectName;

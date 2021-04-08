@@ -5,9 +5,6 @@
     width: var(--box-400);
     padding: 40px;
     margin: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .choose-title {
@@ -26,6 +23,7 @@
 
 .vote-cta {
     width: 100%;
+    margin-top: 20px;
 }
 
 .choose-right {

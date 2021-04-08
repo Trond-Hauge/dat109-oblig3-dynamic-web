@@ -106,7 +106,7 @@ public class MyQr {
 	        
 	        // Create the QR code and save in the specified folder as a png file
 	        try {
-				createQR(data + "id=" + id, path, charset, hashMap, 200, 200);
+				createQR(data + "projectnr=" + id, path, charset, hashMap, 200, 200);
 			} catch (WriterException | IOException e) {
 				e.printStackTrace();
 			}    

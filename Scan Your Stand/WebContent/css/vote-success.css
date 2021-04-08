@@ -31,18 +31,17 @@
 .vote-success-tilbake:hover {
     text-decoration: none;
 }
+
 @media only screen and (max-width: 600px) {
 
     .vote-success-inner {
-        height: 200px;
         width: 300px;
-        
     }
 
     .vote-success-title {
         margin-top: 0;
         text-align: center;
-        font-size: 6vw;
+        font-size: 26px;
     }
 
     .vote-success-links {
@@ -51,10 +50,8 @@
     }
 
     .view-results,
-.new-vote {
-   
-     width: 100%;
-     padding: 0 2px;
-    
-}
+    .new-vote {
+        width: 100%;
+        padding: 0 2px;
+    }
 }
