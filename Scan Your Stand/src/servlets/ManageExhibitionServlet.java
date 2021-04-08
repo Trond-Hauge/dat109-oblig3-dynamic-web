@@ -33,7 +33,7 @@ public class ManageExhibitionServlet extends HttpServlet {
 			Exhibition exhibition = (Exhibition)request.getSession().getAttribute("exhibition");
 			
 			if(exhibition == null) {
-				response.sendRedirect("admin");
+				response.sendRedirect("admin-landing");
 			}
 			else {
 				String expoName = exhibition.getName();

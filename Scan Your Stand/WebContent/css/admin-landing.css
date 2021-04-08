@@ -1,5 +1,5 @@
 
-.admin-landing-links {
+.admin-landing-form {
     text-align: center;
 
 }
@@ -41,20 +41,20 @@ display: block;
     .start-vote {
         margin-right: 0px;
         width: 100%;
-    
+
     }
     .stop-vote {
         margin-left: 0px;
         width: 100%;
     }
-    
+
     .administrate-expo{
     width: 100%;
     margin-top: 40px;
     }
-    
+
     .admin-logout{
     width: 100%;
-    
-    }  
+
+    }
 }
