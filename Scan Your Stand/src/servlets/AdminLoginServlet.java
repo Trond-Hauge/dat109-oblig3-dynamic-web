@@ -27,7 +27,7 @@ public class AdminLoginServlet extends HttpServlet {
 		boolean loggedIn = AdminUtils.isLoggedIn(request);
 		
 		if(loggedIn) {
-			request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/admin-landing.jsp").forward(request, response);
 		}
 		else {
 			request.getRequestDispatcher("WEB-INF/login-admin.jsp").forward(request, response);
@@ -57,6 +57,6 @@ public class AdminLoginServlet extends HttpServlet {
 		else {
 			error = "?error=Feil passord oppgitt";
 		}
-		response.sendRedirect("admin" + error);
+		response.sendRedirect("admin-landing" + error);
 	}
 }

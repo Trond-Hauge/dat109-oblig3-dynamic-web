@@ -15,7 +15,7 @@ import exhibition.Exhibition;
 import exhibition.ExhibitionDAO;
 import utils.AdminUtils;
 
-@WebServlet("/admin")
+@WebServlet("/admin-landing")
 public class AdminServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -30,7 +30,7 @@ public class AdminServlet extends HttpServlet {
 		if(loggedIn) {
 			List<Exhibition> exhibitions = exhibitionDao.getAllExhibitions();
 			request.setAttribute("exhibitions", exhibitions);
-			request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/admin-landing.jsp").forward(request, response);
 		}
 		else {
 			response.sendRedirect("login-admin");
@@ -56,12 +56,12 @@ public class AdminServlet extends HttpServlet {
 				if(operation.equalsIgnoreCase("start")) {
 					exhibition.setStart(LocalDateTime.now());
 					exhibition.setActive(true);
-					response.sendRedirect("admin"); //Continue doing operations
+					response.sendRedirect("admin-landing"); //Continue doing operations
 				}
 				else if(operation.equalsIgnoreCase("stop")){
 					exhibition.setStop(LocalDateTime.now());
 					exhibition.setActive(false);
-					response.sendRedirect("admin"); //Continue doing operations
+					response.sendRedirect("admin-landing"); //Continue doing operations
 				}
 				else if(operation.equalsIgnoreCase("logout")){
 					AdminUtils.logOut(request);
@@ -72,11 +72,11 @@ public class AdminServlet extends HttpServlet {
 					response.sendRedirect("manageExhibition");
 				}
 				else {
-					response.sendRedirect("admin"); //Should not happen
+					response.sendRedirect("admin-landing"); //Should not happen
 				}
 			}
 			else {
-				response.sendRedirect("admin"); //Should not happen
+				response.sendRedirect("admin-landing"); //Should not happen
 			}
 		}
 	}
