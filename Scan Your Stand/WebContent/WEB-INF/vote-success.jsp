@@ -28,7 +28,7 @@
 
                 <p></p>
 
-                <a class="new-vote button-default" href="vote">
+                <a class="new-vote button-default" href="vote?changeVote=true">
                     Endre min stemme
                 </a>
             </div>

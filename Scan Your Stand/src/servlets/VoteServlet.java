@@ -35,39 +35,65 @@ public class VoteServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String projectId = request.getParameter("projectnr");
-		Project project = projectDAO.findProjectByID(projectId);
-		Exhibition exhibiton = project == null ? null : project.getExhibition();
+		String changeVote = request.getParameter("changeVote");
 		
-		int chosenExhibitionId = -1; 
-		try {
-			chosenExhibitionId = Integer.parseInt(request.getParameter("exhibitionid"));
-		}
-		catch(NumberFormatException e) {}
-		
-		Exhibition chosenExhibition = chosenExhibitionId == -1 ? null : exhibitionDAO.findExhibitionById(chosenExhibitionId);
-		
-		if(project == null || exhibiton == null || !exhibiton.isActive()) { //Always goes into this if
+		if(changeVote != null && request.getSession().getAttribute("previousVote") != null) {
 			
-			List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
-	
-			if(chosenExhibition != null && chosenExhibition.isActive()) {
-				request.setAttribute("exhibition", chosenExhibition);
-				List<Project> projects = chosenExhibition.getProjects();
-				request.setAttribute("projects", projects);
+			Vote previousVote = (Vote) request.getSession().getAttribute("previousVote");
+			Project project = projectDAO.findProjectByID(previousVote.getProjectNumber());
+			
+			if(!project.getExhibition().isActive()) {
+				List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
+				request.setAttribute("exhibitions", exhibitions);
+				request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
 			}
 			
-			request.setAttribute("exhibitions", exhibitions);
-			request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
-		}
-		else {
-			String revote = request.getParameter("revote");
-			String points = request.getParameter("points");
+			String points = previousVote.getPoints() + "";
+			String revote = "true";
 			request.setAttribute("points", points);
 			request.setAttribute("revote", revote);
 			request.setAttribute("project", project);
 			request.getRequestDispatcher("WEB-INF/project.jsp").forward(request, response);
+			
 		}
+		else {
+			
+			String projectId = request.getParameter("projectnr");
+			Project project = projectDAO.findProjectByID(projectId);
+			Exhibition exhibiton = project == null ? null : project.getExhibition();
+			
+			int chosenExhibitionId = -1; 
+			try {
+				chosenExhibitionId = Integer.parseInt(request.getParameter("exhibitionid"));
+			}
+			catch(NumberFormatException e) {}
+			
+			Exhibition chosenExhibition = chosenExhibitionId == -1 ? null : exhibitionDAO.findExhibitionById(chosenExhibitionId);
+			
+			if(project == null || exhibiton == null || !exhibiton.isActive()) { 
+				
+				List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
+		
+				if(chosenExhibition != null && chosenExhibition.isActive()) {
+					request.setAttribute("exhibition", chosenExhibition);
+					List<Project> projects = chosenExhibition.getProjects();
+					request.setAttribute("projects", projects);
+				}
+				
+				request.setAttribute("exhibitions", exhibitions);
+				request.getRequestDispatcher("WEB-INF/choose-expo-and-stand.jsp").forward(request, response);
+			}
+			else {
+				String revote = request.getParameter("revote");
+				String points = request.getParameter("points");
+				request.setAttribute("points", points);
+				request.setAttribute("revote", revote);
+				request.setAttribute("project", project);
+				request.getRequestDispatcher("WEB-INF/project.jsp").forward(request, response);
+			}
+			
+		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -113,11 +139,14 @@ public class VoteServlet extends HttpServlet {
 				Vote vote = new Vote(phoneNumber, projectId, points);
 				voteDAO.add(vote);
 				
+				request.getSession().setAttribute("previousVote", vote);
 				response.sendRedirect("confirmation");
 			}
 		}
 		else {
 			response.sendRedirect("vote");
 		}
+		
 	}
+	
 }
