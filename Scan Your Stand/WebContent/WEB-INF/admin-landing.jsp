@@ -21,25 +21,23 @@
         <h1 class="admin-landing-title">Kontrollpanel</h1>
 
         <div class="admin-landing-bot transparent-bg">
-            <form class="admin-landing-form" action="" method="POST">
+            <form class="admin-landing-form" action="manageExhibition" method="POST">
                 <label>Utstilling</label>
-                <select name="exponr" class="exponr">
+                <select name="exhibitionid" class="exponr">
                     <c:forEach items="${exhibitions}" var="p">
 						<option value="${p.id}" selected="${p.id == exhibition.id ? 'seleted' : ''}">${p.name}</option>
 					</c:forEach>
                 </select>
 
-                <input type="submit" name="start_vote" class="start-vote button-default" value="Start avstemning">
-                <input type="submit" name="stop_vote" class="stop-vote button-default" value="Stopp avstemning">
+                <input type="submit" name="operation" class="start-vote button-default" value="${startStr}">
+                <input type="submit" name="operation" class="stop-vote button-default" value="${stopStr}">
 
                 <hr>
 
-                <a class="administrate-expo button-default" href="manageExhibition">
-                    Administrer utstilling
-                </a>   
-            </div>
-        </div>
-        
+                <input type="submit" name="operation" class="administrate-expo button-default" value="${administrateStr}">
+            </form> <!--.admin-landing-form-->
+        </div> <!--.admin-landing-bot-->
+
         <a class="admin-logout button-default" href="login-admin">
             Logg ut
         </a>
