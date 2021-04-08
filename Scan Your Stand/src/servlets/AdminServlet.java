@@ -56,12 +56,16 @@ public class AdminServlet extends HttpServlet {
 			if(operation != null) {
 				
 				if(operation.equalsIgnoreCase(Constants.START_STRING)) {
+					exhibitionDao.removeExhibition(exhibition);
 					exhibition.setStart(LocalDateTime.now());
 					exhibition.setActive(true);
+					exhibitionDao.addExhibition(exhibition);
 				}
 				else if(operation.equalsIgnoreCase(Constants.STOP_STRING)){
+					exhibitionDao.removeExhibition(exhibition);
 					exhibition.setStop(LocalDateTime.now());
 					exhibition.setActive(false);
+					exhibitionDao.addExhibition(exhibition);
 				}
 				else if(operation.equalsIgnoreCase(Constants.ADMINISTRATE_STRING)) {
 					request.getSession().setAttribute("exhibition", exhibition);
