@@ -24,14 +24,11 @@ public class AdminLoginServlet extends HttpServlet {
 	// Checks if user is logged in as admin, if so forwards to the admin web page, otherwise forwards back to the login page
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		boolean loggedIn = AdminUtils.isLoggedIn(request);
+		if(AdminUtils.isLoggedIn(request)) {
+			AdminUtils.logOut(request);
+		}
 		
-		if(loggedIn) {
-			request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
-		}
-		else {
-			request.getRequestDispatcher("WEB-INF/login-admin.jsp").forward(request, response);
-		}
+		request.getRequestDispatcher("WEB-INF/login-admin.jsp").forward(request, response);
 	}
 
 	// Checks login data to see if user has correctly entered admin username and password, if successful the user is logged in, redirects to AdminServlet doGet()

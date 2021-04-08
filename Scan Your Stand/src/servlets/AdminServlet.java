@@ -30,7 +30,7 @@ public class AdminServlet extends HttpServlet {
 		if(loggedIn) {
 			List<Exhibition> exhibitions = exhibitionDao.getAllExhibitions();
 			request.setAttribute("exhibitions", exhibitions);
-			request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/admin-landing.jsp").forward(request, response);
 		}
 		else {
 			response.sendRedirect("login-admin");

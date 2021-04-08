@@ -41,7 +41,7 @@
                 
             </div>
         </div>
-        <a class="admin-logout button-default" href="login-admin.jsp">
+        <a class="admin-logout button-default" href="login-admin">
                     Logg ut
                 </a>
     </div>
