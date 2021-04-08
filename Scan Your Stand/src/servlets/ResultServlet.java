@@ -44,7 +44,7 @@ public class ResultServlet extends HttpServlet {
 		catch(Exception e) {}
 		
 		if(exhibition == null) {
-			List<Exhibition> exhibitions = exhibitionDAO.getAllExhibitions();
+			List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
 			request.setAttribute("exhibitions", exhibitions);
 			request.getRequestDispatcher("WEB-INF/view-results.jsp").forward(request, response);
 		}
