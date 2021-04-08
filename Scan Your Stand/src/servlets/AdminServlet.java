@@ -64,9 +64,12 @@ public class AdminServlet extends HttpServlet {
 					exhibition.setStop(LocalDateTime.now());
 					exhibition.setActive(false);
 					exhibitionDao.updateExhibition(exhibition);
+					System.out.println("-- TEST! --");
 				}
 				else if(operation.equalsIgnoreCase(Constants.ADMINISTRATE_STRING)) {
 					request.getSession().setAttribute("exhibition", exhibition);
+					response.sendRedirect("manageExhibition");
+					
 				}
 				
 				response.sendRedirect("admin-landing"); 
