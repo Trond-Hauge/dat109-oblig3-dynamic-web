@@ -35,13 +35,16 @@ public class ResultServlet extends HttpServlet {
 	// Readies data before forwarding to result.jsp
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Exhibition exhibition = null;
+		Vote previousVote = (Vote) request.getSession().getAttribute("previousVote");
+		Exhibition exhibition = previousVote == null ? null : projectDAO.findProjectByID(previousVote.getProjectNumber()).getExhibition();
 		
-		try {
-			int id = Integer.parseInt(request.getParameter("id"));
-			exhibition = exhibitionDAO.findExhibitionById(id);
+		if(exhibition == null) {
+			try {
+				int id = Integer.parseInt(request.getParameter("id"));
+				exhibition = exhibitionDAO.findExhibitionById(id);
+			}
+			catch(Exception e) {}
 		}
-		catch(Exception e) {}
 		
 		if(exhibition == null || !exhibition.isActive()) {
 			List<Exhibition> exhibitions = exhibitionDAO.getAllActiveExhibitions();
