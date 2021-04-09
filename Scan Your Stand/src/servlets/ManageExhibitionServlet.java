@@ -76,10 +76,13 @@ public class ManageExhibitionServlet extends HttpServlet {
 //			String operationStr = request.getParameter("operation");
 //			ExhibitionOperation operation = operationStr.isBlank() ? null : ExhibitionOperation.getOperation(operationStr);
 //			
-//			switch(operation) {
+//			if(operation != null) {
 //				
+//				switch(operation) {
+//				
+//					cases...
 //			
-//			
+//				}
 //			}
 			
 			String operation = request.getParameter("operation");
