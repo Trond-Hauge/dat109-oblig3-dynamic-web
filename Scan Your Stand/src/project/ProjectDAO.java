@@ -58,7 +58,7 @@ public class ProjectDAO {
 	 * @param project
 	 */
 	public void removeProject(Project project) {
-		project = em.merge(project);
-		em.remove(project);
+		Project p = em.merge(project);
+		em.remove(p);
 	}
 }

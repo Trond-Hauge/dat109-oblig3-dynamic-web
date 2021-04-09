@@ -35,7 +35,7 @@ public class ManageExhibitionServlet extends HttpServlet {
 		
 		if(AdminUtils.isLoggedIn(request)) {
 			
-			Exhibition exhibition = (Exhibition)request.getSession().getAttribute("exhibition");
+			Exhibition exhibition = (Exhibition) request.getSession().getAttribute("exhibition");
 			
 			if(exhibition == null) {
 				response.sendRedirect("admin-landing");
@@ -96,8 +96,8 @@ public class ManageExhibitionServlet extends HttpServlet {
 							Project existingPrtoject = projectDAO.findProjectByID(projectNumber);
 							
 							if(existingPrtoject == null && exhibition != null) {
-								newProject.setExhibition(exhibition);
-								projectDAO.addProject(newProject);
+								exhibition.addProject(newProject);
+								exhibitionDAO.updateExhibition(exhibition);
 							}
 						}
 						
@@ -108,7 +108,8 @@ public class ManageExhibitionServlet extends HttpServlet {
 						Project project = projectDAO.findProjectByID(projectNumber);
 						
 						if(project != null) {
-							projectDAO.removeProject(project);
+							exhibition.removeProject(project);
+							exhibitionDAO.updateExhibition(exhibition);
 						}
 						
 						break;
