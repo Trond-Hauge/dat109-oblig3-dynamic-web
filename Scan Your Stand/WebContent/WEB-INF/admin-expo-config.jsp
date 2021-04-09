@@ -27,7 +27,7 @@
 
             <label>Filnavn (xlsx):</label>
             <input type="file" class="admin-expo-config-input" name="projects">
-            <input type="submit" class="button-default" value="Importer prosjekter">
+            <input type="submit" class="button-default" value="${importStr}">
 
             <hr>
 
@@ -39,7 +39,7 @@
                 <label>Prosjektnavn:</label>
                 <input type="text" class="admin-expo-config-input-inline" name="projectName">
             </div>
-            <input type="submit" class="button-default" value="Legg til prosjekt">
+            <input type="submit" class="button-default" value="${addStr}">
         </form> <!--.admin-expo-config-add-->
 
         <form class="admin-expo-config-remove admin-expo-config-box transparent-bg" action="" method="POST">
@@ -51,7 +51,7 @@
                 <option value="${p.projectNumber}">${p.projectName}</option>
                 </c:forEach>
             </select>
-            <input type="submit" class="button-default" value="Fjern prosjekt">
+            <input type="submit" class="button-default" value="${removeStr}">
         </form> <!--.admin-expo-config-remove-->
 
         <h2 class="admin-expo-config-title">
@@ -71,7 +71,7 @@
                     <label>Klokkeslett</label>
                     <input type="text" name="time">
                 </div>
-                <input type="submit" class="button-default" value="Oppdater starttidspunkt">
+                <input type="submit" class="button-default" value="${updateStartStr}">
             </form> <!--.admin-expo-config-dates-->
 
             <form class="admin-expo-config-enddate" action="" method="POST">
@@ -86,7 +86,7 @@
                     <label>Klokkeslett</label>
                     <input type="text" name="time">
                 </div>
-                <input type="submit" class="button-default" value="Oppdater sluttidspunkt">
+                <input type="submit" class="button-default" value="${updateStopStr}">
             </form> <!--.admin-expo-config-enddate-->
         </div> <!--.admin-expo-config-dates-->
     </div> <!--.admin-expo-config-->

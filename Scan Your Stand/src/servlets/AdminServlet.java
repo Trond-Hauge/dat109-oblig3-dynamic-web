@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import exhibition.Exhibition;
 import exhibition.ExhibitionDAO;
+import utils.AdminOperation;
 import utils.AdminUtils;
-import utils.Constants;
 
 @WebServlet("/admin-landing")
 public class AdminServlet extends HttpServlet {
@@ -28,9 +28,9 @@ public class AdminServlet extends HttpServlet {
 		
 		if(loggedIn) {
 			List<Exhibition> exhibitions = exhibitionDao.getAllExhibitions();
-			request.setAttribute("startStr", Constants.START_STRING);
-			request.setAttribute("stopStr", Constants.STOP_STRING);
-			request.setAttribute("administrateStr", Constants.ADMINISTRATE_STRING);
+			request.setAttribute("startStr", AdminOperation.START.toString());
+			request.setAttribute("stopStr", AdminOperation.STOP.toString());
+			request.setAttribute("administrateStr", AdminOperation.ADMINISTRATE.toString());
 			request.setAttribute("exhibitions", exhibitions);
 			request.getRequestDispatcher("WEB-INF/admin-landing.jsp").forward(request, response);
 		}
@@ -51,28 +51,35 @@ public class AdminServlet extends HttpServlet {
 			int exhibitionid = Integer.parseInt(request.getParameter("exhibitionid"));
 			Exhibition exhibition = exhibitionDao.findExhibitionById(exhibitionid);
 			
-			String operation = request.getParameter("operation");
+			String operationStr = request.getParameter("operation");
+			AdminOperation operation = operationStr.isBlank() ? null : AdminOperation.getOperation(operationStr);
 
 			if(operation != null && exhibition != null) {
 				
-				if(operation.equalsIgnoreCase(Constants.START_STRING)) {
-					exhibition.setStart(LocalDateTime.now());
-					exhibition.setActive(true);
-					exhibitionDao.updateExhibition(exhibition);
-					response.sendRedirect("admin-landing"); 
-				}
-				else if(operation.equalsIgnoreCase(Constants.STOP_STRING)){
-					exhibition.setStop(LocalDateTime.now());
-					exhibition.setActive(false);
-					exhibitionDao.updateExhibition(exhibition);
-					response.sendRedirect("admin-landing"); 
-				}
-				else if(operation.equalsIgnoreCase(Constants.ADMINISTRATE_STRING)) {
-					request.getSession().setAttribute("exhibition", exhibition);
-					response.sendRedirect("manageExhibition");
+				switch(operation) {
+					
+					case START:
+						exhibition.setStart(LocalDateTime.now());
+						exhibition.setActive(true);
+						exhibitionDao.updateExhibition(exhibition);
+						response.sendRedirect("admin-landing");
+						break;
+						
+					case STOP:
+						exhibition.setStop(LocalDateTime.now());
+						exhibition.setActive(false);
+						exhibitionDao.updateExhibition(exhibition);
+						response.sendRedirect("admin-landing");
+						break;
+						
+					case ADMINISTRATE: 
+						request.getSession().setAttribute("exhibition", exhibition);
+						response.sendRedirect("manageExhibition");
+						break;
+				
 				}
 				
-			}
+			}	
 			else {
 				System.out.println("-- SOMETHING WRONG --");
 				response.sendRedirect("admin-landing"); //Should not happen

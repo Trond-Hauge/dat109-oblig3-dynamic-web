@@ -15,6 +15,7 @@ import exhibition.Exhibition;
 import project.Project;
 import project.ProjectDAO;
 import utils.AdminUtils;
+import utils.ExhibitionOperation;
 import utils.TimeUtils;
 
 @WebServlet("/manageExhibition")
@@ -47,6 +48,13 @@ public class ManageExhibitionServlet extends HttpServlet {
 				List<Project> projects = exhibition.getProjects();
 				request.setAttribute("projects", projects);
 				
+				// Strings that will be displayed on operation-buttons and later used to identify the specific operation
+				request.setAttribute("addStr", ExhibitionOperation.ADD.toString());
+				request.setAttribute("removeStr", ExhibitionOperation.REMOVE.toString());
+				request.setAttribute("updateStartStr", ExhibitionOperation.UPDATE_START.toString());
+				request.setAttribute("updateStopStr", ExhibitionOperation.UPDATE_STOP.toString());
+				request.setAttribute("importStr", ExhibitionOperation.IMPORT.toString());
+				
 				request.getRequestDispatcher("WEB-INF/admin-expo-config.jsp").forward(request, response);
 			}
 		}
@@ -63,6 +71,16 @@ public class ManageExhibitionServlet extends HttpServlet {
 			response.sendRedirect("login-admin");
 		}
 		else {
+			
+// Will replace current code
+//			String operationStr = request.getParameter("operation");
+//			ExhibitionOperation operation = operationStr.isBlank() ? null : ExhibitionOperation.getOperation(operationStr);
+//			
+//			switch(operation) {
+//				
+//			
+//			
+//			}
 			
 			String operation = request.getParameter("operation");
 			
