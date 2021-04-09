@@ -12,7 +12,7 @@ public enum ExhibitionOperation {
 	REMOVE {
 		@Override
 		public String toString() {
-			return "Slett til prosjekt";
+			return "Slett prosjekt";
 		}
 	},
 			
@@ -37,9 +37,9 @@ public enum ExhibitionOperation {
 		}
 	};
 	
-	public static AdminOperation getOperation(String operationStr) {
+	public static ExhibitionOperation getOperation(String operationStr) {
 		
-		for(AdminOperation o : AdminOperation.values()) {
+		for(ExhibitionOperation o : ExhibitionOperation.values()) {
 			if(o.toString().equalsIgnoreCase(operationStr))
 				return o;
 		}

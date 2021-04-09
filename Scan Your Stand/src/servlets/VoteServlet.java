@@ -112,7 +112,7 @@ public class VoteServlet extends HttpServlet {
 		}
 		catch(Exception e) {}
 		
-		if(project != null && exhibiton != null && exhibiton.isActive() && Validator.validatePhoneNumber(phoneNumber)) {
+		if(project != null && exhibiton != null && exhibiton.isActive() && Validator.validPhoneNumber(phoneNumber)) {
 			
 			HttpSession sesjon = request.getSession(false);
 	        if (sesjon != null && sesjon.getAttribute("phoneNumber") == null) {

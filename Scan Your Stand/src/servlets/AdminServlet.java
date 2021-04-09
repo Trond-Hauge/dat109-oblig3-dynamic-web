@@ -52,7 +52,7 @@ public class AdminServlet extends HttpServlet {
 			Exhibition exhibition = exhibitionDao.findExhibitionById(exhibitionid);
 			
 			String operationStr = request.getParameter("operation");
-			AdminOperation operation = operationStr.isBlank() ? null : AdminOperation.getOperation(operationStr);
+			AdminOperation operation = operationStr == null || operationStr.isBlank() ? null : AdminOperation.getOperation(operationStr);
 
 			if(operation != null && exhibition != null) {
 				

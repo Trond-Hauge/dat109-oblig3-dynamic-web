@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import exhibition.Exhibition;
+import exhibition.ExhibitionDAO;
 import project.Project;
 import project.ProjectDAO;
 import utils.AdminUtils;
 import utils.ExhibitionOperation;
 import utils.TimeUtils;
+import utils.Validator;
 
 @WebServlet("/manageExhibition")
 public class ManageExhibitionServlet extends HttpServlet {
@@ -24,7 +26,10 @@ public class ManageExhibitionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
-	private ProjectDAO projectDao;
+	private ProjectDAO projectDAO;
+	
+	@EJB
+	private ExhibitionDAO exhibitionDAO;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -72,82 +77,91 @@ public class ManageExhibitionServlet extends HttpServlet {
 		}
 		else {
 			
-// Will replace current code
-//			String operationStr = request.getParameter("operation");
-//			ExhibitionOperation operation = operationStr.isBlank() ? null : ExhibitionOperation.getOperation(operationStr);
-//			
-//			if(operation != null) {
-//				
-//				switch(operation) {
-//				
-//					cases...
-//			
-//				}
-//			}
-			
-			String operation = request.getParameter("operation");
+			String operationStr = request.getParameter("operation");
+			ExhibitionOperation operation = operationStr == null || operationStr.isBlank() ? null : ExhibitionOperation.getOperation(operationStr);
 			
 			if(operation != null) {
-			
-				if(operation.equalsIgnoreCase("add") || operation.equalsIgnoreCase("remove")) {
-					
-					String projectNumber = request.getParameter("projectNumber");
-					
-					if(projectNumber != null) {
-						
-						if(operation.equalsIgnoreCase("add")) {
-							
-							String projectName = request.getParameter("projectName");
-							
-							if(projectName != null) {
-								
-								Project project = new Project(projectNumber, projectName);
-								projectDao.addProject(project);
-							}
-						}
-						else {
-							
-							Project project = projectDao.findProjectByID(projectNumber);
-							
-							if(project != null) {
-			
-								projectDao.removeProject(project);
-							}
-						}
-					}
-				}
 				
-				else if(operation.equalsIgnoreCase("updateStart") || operation.equalsIgnoreCase("updateStop")) {
-					
-					Exhibition exhibition = (Exhibition)request.getSession().getAttribute("exhibition");
-					
-					if(exhibition != null) {
+				String projectNumber = request.getParameter("projectNumber");
+				Exhibition exhibition = (Exhibition) request.getSession().getAttribute("exhibition");
+				
+				switch(operation) {
+				
+					case ADD:
 						
-						String date = request.getParameter("date");
-						String time = request.getParameter("time");
+						String projectName = request.getParameter("projectName");
 						
-						boolean dateValid = TimeUtils.validDate(date);
-						boolean timeValid = TimeUtils.validTime(time);
-						
-						if(dateValid && timeValid) {
+						if(Validator.validProjectName(projectName) && Validator.validProjectNumber(projectNumber)) {
+							Project newProject = new Project(projectNumber,projectName);
+							Project existingPrtoject = projectDAO.findProjectByID(projectNumber);
 							
-							if(operation.equalsIgnoreCase("updateStart")) {
+							if(existingPrtoject == null && exhibition != null) {
+								newProject.setExhibition(exhibition);
+								projectDAO.addProject(newProject);
+							}
+						}
+						
+						break;
+						
+					case REMOVE:
+						
+						Project project = projectDAO.findProjectByID(projectNumber);
+						
+						if(project != null) {
+							projectDAO.removeProject(project);
+						}
+						
+						break;
+						
+					case UPDATE_START:
+						
+						if(exhibition != null) {
+							String date = request.getParameter("date");
+							String time = request.getParameter("time");
+							
+							boolean dateValid = TimeUtils.validDate(date);
+							boolean timeValid = TimeUtils.validTime(time);
+							
+							if(dateValid && timeValid) {
 								LocalDateTime newStart = LocalDateTime.of(LocalDate.parse(date), LocalTime.parse(time));
 								exhibition.setStart(newStart);
+								exhibitionDAO.updateExhibition(exhibition);
 							}
-							else {
-								LocalDateTime newStop = LocalDateTime.of(LocalDate.parse(date), LocalTime.parse(time));
-								exhibition.setStop(newStop);;
+							
+						}
+						
+						break;
+						
+					case UPDATE_STOP:
+						
+						if(exhibition != null) {
+							String date = request.getParameter("date");
+							String time = request.getParameter("time");
+							
+							boolean dateValid = TimeUtils.validDate(date);
+							boolean timeValid = TimeUtils.validTime(time);
+							
+							if(dateValid && timeValid) {
+								LocalDateTime newStart = LocalDateTime.of(LocalDate.parse(date), LocalTime.parse(time));
+								exhibition.setStop(newStart);
+								exhibitionDAO.updateExhibition(exhibition);
 							}
-						}	
-					}
+							
+						}
+						
+						break;
+						
+					case IMPORT:
+						
+						// TODO
+						
+						break;
+			
 				}
-				else if(operation.equalsIgnoreCase("import")) {
-					//TODO
-				}	
 			}
 			
 			response.sendRedirect("manageExhibition"); //Make more updates
+			
 		}
 		
 	}
