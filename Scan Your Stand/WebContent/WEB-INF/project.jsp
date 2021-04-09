@@ -21,7 +21,7 @@
         <div class="project-left transparent-bg">
             <img class="login-logo" src="https://via.placeholder.com/400x400.png/" alt="">
             <p class="project-name"></p>
-            <p class="project-exhibition-name">Utstilling: (må fylles inn dynamisk)</p>
+            <p class="project-exhibition-name">Utstilling: ${project.exhibition.name}</p>
             <p class="project-project-name">Prosjekt: <c:out value="${project.projectName}"></c:out></p>
         </div> <!--.project-left-->
 
