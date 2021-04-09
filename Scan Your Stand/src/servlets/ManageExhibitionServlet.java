@@ -5,14 +5,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import exhibition.Exhibition;
 import project.Project;
 import project.ProjectDAO;
@@ -21,6 +19,7 @@ import utils.TimeUtils;
 
 @WebServlet("/manageExhibition")
 public class ManageExhibitionServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
@@ -126,7 +125,10 @@ public class ManageExhibitionServlet extends HttpServlet {
 					//TODO
 				}	
 			}
+			
 			response.sendRedirect("manageExhibition"); //Make more updates
 		}
+		
 	}
+	
 }

@@ -24,6 +24,7 @@ public class CreateAdminServlet extends HttpServlet {
 		
 		Admin admin = new Admin(username,password);
 		
+		adminDAO.removeAdmin(admin);
 		adminDAO.addAdmin(admin);
 		
 		System.out.println("Admin user: " + username + " has been created");
