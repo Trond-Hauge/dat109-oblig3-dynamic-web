@@ -41,7 +41,7 @@
 						<thead class="view-results-table-head">
 							<tr class="view-results-table-top">
 								<th class="view-results-col1">Resultat</th>
-								<th class="view-results-col2">Totale Stemmer</th>
+								<th class="view-results-col2">Poeng</th>
 							</tr>
 						</thead>
 
