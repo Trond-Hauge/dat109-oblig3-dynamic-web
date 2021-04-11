@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.TextStyle;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,7 +45,7 @@ public class Exhibition {
     }
 
     public void removeProject(Project project) {
-        projects.remove(project);
+        projects = projects.stream().filter(p -> !p.getProjectNumber().equals(project.getProjectNumber())).collect(Collectors.toList());
         project.setExhibition(null);
     }
 
