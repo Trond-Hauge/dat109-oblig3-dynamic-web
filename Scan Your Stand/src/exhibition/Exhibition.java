@@ -46,7 +46,6 @@ public class Exhibition {
 
     public void removeProject(Project project) { 	
     	projects = projects.stream().filter(p -> !p.getProjectNumber().equals(project.getProjectNumber())).collect(Collectors.toList());
-    	//projects.remove(project);
         project.setExhibition(null);
     }
 

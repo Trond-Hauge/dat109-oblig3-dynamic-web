@@ -93,9 +93,11 @@ public class ManageExhibitionServlet extends HttpServlet {
 						
 						if(Validator.validProjectName(projectName) && Validator.validProjectNumber(projectNumber)) {
 							Project newProject = new Project(projectNumber,projectName);
-							Project existingPrtoject = projectDAO.findProjectByID(projectNumber);
+							Project existingProject = projectDAO.findProjectByID(projectNumber);
 							
-							if(existingPrtoject == null && exhibition != null) {
+							System.out.println(existingProject == null ? "NOT EXIST" : "EXISTS");
+							
+							if(existingProject == null && exhibition != null) {
 								exhibition.addProject(newProject);
 								exhibitionDAO.updateExhibition(exhibition);
 							}
@@ -108,6 +110,7 @@ public class ManageExhibitionServlet extends HttpServlet {
 						Project project = projectDAO.findProjectByID(projectNumber);
 						
 						if(project != null) {
+							projectDAO.removeProject(project);
 							exhibition.removeProject(project);
 							exhibitionDAO.updateExhibition(exhibition);
 						}
