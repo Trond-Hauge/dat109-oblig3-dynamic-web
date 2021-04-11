@@ -44,8 +44,9 @@ public class Exhibition {
         project.setExhibition(this);
     }
 
-    public void removeProject(Project project) {
-        projects = projects.stream().filter(p -> !p.getProjectNumber().equals(project.getProjectNumber())).collect(Collectors.toList());
+    public void removeProject(Project project) { 	
+    	projects = projects.stream().filter(p -> !p.getProjectNumber().equals(project.getProjectNumber())).collect(Collectors.toList());
+    	//projects.remove(project);
         project.setExhibition(null);
     }
 

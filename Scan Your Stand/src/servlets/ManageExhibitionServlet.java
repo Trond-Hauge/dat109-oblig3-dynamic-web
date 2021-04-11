@@ -110,7 +110,6 @@ public class ManageExhibitionServlet extends HttpServlet {
 						if(project != null) {
 							exhibition.removeProject(project);
 							exhibitionDAO.updateExhibition(exhibition);
-							projectDAO.removeProject(project);
 						}
 						
 						break;
