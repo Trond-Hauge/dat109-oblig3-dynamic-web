@@ -40,7 +40,7 @@ public class Vote implements Serializable{
 		this.projectNumber = projectNumber;
 	}
 	public Vote(String phone, String projectNumber, int points) {
-		this.phone = phone;
+		this.phone = Hashing.hashPhone(phone);
 		this.projectNumber = projectNumber;
 		this.points = points;
 	}
