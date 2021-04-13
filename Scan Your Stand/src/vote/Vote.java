@@ -10,6 +10,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import project.Project;
+import utils.BCrypt;
 
 /**
  * @author Ida
@@ -34,7 +35,7 @@ public class Vote implements Serializable{
 	public Vote() {}
 
 	public Vote(String phone, String projectNumber) {
-		this.phone = phone;
+		this.phone = BCrypt.hashpw(phone, "");
 		this.projectNumber = projectNumber;
 	}
 	public Vote(String phone, String projectNumber, int points) {

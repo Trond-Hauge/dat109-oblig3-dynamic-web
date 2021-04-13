@@ -1,5 +1,6 @@
 package servlets;
 
+import utils.BCrypt;
 import utils.Constants;
 import utils.Validator;
 import java.io.IOException;
@@ -125,7 +126,6 @@ public class VoteServlet extends HttpServlet {
 	        
 			VoteID voteId = new VoteID(phoneNumber, projectId);
 			Vote previous = voteDAO.findVote(voteId);
-			
 			String revoteApproved = request.getParameter("revote");
 			
 			if(previous != null && revoteApproved == null) {

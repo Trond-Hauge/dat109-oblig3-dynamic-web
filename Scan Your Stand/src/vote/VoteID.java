@@ -2,6 +2,8 @@ package vote;
 
 import java.io.Serializable;
 
+import utils.BCrypt;
+
 /**
  * 
  * @author anders
@@ -19,8 +21,7 @@ public class VoteID implements Serializable{
 	}
 	
 	public VoteID(String phone, String projectNumber) {
-		
-		this.phone = phone;
+		this.phone = BCrypt.hashpw(phone, "");
 		this.projectNumber = projectNumber;
 	}
 
