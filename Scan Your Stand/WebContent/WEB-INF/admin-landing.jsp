@@ -19,6 +19,7 @@
 <body>
 	<div class="admin-landing-top transparent-bg container-special">
         <h1 class="admin-landing-title">Kontrollpanel</h1>
+        <p>${param.message}</p>
 
         <div class="admin-landing-bot transparent-bg">
             <form class="admin-landing-form" action="admin-landing" method="POST">

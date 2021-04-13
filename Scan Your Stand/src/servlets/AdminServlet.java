@@ -56,20 +56,24 @@ public class AdminServlet extends HttpServlet {
 
 			if(operation != null && exhibition != null) {
 				
+				String message = "?message=";
+				
 				switch(operation) {
 					
 					case START:
 						exhibition.setStart(LocalDateTime.now());
 						exhibition.setActive(true);
 						exhibitionDao.updateExhibition(exhibition);
-						response.sendRedirect("admin-landing");
+						message += "Avstemming for utstilling \"" + exhibition.getName() + "\" ble startet";
+						response.sendRedirect("admin-landing" + message);
 						break;
 						
 					case STOP:
 						exhibition.setStop(LocalDateTime.now());
 						exhibition.setActive(false);
 						exhibitionDao.updateExhibition(exhibition);
-						response.sendRedirect("admin-landing");
+						message += "Avstemming for utstilling \"" + exhibition.getName() + "\" ble stoppet";
+						response.sendRedirect("admin-landing" + message);
 						break;
 						
 					case ADMINISTRATE: 
