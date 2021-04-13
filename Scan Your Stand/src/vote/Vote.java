@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import project.Project;
 import utils.BCrypt;
+import utils.Hashing;
 
 /**
  * @author Ida
@@ -35,7 +36,7 @@ public class Vote implements Serializable{
 	public Vote() {}
 
 	public Vote(String phone, String projectNumber) {
-		this.phone = BCrypt.hashpw(phone, "");
+		this.phone = Hashing.hashPhone(phone);
 		this.projectNumber = projectNumber;
 	}
 	public Vote(String phone, String projectNumber, int points) {
