@@ -35,19 +35,12 @@ VALUES
 
 CREATE TABLE Vote
 (
-phone			CHARACTER (8) CHECK (char_length(phone) = 8),
+phone			CHARACTER (30),
 projectNumber	CHARACTER (3) CHECK (char_length(projectNumber) = 3),
 points			INTEGER CHECK (0 <= points AND points <= 5),
 CONSTRAINT VotePK PRIMARY KEY (phone, projectNumber),
 CONSTRAINT ProjectFK FOREIGN KEY (projectNumber) REFERENCES Project (projectNumber)
 );
-
-INSERT INTO 
-Vote (phone, projectNumber, points) 
-VALUES
-('97084676', 'M13', 5),
-('95991519', 'M13', 2),
-('97084676', 'B12', 4);
 
 CREATE TABLE Admin
 (
