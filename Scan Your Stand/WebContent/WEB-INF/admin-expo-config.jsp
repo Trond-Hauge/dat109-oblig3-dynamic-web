@@ -20,6 +20,7 @@
         <div class="admin-expo-config-top">
             <h1 class="admin-expo-config-title">Administrer utstilling</h1>
             <p class="admin-expo-config-name">Utstillingsnavn: <c:out value="${expoName}"></c:out></p>
+            <p>${param.message}</p>
         </div>
 
         <form class="admin-expo-config-add admin-expo-config-box transparent-bg" action="" method="POST">
@@ -45,7 +46,7 @@
         <form class="admin-expo-config-remove admin-expo-config-box transparent-bg" action="" method="POST">
             <h2>Fjern prosjekt</h2>
 
-            <label>Prosjektnummer og -navn:</label>
+            <label>Prosjekt:</label>
             <select name="projectNumber" class="projectnr admin-expo-config-input">
             	<c:forEach items="${projects}" var="p">
                 <option value="${p.projectNumber}">${p.projectName}</option>

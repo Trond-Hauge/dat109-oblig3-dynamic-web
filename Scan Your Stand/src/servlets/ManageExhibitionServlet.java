@@ -77,6 +77,7 @@ public class ManageExhibitionServlet extends HttpServlet {
 		}
 		else {
 			
+			String message = "?message=";
 			String operationStr = request.getParameter("operation");
 			ExhibitionOperation operation = operationStr == null || operationStr.isBlank() ? null : ExhibitionOperation.getOperation(operationStr);
 			
@@ -100,7 +101,14 @@ public class ManageExhibitionServlet extends HttpServlet {
 							if(existingProject == null && exhibition != null) {
 								exhibition.addProject(newProject);
 								exhibitionDAO.updateExhibition(exhibition);
+								message += "Prosjektet \"" + projectName + "\" ble lagt til";
 							}
+							else {
+								message += "Prosjektet \"" + projectName + "\" eksisterer allerede";
+							}
+						}
+						else {
+							message += "Prosjektnavn eller prosjektnummer var ugyldig";
 						}
 						
 						break;
@@ -113,6 +121,10 @@ public class ManageExhibitionServlet extends HttpServlet {
 							projectDAO.removeProject(project);
 							exhibition.removeProject(project);
 							exhibitionDAO.updateExhibition(exhibition);
+							message += "Prosjektet \"" + project.getProjectName() + "\" ble slettet";
+						}
+						else {
+							message += "Prosjektet som skulle slettes eksisterer ikke";
 						}
 						
 						break;
@@ -130,6 +142,10 @@ public class ManageExhibitionServlet extends HttpServlet {
 								LocalDateTime newStart = LocalDateTime.of(LocalDate.parse(date), LocalTime.parse(time));
 								exhibition.setStart(newStart);
 								exhibitionDAO.updateExhibition(exhibition);
+								message += "Starttid ble oppdatert";
+							}
+							else {
+								message += "Dato eller klokkeslett var ugyldig";
 							}
 							
 						}
@@ -149,6 +165,10 @@ public class ManageExhibitionServlet extends HttpServlet {
 								LocalDateTime newStart = LocalDateTime.of(LocalDate.parse(date), LocalTime.parse(time));
 								exhibition.setStop(newStart);
 								exhibitionDAO.updateExhibition(exhibition);
+								message += "Sluttid ble oppdatert";
+							}
+							else {
+								message += "Dato eller klokkeslett var ugyldig";
 							}
 							
 						}
@@ -164,7 +184,7 @@ public class ManageExhibitionServlet extends HttpServlet {
 				}
 			}
 			
-			response.sendRedirect("manageExhibition"); //Make more updates
+			response.sendRedirect("manageExhibition" + message); //Make more updates
 			
 		}
 		
