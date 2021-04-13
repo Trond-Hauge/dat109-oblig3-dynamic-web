@@ -45,7 +45,7 @@ public class CurrentExhibitionHandler implements Runnable {
 			long startTime = System.nanoTime();
 			
 			//Turn on by uncommenting the line under
-			//ex.getAllExhibitions().forEach(e -> evaluateTime(e));
+			ex.getAllExhibitions().forEach(e -> evaluateTime(e));
 			
 			System.out.println("Execution time in seconds: " + (double)((System.nanoTime() - startTime)/1_000_000_000));
 			try {
