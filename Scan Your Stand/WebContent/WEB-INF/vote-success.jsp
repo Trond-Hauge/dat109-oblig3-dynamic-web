@@ -20,6 +20,8 @@
 	<div class="vote-success center-align">
         <div class="vote-success-inner transparent-bg">
             <h1 class="vote-success-title">Takk for din stemme!</h1>
+            
+            <p class="center text-lg">Du ga "<strong>${project.projectName}</strong>" ${vote.points} poeng</p>
 
             <div class="vote-success-links">
                 <a class="view-results button-default" href="result">
