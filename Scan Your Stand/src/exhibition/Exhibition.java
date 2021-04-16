@@ -98,13 +98,20 @@ public class Exhibition {
 		String dayStringTemp = tidsstempel.toLocalDate().getDayOfWeek().getDisplayName(TextStyle.FULL, locale);
 		String dayString = 	dayStringTemp.substring(0, 1).toUpperCase() + dayStringTemp.substring(1);
 		String monthString = tidsstempel.toLocalDate().getMonth().getDisplayName(TextStyle.FULL, locale);
+		String timeString = tidsstempel.toLocalTime().toString();
+		
+		if(timeString.length() >= 8) {
+			timeString = timeString.substring(0,8);
+		}
 		
 		return dayString + " " + tidsstempel.getDayOfMonth() + ". " + monthString + " " + tidsstempel.getYear()
-			+ " kl. " + tidsstempel.toLocalTime().toString();
+			+ " kl. " + timeString;
 	}
+	
 	public String timeStringStart() {
 		return timeString(start);
 	}
+	
 	public String timeStringStop() {
 		return timeString(stop);
 	}
