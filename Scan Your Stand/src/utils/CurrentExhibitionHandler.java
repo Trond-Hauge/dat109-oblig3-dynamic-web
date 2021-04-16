@@ -1,14 +1,12 @@
 package utils;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import exhibition.Exhibition;
 import exhibition.ExhibitionDAO;
 
 /**
- * @author trond
+ * @author Trond
  *
  * Runnable class that checks and determines whether Exhibition entities should be active or not.
  */
